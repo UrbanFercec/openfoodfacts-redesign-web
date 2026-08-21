@@ -1,98 +1,170 @@
 /* Scan states - screen stylesheet. Tokens, the app frame and the tab bar come from
    ../shared/mock.css; only this screen's own components live here.
 
-   APP ONLY at 412. The web has a scanner (`/qr` in Explorer, and the live Perl site has
-   one too) but it is a page with a viewfinder and no card carousel, so it is a different
-   screen rather than this screen at another width - the brief says so and names it as
-   not-in-this-batch.
+   ⛔ REDRAWN 2026-08-21 (_REDRAW-REQUESTED.md). Was a 300px camera pane over a card
+   carousel, copied from the shipped 43/57 split. Now: a FULL-BLEED camera and one bottom
+   sheet per scan, which is `shell-contract.md` line 16, the pitch we already sent, their own
+   `Homepage_V2` 20-28 + `🤳 Scan card - V1 & V2` / `Scanner carte 3` - and, as it turns out,
+   the app's OWN flagged code:
 
-   ⛔ Seven card states, ONE shell. Everything above `.cards` is identical on every state
-   file: pane, chips, reticle, tools. The states differ only inside `.scard`, which is the
-   point - the shipped app switches exactly that one widget
-   (pages/scan/carousel/scan_carousel.dart:161-190). */
+     pages/homepage/camera/view/ui/camera_view.dart:127   ONE card for `latestConsultedBarcode`,
+                                                          maxHeight 0.35 x screen, widthFactor .9,
+                                                          switching the SAME ScannedProductState
+     ..._message_overlay.dart                             the ⓘ pill, 85% wide, an icon then a
+                                                          divider then centred text
+     ..._buttons_bar.dart                                 the two round tools + Back to home
+     expandable_view/expandable_camera.dart               the camera EXPANDS (CAMERA_PEAK = .4)
+
+   So the redraw is a relocation of widgets that already exist behind `__homePageV2`, not a new
+   mechanic - and every string it needs is already in `app_en.arb`, in 128 locales.
+
+   ⛔ Eight pages, ONE shell. Everything above `.csheet` is identical on every page: camera,
+   chrome, brackets. Only the sheet changes, exactly as the switch at camera_view.dart:135-149
+   does. The left/right carousel is GONE (scan_carousel.dart's `barcodes.length + 1`, no cap);
+   previous scans live in Lists -> History, which batch 4 already drew.
+
+   ⛔ Camera colours are the theme-invariant `--camera*` / `--on-camera` group in
+   shared/mock.css, added by the light pass on 2026-08-21 for exactly this screen. A camera is a
+   photo, not a surface: painting it with theme surfaces made the viewfinder a pale grey box in
+   light with 1.13:1 controls on it. Do not substitute --sunk / --card here.
+
+   APP ONLY at 412. The web has a scanner (`/qr` in Explorer, and the live Perl site has one)
+   but it is a viewfinder page with no product sheet, so it is a different screen rather than
+   this screen at another width. */
 
 @import url('../shared/mock.css');
 
-/* ---------- the camera pane ---------- */
+/* ---------- the camera: full-bleed, edge to edge ---------- */
 
-/* 57% of the screen in the shipped app (_carouselHeightPct = 57 leaves 43% for the pane);
-   at 412x900 that is ~300px, which is what this is. Their own scanner artboards
-   (Homepage_V2/20-28) draw the same thing: a dark pane, four corner brackets, a reticle. */
-.cam {
-  position: relative; height: 300px; background: var(--sunk);
-  border-bottom: 1px solid var(--line);
-  background-image: radial-gradient(120% 90% at 50% 40%, var(--card2) 0%, var(--sunk) 72%);
+/* 834 + the 66px tab bar = one 900px phone screen. ⛔ Not a percentage: a render is one tall
+   viewport, so the height has to be a number (design-process.md §5).
+   ⛔ The pages carry `class="app full"`: `.app.full .tabbar { margin-top: 0 }` lives in shared/,
+   because the 20px gap above the bar is breathing room for a scrolling page and a camera is not
+   one. Do not cancel it with a negative margin here. */
+.scan {
+  position: relative; height: 834px; overflow: hidden;
+  background: var(--camera);
+  background-image: radial-gradient(120% 80% at 50% 38%, var(--camera-glow) 0%, var(--camera) 68%);
 }
-.cam .chips { display: flex; align-items: center; padding: 12px; gap: 12px; }
-.cam .chips .spacer { flex: 1; }
-.cam .chip { background: var(--card); border-color: var(--line-strong); }
-.cam .chip.off { color: var(--faint); border-color: var(--line-soft); }
 
-/* the four brackets + the barcode reticle, straight off their artboards */
-.reticle { position: absolute; left: 50%; top: 152px; transform: translate(-50%, -50%); width: 216px; height: 128px; }
-.reticle i { position: absolute; width: 28px; height: 28px; border: 2px solid var(--txt2); opacity: .85; }
-.reticle i.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-radius: 8px 0 0 0; }
-.reticle i.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-radius: 0 8px 0 0; }
-.reticle i.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-radius: 0 0 0 8px; }
-.reticle i.br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-radius: 0 0 8px 0; }
+/* the chrome sits ON the video, so it uses the --camera* group, never the theme surfaces */
+.ctop { position: absolute; inset: 0 0 auto 0; display: flex; align-items: center; gap: 8px; padding: 14px 12px; }
+.ctop .spacer { flex: 1; }
+.ctop .chip { background: var(--camera-ctl); border-color: var(--camera-ctl-edge); color: var(--on-camera); }
+.ctop .chip.off { color: color-mix(in srgb, var(--on-camera) 66%, transparent); }
+.cbtn {
+  width: 38px; height: 38px; border-radius: 50%; flex: none;
+  background: var(--camera-ctl); border: 1px solid var(--camera-ctl-edge);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: var(--on-camera);
+}
+
+/* the brackets + the reticle glyph, straight off their artboards. ⚠️ Their static brackets are
+   the IDLE affordance; the shipped overlay paints the DETECTED barcode's own four corners for
+   800ms instead (camera_overlay.dart), so an implementer draws both, not one. */
+/* ⛔ 268px from the top, not a percentage of the camera: the reticle has to stay in the part of
+   the viewfinder the sheet does not cover, and the tallest sheet on this screen (poor data) starts
+   at 390. A centred reticle was half behind it. 268 is also where their artboards 20/21 put it. */
+.reticle { position: absolute; left: 50%; top: 268px; transform: translate(-50%, -50%); width: 224px; height: 196px; }
+.reticle i { position: absolute; width: 34px; height: 34px; border: 2px solid var(--on-camera); opacity: .9; }
+.reticle i.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
+.reticle i.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
+.reticle i.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
+.reticle i.br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
 .reticle .glyph {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 28px; letter-spacing: -1px; color: var(--muted2);
-}
-.camtools { position: absolute; inset: auto 0 12px 0; display: flex; justify-content: space-between; padding: 0 20px; }
-.camtools span {
-  width: 40px; height: 40px; border-radius: 50%; background: var(--card);
-  border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
-  font-size: 17px; color: var(--txt2);
+  font-size: 54px; color: var(--on-camera); opacity: .85;
 }
 
-.cam.gateonly { height: auto; }
+/* the idle message. `HomePageScannerMessageOverlay` verbatim: 85% wide, rounded, an ⓘ then a
+   vertical divider then centred text (scanner_message_overlay.dart). The string is SHIPPED -
+   `homepage_scanner_banner_start_scanning` - and it is the English of the sentence on their own
+   artboards 20/21/28.
+   ⛔ Translucent (`--glass`), unlike the chips and the round tools: this one sits over the
+   middle of the frame, so the video has to read through it. The shipped widget is `0x33FFFFFF`
+   over the live preview for the same reason. */
+.hint {
+  position: absolute; inset: auto 0 30px 0; width: 85%; margin: 0 auto;
+  display: flex; align-items: stretch;
+  background: var(--glass); border: 1px solid var(--glass-line); border-radius: var(--r);
+}
+.hint .i { display: flex; align-items: center; justify-content: center; width: 58px; flex: none; font-size: 22px; color: var(--on-camera); }
+.hint .t {
+  flex: 1; border-left: 1px solid var(--glass-line); padding: 13px 16px;
+  text-align: center; font-size: 15px; font-weight: 500; color: var(--on-camera); line-height: 1.35;
+}
 
-/* the permission gate replaces the pane. Copy is shipped verbatim:
+/* the permission gate replaces the video, exactly as `_PermissionDeniedCard` does
+   (scan_page.dart:161, reached from the switch at :76-82). Copy is shipped verbatim:
    permission_photo_denied_title / _message / _button */
-.gate { padding: 24px 20px; text-align: center; }
-.gate h2 { font-size: 17px; font-weight: 700; margin-bottom: 16px; }
-.gate p { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-top: 16px; }
-.gate .btnpeach { padding: 10px 32px; }
+.gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 28px; text-align: center; }
+.gate h2 { font-size: 18px; font-weight: 700; color: var(--on-camera); }
+.gate p { font-size: 14px; color: color-mix(in srgb, var(--on-camera) 76%, transparent); line-height: 1.5; margin-top: 16px; }
+.gate .btnpeach { margin-top: 24px; padding: 10px 32px; }
 
-/* ---------- the carousel card ---------- */
+/* ---------- the sheet: one scan, one sheet ---------- */
 
-.cards { padding: 12px; }
-.scard { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-.scard .hd { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
-.scard .hd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
-.scard .hd .code { font-family: ui-monospace, Consolas, monospace; font-size: 12.5px; color: var(--muted); }
-.scard .hd h2 { font-size: 13px; font-weight: 700; letter-spacing: -.1px; }
-.scard .hd .spacer { flex: 1; }
-/* ✕ IS the remove affordance - it is the shipped one (smooth_product_base_card.dart:89,
-   tooltip `carousel_close_tooltip`), so it is drawn on every card that holds a product */
-.scard .hd .x {
-  width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); flex: none;
+/* full width with rounded top corners, which is their `Scanner carte 3` and their Homepage_V2
+   22-26. ⚠️ The shipped flagged card is `widthFactor: 0.9` - a floating card, not a sheet. We
+   take their artboard, because a written design outranks the shipped floor
+   (shell-contract.md §THE PRECEDENCE RULE). */
+.csheet {
+  position: absolute; inset: auto 0 0 0;
+  background: var(--card); border-top: 1px solid var(--line);
+  border-radius: var(--r) var(--r) 0 0;
+}
+
+/* the swipe-up affordance. Their artboard 23 puts double chevrons either side of
+   `Glisser vers le haut pour en savoir plus`; those words have no English in app_en.arb, so the
+   GESTURE is drawn and the sentence is not invented (SESSION-NOTES decision C). */
+.swipe {
+  position: absolute; inset: auto 0 100% 0; display: flex; align-items: center; justify-content: center;
+  gap: 16px; padding-bottom: 14px; font-size: 20px; color: var(--on-camera); opacity: .8;
+}
+
+/* the grabber row: the handle centred, the shipped ✕ at the end
+   (smooth_product_base_card.dart:89, tooltip `carousel_close_tooltip`) */
+.grab { position: relative; display: flex; align-items: center; justify-content: center; padding: 10px 12px 2px; }
+.grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
+.grab .x {
+  position: absolute; right: 12px; top: 6px;
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line);
   display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted);
 }
-.scard .bd { padding: 12px; }
-.scard .ft {
-  display: flex; align-items: center; gap: 8px; padding: 12px 12px;
-  border-top: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--peach);
-}
-.scard .ft .spacer { flex: 1; }
 
-/* identity inside a card: thumb beside the name, his 2 Aug mobile layout */
+/* the message sheets (loading, unknown, error) keep a titled header, which all three shipped
+   cards have (`carousel_*_header`) and which their 22/24/26 draw */
+.chd { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.chd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
+.chd h2 { font-size: 14px; font-weight: 700; letter-spacing: -.1px; }
+.chd .spacer { flex: 1; }
+.chd .x {
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); flex: none;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted);
+}
+/* their 26 gives the error sheet a red header band, and it is the one state where the header
+   carries the verdict rather than a label */
+.chd.err { background: var(--bad-tint); border-bottom-color: var(--bad-edge); }
+.chd.err h2 { color: var(--bad-soft); }
+.chd.err i { background: var(--bad); }
+
+.cbody { padding: 14px 16px 18px; }
+
+/* identity inside the sheet: thumb beside the name, his 2 Aug mobile layout */
 .pident { display: flex; gap: 12px; align-items: flex-start; }
-.pident .thumb { width: 72px; height: 72px; flex: none; background: var(--card2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.pident .thumb { width: 64px; height: 64px; flex: none; background: var(--card2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .pident .thumb img { width: 100%; height: 100%; object-fit: cover; }
 .pident .t { flex: 1; min-width: 0; }
-.pident .nm { font-size: 15.5px; font-weight: 800; letter-spacing: -.2px; }
-/* the % itself, so `check_content.py`'s badge check can see it: any percentage on this
-   screen has to be one match.py computes from live attributes */
+.pident .nm { font-size: 16px; font-weight: 800; letter-spacing: -.2px; }
+/* the % itself, so `check_content.py`'s badge check can see it: any percentage on this screen
+   has to be one match.py computes from live attributes */
 .pident .pill .badge { font-weight: 800; }
 .pident .sub { font-size: 12.5px; color: var(--muted); }
 
-/* the score rows: server icon + attribute title + description_short. Same content as
-   the product page's condensed tile (§3c), one line each, no scale cells - a 72px-tall
-   card is not where seven Green-Score cells belong */
+/* the criterion rows: server icon + attribute title + description_short. Same content as the
+   product page's condensed tile (§3c), one line each, no scale cells */
 .srows { margin-top: 12px; border-top: 1px solid var(--line-soft); }
-.srow2 { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+.srow2 { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
 .srow2:last-child { border-bottom: 0; }
 .srow2 img { width: 30px; height: 26px; object-fit: contain; flex: none; }
 .srow2 .t { flex: 1; min-width: 0; }
@@ -100,17 +172,24 @@
 .srow2 .t i { font-style: normal; display: block; font-size: 12px; color: var(--muted); }
 .srow2.unk .t b { color: var(--unknown-soft); }
 
-/* the two ranked fixes on a poor-data card. `.task` is the shared primitive from the
-   product page (design-system.md §3e) - the labels here are SHIPPED
+/* the two ranked fixes on a poor-data sheet. `.task` is the shared primitive from the product
+   page (design-system.md §3e) - the labels here are SHIPPED
    (`score_add_missing_nutrition_facts`, `score_add_missing_precise_product_category`) */
 .fixes { margin-top: 12px; padding-top: 4px; border-top: 1px solid var(--line); }
-.fixes .lbl { font-size: 12px; font-weight: 700; color: var(--peach); letter-spacing: .3px; margin: 8px 0 2px; }
-/* at 412 inside a card the "unlocks the …" clause has to be its own line, or it wraps
-   under the label and shoves the time estimate onto a second row */
+.fixes .lbl { font-size: 12px; font-weight: 700; color: var(--peach); letter-spacing: .3px; margin: 6px 0 2px; }
+/* at 412 inside a sheet the "unlocks the …" clause has to be its own line, or it wraps under
+   the label and shoves the time estimate onto a second row */
 .fixes .task .t i { display: block; }
 
+/* the drill-in footer. `tap_for_more` - shipped, and it is the sheet's only navigation */
+.cfoot {
+  display: flex; align-items: center; gap: 8px; padding: 13px 16px;
+  border-top: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--peach);
+}
+.cfoot .spacer { flex: 1; }
+
 /* loading / not-found / error bodies - one shape, three sets of shipped strings */
-.msg { text-align: center; padding: 4px 4px; }
+.msg { text-align: center; }
 .msg h3 { font-size: 16px; font-weight: 800; letter-spacing: -.2px; margin-bottom: 8px; }
 .msg h3 u { text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .msg p { font-size: 13.5px; color: var(--muted2); line-height: 1.5; }
@@ -125,23 +204,3 @@
   width: 34px; height: 34px; margin: 2px auto 12px; border-radius: 50%;
   border: 3px solid var(--card3); border-top-color: var(--orange);
 }
-
-/* the tagline card peeking under the main one - the shipped carousel always shows it,
-   and it is the same remote JSON that feeds Home (smooth-app_assets/prod/tagline) */
-.peek { margin-top: 10px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-/* ⛔ NOT the shipped solid-orange band. Home already draws this exact content as a quiet
-   card (03-home `.tagline`), and repeating it here as a full-width orange bar made the
-   donation ask the loudest thing on all seven states - louder than the product. Same
-   content, same source JSON, one treatment across both screens. */
-.peek .top { display: flex; align-items: center; gap: 8px; background: var(--card2); color: var(--txt); padding: 8px 12px; font-size: 13.5px; font-weight: 700; border-bottom: 1px solid var(--line); }
-.peek .top i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
-.peek .bd { display: flex; align-items: center; gap: 12px; padding: 12px; }
-.peek .bd img { width: 40px; height: 40px; object-fit: contain; flex: none; }
-.peek .bd .t { flex: 1; font-size: 13px; color: var(--muted2); line-height: 1.4; }
-.peek .bd .t b { color: var(--txt); font-weight: 700; }
-
-/* the default card: logo + the shipped subheading + the search field */
-.mcard { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 16px 16px; text-align: center; }
-.mcard .logo { font-size: 25px; margin-bottom: 10px; }
-.mcard .sub { font-size: 14.5px; color: var(--muted2); line-height: 1.6; margin-bottom: 16px; }
-.mcard .sub b { color: var(--txt); font-weight: 700; }

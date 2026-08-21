@@ -6,6 +6,7 @@
 <title>Lists - the switcher sheet</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
@@ -89,6 +90,16 @@
     <a class="srow new todo" title="The create-list dialog is not drawn">
       <span class="g">&#43;</span>
       <span class="t"><b>Create a new list</b></span>
+    </a>
+
+    <!-- ⛔ ADDED 2026-08-21 (_CHANGES-REQUESTED.md). The switcher is where a user picks a list, so
+         it is also where the app should say what a list can be filled FROM. `user_list_add_product`
+         is the shipped sentence and it names both halves - the product, and your lists.
+         ⚠️ Same `.todo` as on the empty state, same reason: the product footer that carries this
+         action is drawn on no screen of ours. -->
+    <a class="srow todo" title="The product footer, where Add to list ships, is drawn on no screen yet - family 1">
+      <span class="g">&#8853;</span>
+      <span class="t"><b>Add the product to your lists</b></span>
     </a>
   </div>
 

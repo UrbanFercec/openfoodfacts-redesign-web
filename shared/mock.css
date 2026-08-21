@@ -56,6 +56,28 @@
   --unknown-tint: color-mix(in srgb, var(--unknown) 16%, transparent);
   --edge-inner: color-mix(in srgb, var(--txt) 9%, transparent);
   --ring-peach: color-mix(in srgb, var(--peach) 7%, transparent);
+  --action-tint: color-mix(in srgb, var(--orange) 18%, var(--card));
+  --action-edge: color-mix(in srgb, var(--orange) 55%, var(--line));
+  /* ⛔ THEME-INVARIANT ON PURPOSE - emitted only into :root, never into the light block, so the
+     light theme cannot override them. The scanner pane is a LIVE CAMERA IMAGE in the shipped app:
+     dark whatever the theme, like a photo. Painting it with theme surfaces turned the viewfinder
+     into a pale grey box in light, with white control buttons at 1.13:1 on it (measured on the
+     2026-08-21 light pass). A camera is not a surface. */
+  --camera: #0b0c0d;
+  --camera-glow: #24282d;
+  --camera-ctl: #1b1e22;
+  --camera-ctl-edge: #3a4046;
+  --on-camera: #f3f4f5;
+  /* Chrome that sits ON the video: translucent, so the camera reads through it. Same
+     theme-invariant reason as the tokens above - a full-bleed camera screen has no theme surface
+     under its buttons. Aliases --cam/--cam2/--oncam exist because screens/07-scan-states was
+     drawn against those names. */
+  --glass: color-mix(in srgb, #000 46%, transparent);
+  --glass-line: color-mix(in srgb, #fff 22%, transparent);
+  --glass-text: color-mix(in srgb, #f3f4f5 62%, transparent);
+  --cam: var(--camera);
+  --cam2: var(--camera-glow);
+  --oncam: var(--on-camera);
 }
 
 [data-theme="light"] {
@@ -153,6 +175,9 @@ a { color: inherit; text-decoration: none; }
 .tabbar > * { flex: 1; text-align: center; font-size: 11px; color: var(--muted); }
 .tabbar > * .g { font-size: 19px; display: block; line-height: 1.5; }
 .tabbar > *.on { color: var(--orange); }
+/* a full-bleed screen runs into the bar with no seam - the 20px above is breathing room for a
+   scrolling page, and a camera is not one (07-scan-states, 2026-08-21) */
+.app.full .tabbar { margin-top: 0; }
 
 /* ---------- primitives used by more than one screen ---------- */
 

@@ -6,6 +6,7 @@
 <title>Lists - an empty list</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
@@ -19,13 +20,19 @@
     <a class="ico" href="lists-menu.html">&#8942;</a>
   </div>
 
-  <!-- both strings are shipped: `product_list_empty_message` and, on the button,
-       `product_list_empty_title`. ⛔ The count line and the filter chip are dropped here -
-       an empty list has nothing to count and nothing to fix. -->
+  <!-- every string is shipped: `product_list_empty_message`, `product_list_empty_title` on the
+       primary button, and `user_list_add_product` on the second one. ⛔ The count line and the
+       filter chip are dropped here - an empty list has nothing to count and nothing to fix.
+       ⛔ CHANGED 2026-08-21 (_CHANGES-REQUESTED.md): the second action. Before this, the only
+       way to fill a list you had just created was to go and scan something, which is what Urban
+       called "kind of dumb" - and the app already ships the other way, on the product footer.
+       ⚠️ It is `.todo` on purpose: `Add to list` lives on a footer that OUR DESIGN DRAWS ON NO
+       SCREEN. The affordance is named here so the gap is visible; family 1 has to close it. -->
   <div class="empty">
     <div class="art">||||</div>
     <p>Scanned products will appear here and you can check detailed information about them</p>
     <a class="btnpeach" href="../07-scan-states/scan-default.html">Start scanning</a>
+    <span class="alt todo" title="The product footer, where Add to list ships, is drawn on no screen yet - family 1">Add the product to your lists</span>
   </div>
 
   <div class="tabbar">

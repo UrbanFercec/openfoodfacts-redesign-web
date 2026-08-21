@@ -110,3 +110,28 @@ body.lane .phone iframe {
   border: 0;
   display: block;
 }
+
+/* the runtime theme switch (`shared/proto-theme.js`, injected at publish time). Styled like a
+   lanebar link so it reads as chrome, not as part of a screen. `.floating` is the fallback for a
+   page opened outside the lane view. */
+.themeswitch {
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--orange);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.themeswitch:hover { border-color: var(--orange); }
+
+.themeswitch.floating {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 99;
+  background: var(--card);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
+}

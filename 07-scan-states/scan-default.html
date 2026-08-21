@@ -3,42 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scan - the default card</title>
+<title>Scan - the idle scanner</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner (shell-contract.md line 16). ⛔ THIS PAGE DOES NOT COMPLY: it draws a 300px pane over a card carousel, copied from the device frames. Redraw brief: _REDRAW-REQUESTED.md -->
+<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18) - so the camera fills everything above the bar and nothing else. -->
 
-<div class="app">
+<div class="app full">
 
-  <!-- ⛔ no Clear / Compare chips here: the shipped app only shows them once something has
-       been scanned (frames t067 has none, t108 onwards do) -->
-  <div class="cam">
-    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
-    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
-  </div>
-
-  <div class="cards">
-    <!-- `homepage_main_card_subheading` = "**Scan** a barcode or\n**search** for a product",
-         verbatim including which words are bold -->
-    <div class="mcard">
-      <div class="logo">open <em>FOOD</em> facts</div>
-      <div class="sub"><b>Scan</b> a barcode or<br><b>search</b> for a product</div>
-      <a class="searchpill" href="../07-search/search-entry.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
+  <div class="scan">
+    <!-- ⛔ no Clear / Compare chips here: they appear only once something has been scanned
+         (scan_header.dart, and frame t067 has none while t108 onwards do) -->
+    <div class="ctop">
+      <span class="spacer"></span>
+      <a class="cbtn" href="../07-search/search-entry.html" title="Enter the Barcode">&#9000;</a>
+      <span class="cbtn" title="Toggle camera">&#8646;</span>
+      <span class="cbtn" title="Toggle torch">&#9788;</span>
     </div>
 
-    <!-- the second carousel card, always present. Title, message, button label and the
-         artwork all come from the remote tagline JSON in smooth-app_assets, which is the
-         same file Home reads - one content edit moves both surfaces -->
-    <div class="peek">
-      <div class="top"><i></i>Our application needs you!</div>
-      <div class="bd">
-        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
-        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
-        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
-      </div>
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">&#9906;</span></div>
+
+    <!-- `HomePageScannerMessageOverlay` with `homepage_scanner_banner_start_scanning` - both
+         shipped, and this is the English of the sentence on their own artboards 20 / 21 / 28.
+         ⭐ The whole `homepage_scanner_*` string family exists because OFF already built a
+         full-bleed scanner behind `__homePageV2`; it is translated into 128 locales. -->
+    <div class="hint">
+      <span class="i">&#9432;</span>
+      <span class="t">Scan a product by approaching its barcode</span>
     </div>
   </div>
 

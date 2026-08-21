@@ -151,3 +151,19 @@
 }
 .empty p { font-size: 14px; color: var(--muted2); line-height: 1.5; }
 .empty .btnpeach { margin-top: 20px; }
+
+/* ⛔ THE SECOND ROUTE INTO A LIST (Urban, 2026-08-21: "we don't have an option to add an item to
+   the custom-created list apart from scanning the product, which sounds kind of dumb").
+   It is a PROMOTION, not an invention: `user_list_button_add_product` = "Add to list" ships today
+   on the product footer and `user_list_add_product` = "Add the product to your lists" is the sheet
+   it opens. None of these five states showed either.
+   Outlined, because `Start scanning` (`product_list_empty_title`) stays the primary action - a
+   scan is still the fastest way in, it just is not the only one.
+   ⚠️ It is marked `.todo`: the product footer is 12 hideable, reorderable actions
+   (new_product_footer.dart:66) and OUR DESIGN DRAWS NONE OF THEM on any screen. Fixing this only
+   on 08 is not fixing it - family 1 owes the footer. */
+.empty .alt {
+  display: inline-block; margin-top: 12px;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  padding: 9px 18px; font-size: 13px; font-weight: 700; color: var(--muted2);
+}
