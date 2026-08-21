@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lists - the switcher sheet</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- the sheet covers the tab bar, exactly as it does in the shipped app
+       (captures/2026-08-21-app/frames/v4_t005) -->
+  <div class="dim">
+    <div class="lbar">
+      <span class="ltitle"><b>History</b><span class="ch">&#8597;</span></span>
+      <span class="spacer"></span>
+      <span class="ico">&#8942;</span>
+    </div>
+    <div class="lmeta">
+      <span>5 products</span>
+      <span class="spacer"></span>
+      <span class="chip todoc">Products you can help complete <b>2</b></span>
+    </div>
+    <div class="plrows">
+      <div class="plrow">
+        <div class="thumb">
+          <span class="badge good">85%</span>
+          <img src="https://images.openfoodfacts.org/images/products/000/000/617/5700/front_fr.90.200.jpg" alt="">
+        </div>
+        <div class="t">
+          <div class="nm">Tartines craquantes au sarrasin imp</div>
+          <div class="sub">Ekibio, Le pain des Fleurs &middot; 160 g</div>
+          <div class="grades">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+          </div>
+        </div>
+        <span class="chev">&rsaquo;</span>
+      </div>
+      <div class="plrow">
+        <div class="thumb">
+          <span class="badge good">78%</span>
+          <img src="https://images.openfoodfacts.org/images/products/730/040/048/1588/front_en.269.200.jpg" alt="">
+        </div>
+        <div class="t">
+          <div class="nm">Fibres</div>
+          <div class="sub">wasa &middot; 230 g</div>
+          <div class="grades">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
+          </div>
+        </div>
+        <span class="chev">&rsaquo;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONE generated list instead of three. `product_list_select` is the shipped sheet
+       title, `user_list_length` the shipped count sentence, `user_list_button_new` the
+       shipped create row, and `My list` is the shipped name hint (`user_list_name_hint`). -->
+  <div class="sheet">
+    <div class="shd">
+      <i></i>
+      <h2>Select a list</h2>
+      <span class="spacer"></span>
+      <span class="x">&#10005;</span>
+    </div>
+
+    <a class="srow on" href="lists-history.html">
+      <span class="g">&#9201;</span>
+      <span class="t"><b>History</b><i>Generated list</i></span>
+      <span class="n">5 products</span>
+    </a>
+
+    <a class="srow" href="lists-empty.html">
+      <span class="g">&#9782;</span>
+      <span class="t"><b>My list</b><i>Private list</i></span>
+      <span class="n">Empty list</span>
+      <span class="g todo" title="The per-list rename / delete menu is not drawn">&#8942;</span>
+    </a>
+
+    <a class="srow new todo" title="The create-list dialog is not drawn">
+      <span class="g">&#43;</span>
+      <span class="t"><b>Create a new list</b></span>
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>

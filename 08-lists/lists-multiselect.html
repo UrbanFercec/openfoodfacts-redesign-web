@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lists - multi-select and its action sheet</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="dim">
+    <!-- shipped swaps the whole app bar for ✕ + a pluralised SENTENCE, not "2 selected".
+         `multiselect_title` = {=0 No selected product, =1 One selected product,
+         other {count} selected products} - so the string on screen is exact, not shortened. -->
+    <div class="lbar sel">
+      <span class="ico">&#10005;</span>
+      <span class="count">2 selected products</span>
+      <span class="spacer"></span>
+      <span class="ico">&#8942;</span>
+    </div>
+
+    <div class="plrows">
+      <div class="plrow picked">
+        <span class="box on">&#10003;</span>
+        <div class="thumb">
+          <span class="badge good">85%</span>
+          <img src="https://images.openfoodfacts.org/images/products/000/000/617/5700/front_fr.90.200.jpg" alt="">
+        </div>
+        <div class="t">
+          <div class="nm">Tartines craquantes au sarrasin imp</div>
+          <div class="sub">Ekibio, Le pain des Fleurs &middot; 160 g</div>
+          <div class="grades">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+          </div>
+        </div>
+      </div>
+
+      <div class="plrow picked">
+        <span class="box on">&#10003;</span>
+        <div class="thumb">
+          <span class="badge good">78%</span>
+          <img src="https://images.openfoodfacts.org/images/products/730/040/048/1588/front_en.269.200.jpg" alt="">
+        </div>
+        <div class="t">
+          <div class="nm">Fibres</div>
+          <div class="sub">wasa &middot; 230 g</div>
+          <div class="grades">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
+          </div>
+        </div>
+      </div>
+
+      <div class="plrow">
+        <span class="box"></span>
+        <div class="thumb">
+          <span class="badge warn">37%</span>
+          <img src="https://images.openfoodfacts.org/images/products/304/109/006/3206/front_fr.156.200.jpg" alt="">
+        </div>
+        <div class="t">
+          <div class="nm">Cracotte</div>
+          <div class="sub">LU &middot; 250</div>
+          <div class="grades">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg" alt="Nutri-Score C">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg" alt="Green-Score B">
+            <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- `menu_button_list_actions` titles it; the three items are the shipped labels from
+       product_list_item_popup_items.dart. ⛔ Compare stays out: it is family 11 and it is
+       dev-flag gated in the shipped menu (ProductListItemPopupSideBySide). -->
+  <div class="sheet">
+    <div class="shd">
+      <i></i>
+      <h2>Select an action</h2>
+      <span class="spacer"></span>
+      <span class="x">&#10005;</span>
+    </div>
+
+    <div class="srow">
+      <span class="g">&#9003;</span>
+      <span class="t"><b>Delete selected products</b></span>
+      <span class="n">2</span>
+    </div>
+
+    <div class="srow">
+      <span class="g">&#9745;</span>
+      <span class="t"><b>Select all products</b></span>
+      <span class="n">5</span>
+    </div>
+
+    <div class="srow">
+      <span class="g">&#9744;</span>
+      <span class="t"><b>Select none</b></span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

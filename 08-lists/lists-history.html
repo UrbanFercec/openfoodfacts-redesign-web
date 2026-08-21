@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lists - History</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- CHANGED: ONE generated list, called History. Shipped has three that overlap
+       (All viewed products / Scan history / Products from the Scan screen) and their own
+       newer artboards already merged them into "Historique des produits consultés"
+       (their-designs/all/Lists/05-10). The title is the switcher, with an edge on it. -->
+  <div class="lbar">
+    <a class="ltitle" href="lists-switcher.html"><b>History</b><span class="ch">&#8597;</span></a>
+    <span class="spacer"></span>
+    <a class="ico" href="lists-menu.html">&#8942;</a>
+  </div>
+
+  <!-- `user_list_length` gives the count sentence. The chip is the promotion: shipped
+       history gives no reason to come back, and `preferences_contributions_all_incomplete_subtitle`
+       is already the shipped words for what it filters to. -->
+  <div class="lmeta">
+    <span>5 products</span>
+    <span class="spacer"></span>
+    <a class="chip todoc todo" title="The filtered view of the list is not drawn">Products you can help complete <b>2</b></a>
+  </div>
+
+  <div class="plrows">
+
+    <a class="plrow todo" title="Only Nutella has a product page drawn">
+      <div class="thumb">
+        <span class="badge good">85%</span>
+        <img src="https://images.openfoodfacts.org/images/products/000/000/617/5700/front_fr.90.200.jpg" alt="">
+      </div>
+      <div class="t">
+        <div class="nm">Tartines craquantes au sarrasin imp</div>
+        <div class="sub">Ekibio, Le pain des Fleurs &middot; 160 g</div>
+        <div class="grades">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+        </div>
+      </div>
+      <span class="chev">&rsaquo;</span>
+    </a>
+
+    <a class="plrow todo" title="Only Nutella has a product page drawn">
+      <div class="thumb">
+        <span class="badge good">78%</span>
+        <img src="https://images.openfoodfacts.org/images/products/730/040/048/1588/front_en.269.200.jpg" alt="">
+      </div>
+      <div class="t">
+        <div class="nm">Fibres</div>
+        <div class="sub">wasa &middot; 230 g</div>
+        <div class="grades">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
+        </div>
+      </div>
+      <span class="chev">&rsaquo;</span>
+    </a>
+
+    <a class="plrow todo" title="Only Nutella has a product page drawn">
+      <div class="thumb">
+        <span class="badge warn">37%</span>
+        <img src="https://images.openfoodfacts.org/images/products/304/109/006/3206/front_fr.156.200.jpg" alt="">
+      </div>
+      <div class="t">
+        <div class="nm">Cracotte</div>
+        <div class="sub">LU &middot; 250</div>
+        <div class="grades">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg" alt="Nutri-Score C">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-b.svg" alt="Green-Score B">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+        </div>
+      </div>
+      <span class="chev">&rsaquo;</span>
+    </a>
+
+    <!-- the two rows that carry a gap. No badge at all on this one: the shipped helper
+         hides the percentage for UNKNOWN_MATCH (getFormattedScore returns null), so the
+         honest thing on screen is the missing-data line, not a 0%. -->
+    <a class="plrow todo" title="Only Nutella has a product page drawn">
+      <div class="thumb">
+        <img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.200.jpg" alt="">
+      </div>
+      <div class="t">
+        <div class="nm">Bruschette chips pizza</div>
+        <div class="sub">Maretti &middot; 150 g</div>
+        <div class="grades">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown-new-en.svg" alt="Nutri-Score unknown">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg" alt="Green-Score not computed">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+        </div>
+        <div class="gapline">
+          <i class="d unk"></i>Missing data to compute the Nutri-Score
+          <span class="fix">Add missing nutrition facts</span>
+        </div>
+      </div>
+      <span class="chev">&rsaquo;</span>
+    </a>
+
+    <a class="plrow" href="../01-product-page/product-nutella.html">
+      <div class="thumb">
+        <span class="badge warn">5%</span>
+        <img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.200.jpg" alt="">
+      </div>
+      <div class="t">
+        <div class="nm">Nutella</div>
+        <div class="sub">Nutella, Ferrero, Yum yum</div>
+        <div class="grades">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg" alt="Nutri-Score E">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg" alt="Green-Score not computed">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+        </div>
+        <div class="gapline">
+          <i class="d unk"></i>Missing a precise category
+          <span class="fix">Select a more precise category</span>
+        </div>
+      </div>
+      <span class="chev">&rsaquo;</span>
+    </a>
+
+  </div>
+
+  <div class="fabrow">
+    <a class="msbtn" href="lists-multiselect.html"><span>&#8801;</span>Multi-select</a>
+  </div>
+
+  <div class="tabbar">
+    <a href="../03-home/home-app.html"><span class="g">&#9750;</span>Home</a>
+    <a href="../07-scan-states/scan-default.html"><span class="g">&#9678;</span>Scan</a>
+    <a class="on"><span class="g">&#9782;</span>Lists</a>
+    <a href="../04-profile/profile-in.html"><span class="g">&#9787;</span>Profile</a>
+  </div>
+
+</div>
+
+</body>
+</html>

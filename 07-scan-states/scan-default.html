@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan - the default card</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ⛔ no Clear / Compare chips here: the shipped app only shows them once something has
+       been scanned (frames t067 has none, t108 onwards do) -->
+  <div class="cam">
+    <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph">|||||</span></div>
+    <div class="camtools"><span title="Toggle torch">&#9788;</span><span title="Toggle camera">&#8646;</span></div>
+  </div>
+
+  <div class="cards">
+    <!-- `homepage_main_card_subheading` = "**Scan** a barcode or\n**search** for a product",
+         verbatim including which words are bold -->
+    <div class="mcard">
+      <div class="logo">open <em>FOOD</em> facts</div>
+      <div class="sub"><b>Scan</b> a barcode or<br><b>search</b> for a product</div>
+      <a class="searchpill" href="../07-search/search-entry.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
+    </div>
+
+    <!-- the second carousel card, always present. Title, message, button label and the
+         artwork all come from the remote tagline JSON in smooth-app_assets, which is the
+         same file Home reads - one content edit moves both surfaces -->
+    <div class="peek">
+      <div class="top"><i></i>Our application needs you!</div>
+      <div class="bd">
+        <img src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
+        <span class="t">Help us inform <b>millions of consumers</b> on what they eat!</span>
+        <span class="btnpeach todo" title="The donation screen is not part of this batch">Support</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabbar">
+    <a href="../03-home/home-app.html"><span class="g">&#9750;</span>Home</a>
+    <a class="on"><span class="g">&#9678;</span>Scan</a>
+    <a href="../08-lists/lists-history.html"><span class="g">&#9782;</span>Lists</a>
+    <a href="../04-profile/profile-in.html"><span class="g">&#9787;</span>Profile</a>
+  </div>
+
+</div>
+
+</body>
+</html>
