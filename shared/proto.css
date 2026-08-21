@@ -85,6 +85,25 @@ body.lane .phone {
   background: var(--bg);
 }
 
+/* the web lane's frame: the same persistent bar, full width, because the point of the web
+   prototype is the width the visitor actually has */
+body.lane .canvas {
+  width: 100%;
+  max-width: 1440px;
+  height: calc(100vh - 92px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+body.lane .canvas iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 body.lane .phone iframe {
   width: 100%;
   height: 100%;
