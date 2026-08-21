@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - web</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- his header, his nav strip -->
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="spacer"></span>
+  <span class="find">
+    <span class="inp">Query or barcode</span>
+    <span class="btn">Go</span>
+    <span class="btn">||||</span>
+  </span>
+  <span class="spacer"></span>
+  <span class="btn">Help</span>
+  <span class="btn">Settings</span>
+  <span class="btn solid">Log in</span>
+</div>
+
+<div class="webnav">
+  <span>Discover</span><span>Contribute</span><span>Producers</span>
+  <span>Prices</span><span>Folksonomy</span><span>Facets</span>
+</div>
+
+<!-- his hero card, with the search field folded in so the first action on web
+     is the same as the first action in the app -->
+<div class="hero">
+  <div class="card">
+    <div class="logo">open <em>FOOD</em> facts</div>
+    <p>A collaborative, free and open database of food products from around the world.
+       Discover, search, and contribute to food transparency for everyone.</p>
+    <div class="searchpill"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></div>
+    <div class="ctas">
+      <span class="cta solid">Explore products</span>
+      <span class="cta">Discover the project</span>
+      <span class="cta">Contribute</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="stats">
+    <div class="stat"><b>4,684,418</b><span>Products</span></div>
+    <div class="stat"><b>36,124</b><span>Contributors</span></div>
+    <div class="stat"><b>100%</b><span>Open data</span></div>
+  </div>
+
+  <!-- PROMOTED: getting a phone in hand is the highest-value action on this
+       page and it is the one we can actually measure (Play Console attributes
+       installs by UTM, metrics-baseline Q2). It used to be a thin strip below
+       the fundraiser; it is now the band right under the stats, with a QR,
+       because a store badge on a 1440 desktop cannot be tapped.
+       ⚠️ The QR carries utm_campaign=install_the_app_web_home_hero, NOT the
+       existing ..._footer, so the two placements stay distinguishable. -->
+  <div class="appband">
+    <div class="phone"><div class="screen"><img src="renders/home-app-412.png" alt=""></div></div>
+    <div>
+      <span class="kick">Open Food Facts on your phone</span>
+      <h3>4.6 million products, one scan away</h3>
+      <ul>
+        <li>point the camera at a barcode and get the answer before it goes in the basket</li>
+        <li>the criteria you set here travel with you, on every product you scan</li>
+        <li>no cost, no account, no ads, and the whole app is open source</li>
+      </ul>
+      <div class="storelead">Get it on</div>
+      <div class="stores">
+        <span class="badge">Google Play</span>
+        <span class="badge">App Store</span>
+        <span class="badge">F-Droid</span>
+        <span class="badge">APK</span>
+      </div>
+    </div>
+    <!-- ONE code, pointing at OFF's own install page, which already detects
+         Android / iOS / Windows and already forwards the UTM parameters.
+         Rendered at 200px: this exact PNG was decoded back at that size, and it
+         stops decoding below ~140px (49 modules) -->
+    <div class="qr">
+      <img src="qr-get-the-app.png" alt="">
+      <span>Point your camera here</span>
+    </div>
+  </div>
+
+  <!-- CHANGED: his banner is the live site's raw asset. Same campaign, same
+       numbers, redrawn in the palette and carrying the meter that already
+       ships in the app. Both figures come from the feed. -->
+  <div class="support">
+    <div>
+      <h3>Help us inform millions of consumers on what they eat</h3>
+      <ul>
+        <li>keeps the database open and free for everyone</li>
+        <li>pays the infrastructure and a small permanent team</li>
+        <li>keeps Open Food Facts independent of the food industry</li>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="meter"><i style="width:26.5%"></i></div>
+      <div class="metertxt"><span><b>&euro;45,032</b> raised</span><span>of &euro;170,000</span></div>
+      <span class="btnpeach">I support</span>
+    </div>
+  </div>
+
+  <!-- ADDED: the same module as the app home. Same search-a-licious query,
+       no login, no new endpoint -->
+  <div class="sechead">
+    <h3>Most scanned products</h3>
+    <p>What people around you actually put in the basket.</p>
+  </div>
+
+  <div class="grid3 tight">
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/000/002/072/4696/front_en.384.400.jpg" alt=""></div>
+      <div class="t">
+        <b>Almonds</b>
+        <div class="br">Alesto, Lidl</div>
+        <div class="gap"><i class="d good"></i>Matches your criteria &middot; 690 scans</div>
+      </div>
+    </div>
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt=""></div>
+      <div class="t">
+        <b>Nutella</b>
+        <div class="br">Ferrero</div>
+        <div class="gap"><i class="d bad"></i>Poor match, 3% &middot; 384 scans</div>
+      </div>
+    </div>
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/405/648/921/6162/front_en.329.400.jpg" alt=""></div>
+      <div class="t">
+        <b>High Protein Schoko Pudding</b>
+        <div class="br">Milbona, Lidl</div>
+        <div class="gap"><i class="d good"></i>Matches your criteria &middot; 352 scans</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDED: personalisation, stated. Explorer already stores food preferences
+       in localStorage with no account, and its home already renders the toggle;
+       what is missing is saying WHICH criteria are on and letting you change
+       them here. The live Perl site ships this framing and Explorer dropped it -->
+  <div class="prefstrip">
+    <div class="l">
+      <b>Matching with your preferences</b>
+      <span>Nutri-Score &middot; Green-Score &middot; Ultra-processed foods. No account needed, kept in this browser.</span>
+    </div>
+    <span class="chipw">Edit your preferences</span>
+    <span class="toggle on"></span>
+    <span class="tl">Sort by match</span>
+  </div>
+
+  <div class="sechead">
+    <h3>Help improve Open Food Facts</h3>
+    <p>Six products scanned near you that are missing one thing each.</p>
+  </div>
+
+  <!-- CHANGED: his cards print score badge images with a "?" in them. These
+       say which field is missing and what filling it unlocks. -->
+  <div class="grid3">
+
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/383/860/001/9439/front_en.7.400.jpg" alt=""></div>
+      <div class="t">
+        <b>Donat</b>
+        <div class="br">26% complete</div>
+        <div class="gap"><i class="d unk"></i>No category, so no Green-Score</div>
+        <span class="fix">Add a category</span><span class="time">10 s</span>
+      </div>
+    </div>
+
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/385/032/200/7099/front_hr.7.400.jpg" alt=""></div>
+      <div class="t">
+        <b>Cedevita</b>
+        <div class="br">49% complete</div>
+        <div class="gap"><i class="d unk"></i>Front photo is the Croatian one</div>
+        <span class="fix">Add the English front</span><span class="time">15 s</span>
+      </div>
+    </div>
+
+    <div class="icard">
+      <div class="ph empty"><span>no photo</span><span>yet</span></div>
+      <div class="t">
+        <b>20476557</b>
+        <div class="br">8% complete</div>
+        <div class="gap"><i class="d unk"></i>No photo, no nutrition, no category</div>
+        <span class="fix">Take the front photo</span><span class="time">10 s</span>
+      </div>
+    </div>
+
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt=""></div>
+      <div class="t">
+        <b>Nutella</b>
+        <div class="br">Ferrero &middot; 79% complete</div>
+        <div class="gap"><i class="d unk"></i>Green-Score not computed</div>
+        <span class="fix">Add a precise category</span><span class="time">10 s</span>
+      </div>
+    </div>
+
+    <div class="icard">
+      <div class="ph"><img src="https://images.openfoodfacts.org/images/products/90435997/front_fr.3.400.jpg" alt=""></div>
+      <div class="t">
+        <b>The RED Edition Watermelon</b>
+        <div class="br">Red Bull &middot; 48% complete</div>
+        <div class="gap"><i class="d unk"></i>No nutrition facts</div>
+        <span class="fix">Photograph the label</span><span class="time">30 s</span>
+      </div>
+    </div>
+
+    <div class="icard">
+      <div class="ph empty"><span>no photo</span><span>yet</span></div>
+      <div class="t">
+        <b>Greek Yog 10% fat - Unfi</b>
+        <div class="br">M And S &middot; 30% complete</div>
+        <div class="gap"><i class="d unk"></i>No photo and no category</div>
+        <span class="fix">Take the front photo</span><span class="time">10 s</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="morelink">1,153 products scanned in Slovenia are missing a category &rsaquo;</div>
+
+</div>
+
+</body>
+</html>

@@ -97,9 +97,15 @@
 /* the permission gate replaces the video, exactly as `_PermissionDeniedCard` does
    (scan_page.dart:161, reached from the switch at :76-82). Copy is shipped verbatim:
    permission_photo_denied_title / _message / _button */
+/* ⛔ `.nocam` is not decoration. Every other state paints a live video, which is dark in every
+   theme - but a DENIED permission means there is no video, so the theme-invariant `--camera*`
+   group is wrong here: in light it rendered a full-screen black panel with white text, which
+   reads as a crash rather than a designed screen (caught by the both-polarities render,
+   2026-08-21). No camera, so a normal surface and normal text colours. */
+.scan.nocam { background: var(--sunk); background-image: none; }
 .gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 28px; text-align: center; }
-.gate h2 { font-size: 18px; font-weight: 700; color: var(--on-camera); }
-.gate p { font-size: 14px; color: color-mix(in srgb, var(--on-camera) 76%, transparent); line-height: 1.5; margin-top: 16px; }
+.gate h2 { font-size: 18px; font-weight: 700; color: var(--txt); }
+.gate p { font-size: 14px; color: var(--muted2); line-height: 1.5; margin-top: 16px; }
 .gate .btnpeach { margin-top: 24px; padding: 10px 32px; }
 
 /* ---------- the sheet: one scan, one sheet ---------- */

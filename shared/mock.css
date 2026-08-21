@@ -70,14 +70,11 @@
   --on-camera: #f3f4f5;
   /* Chrome that sits ON the video: translucent, so the camera reads through it. Same
      theme-invariant reason as the tokens above - a full-bleed camera screen has no theme surface
-     under its buttons. Aliases --cam/--cam2/--oncam exist because screens/07-scan-states was
-     drawn against those names. */
+     under its buttons. ⛔ `--glass-text` and the `--cam` / `--cam2` / `--oncam` aliases
+     were dropped 2026-08-21: 07-scan-states moved onto the canonical names, so nothing referenced
+     them. Grep before adding one back. */
   --glass: color-mix(in srgb, #000 46%, transparent);
   --glass-line: color-mix(in srgb, #fff 22%, transparent);
-  --glass-text: color-mix(in srgb, #f3f4f5 62%, transparent);
-  --cam: var(--camera);
-  --cam2: var(--camera-glow);
-  --oncam: var(--on-camera);
 }
 
 [data-theme="light"] {
