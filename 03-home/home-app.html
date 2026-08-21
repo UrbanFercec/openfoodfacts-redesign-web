@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home - the app landing screen</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- their block two, now first: the Scan tab carries the full-screen scanner,
+       so the home keeps the logo + search and the scan block shrinks to a banner -->
+  <div class="brandblock">
+    <div class="logo">open <em>FOOD</em> facts</div>
+    <a class="searchpill" href="../07-search/search-entry.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
+  </div>
+
+  <!-- compact scan banner. Copy is their own shipped string
+       `homepage_scanner_overlay_message`, already in 128 locales -->
+  <div class="scanbar">
+    <span class="glyph">||||</span>
+    <span class="t">Tap to scan a <b>barcode</b><br>and discover if it's <b>good for you</b>!</span>
+    <span class="chev">&rsaquo;</span>
+  </div>
+
+  <!-- CHANGED: the user's own scans come FIRST, not seventh (§8b) -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Last scanned products</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="rail">
+      <div class="pcard">
+        <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt=""></div>
+        <div class="meta">
+          <div class="nm"><i class="d bad"></i><b>Nutella</b></div>
+          <div class="br">Ferrero</div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="ph"><img src="https://images.openfoodfacts.org/images/products/000/002/072/4696/front_en.384.400.jpg" alt=""></div>
+        <div class="meta">
+          <div class="nm"><i class="d good"></i><b>Amandes</b></div>
+          <div class="br">Alesto, Lidl</div>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="ph"><img src="https://images.openfoodfacts.org/images/products/405/648/921/6162/front_en.329.400.jpg" alt=""></div>
+        <div class="meta">
+          <div class="nm"><i class="d good"></i><b>High Protein Schoko Pudding</b></div>
+          <div class="br">Milbona</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOVED HERE from the Community tab (Urban, 2026-08-16). The three action
+       tiles are theirs, from `Profil (connecté)` and live in the app today.
+       The two counters come with them but stop being the hero: one line, and
+       a zero says what to do next instead of showing a scoreboard of nothing. -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Contribute</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="contrib">
+      <div class="acts">
+        <div class="act"><span class="ic y">&#129534;</span>Add prices</div>
+        <div class="act"><span class="ic g">&#127918;</span>Tap here to answer questions</div>
+        <div class="act"><span class="ic o">&#128203;</span>Complete products</div>
+      </div>
+      <div class="cstat">
+        <span class="t"><b><i>0</i>Products modified &middot; <i>0</i>Prices added</b>
+          <i>Your first edit takes about 10 seconds</i></span>
+        <span class="chip sm">All stats</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONE rotating tagline slot, below the user's own scans, carrying the
+       funding meter that is already live in production (#7667 + assets#73).
+       Title, message, button label and both numbers are the real feed. -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>From Open Food Facts</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="tagline">
+      <div class="top">
+        <img class="art" src="https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png" alt="">
+        <div>
+          <h4>Our application needs you!</h4>
+          <div class="msg">Help us inform <b>millions of consumers</b> on what they eat!</div>
+        </div>
+      </div>
+      <div class="meter"><i style="width:26.5%"></i></div>
+      <div class="metertxt"><span><b>&euro;45,032</b> raised</span><span class="spacer"></span><span>of &euro;170,000 for 2026</span></div>
+      <div class="cta">
+        <span class="note">100% free, independent of the food industry</span>
+        <span class="spacer"></span>
+        <span class="btnpeach">Support</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- their own module, from the `HomePage Personnalisation` list -->
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Most scanned products</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="list">
+      <div class="lrow"><i class="d good"></i><span class="t"><b>Almonds</b><i>Alesto, Lidl</i></span><span class="n">690 scans</span></div>
+      <div class="lrow"><i class="d good"></i><span class="t"><b>cruesly m&eacute;lange de noix</b><i>Quaker</i></span><span class="n">562 scans</span></div>
+      <div class="lrow"><i class="d unk"></i><span class="t"><b>Chocolat noir - 85% cacao</b><i>Lidl, J.D. Gross</i></span><span class="n">530 scans</span></div>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Categories of the moment</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="rail">
+      <div class="ccard"><div class="ic">&#127875;</div><b>Pumpkin</b><span>One of this month's vegetables</span></div>
+      <div class="ccard"><div class="ic">&#129388;</div><b>Spinach</b><span>A vegetable full of vitamin A</span></div>
+      <div class="ccard"><div class="ic">&#127855;</div><b>Jam</b><span>Compare the sugar per jar</span></div>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="mhead">
+      <span class="mlabel"><i></i>Guides</span>
+      <span class="spacer"></span><span class="pers">&#9881;</span>
+    </div>
+    <div class="rail">
+      <div class="gcard"><span class="kick">Nutri-Score</span><b>Why does Nesquik have a Nutri-Score A?</b></div>
+      <div class="gcard"><span class="kick">Green-Score</span><b>What the seven grades actually measure</b></div>
+    </div>
+  </div>
+
+  <div class="footstrip">
+    <p>Open Food Facts is an open database of <b>4,684,418 products</b>, plus the ones you will add.</p>
+    <span class="chip">Choose what appears here</span>
+  </div>
+
+  <!-- Urban, 2026-08-16: Home first and default, Scan stays, Community renamed
+       to Profile. No Search tab - the search field on this screen is the entry -->
+  <div class="tabbar">
+    <a class="on"><span class="g">&#9750;</span>Home</a>
+    <a class="todo" title="Not drawn yet - batch 4"><span class="g">&#9678;</span>Scan</a>
+    <a class="todo" title="Not drawn yet - batch 4"><span class="g">&#9782;</span>Lists</a>
+    <a href="../04-profile/profile-in.html"><span class="g">&#9787;</span>Profile</a>
+  </div>
+
+</div>
+
+</body>
+</html>

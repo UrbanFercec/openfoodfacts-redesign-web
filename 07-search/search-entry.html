@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search - typing</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<style>
+  /* the entry state is an overlay, not a page layout: one column, and on web it sits under
+     the header field rather than spanning 1440 */
+  .wrap.entry { max-width: 620px; padding-top: 20px; }
+  @media (min-width: 1100px) { .wrap.entry { max-width: 620px; padding: 24px 32px 60px; } }
+</style>
+</head>
+<body>
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="scope">Food <span class="ch">&#9660;</span></span>
+    <span class="q">cerea</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <span class="btn">Scan barcode</span>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="../03-home/home-app.html">&#8592;</a>
+  <span class="field">
+    <span class="scope">Food <span class="ch">&#9660;</span></span>
+    <span class="q">cerea</span>
+    <span class="go">&#9906;</span>
+  </span>
+</div>
+
+<div class="wrap entry">
+
+  <div class="rows">
+    <div class="row">
+      <span class="g">&#9906;</span>
+      <span class="t">Search <em>&ldquo;cerea&rdquo;</em></span>
+      <span class="arw">&#8250;</span>
+    </div>
+  </div>
+
+  <div class="seclbl">Search history</div>
+  <div class="rows">
+    <div class="row">
+      <span class="g">&#8635;</span>
+      <span class="t">breakfast cereals</span>
+      <span class="act"><span>&#9998;</span><span>&#10005;</span></span>
+    </div>
+    <div class="row">
+      <span class="g">&#8635;</span>
+      <span class="t">nutella</span>
+      <span class="act"><span>&#9998;</span><span>&#10005;</span></span>
+    </div>
+    <div class="row">
+      <span class="g">&#8635;</span>
+      <span class="t">3017620422003</span>
+      <span class="act"><span>&#9998;</span><span>&#10005;</span></span>
+    </div>
+  </div>
+
+  <div class="rows">
+    <div class="row">
+      <span class="g">&#9881;</span>
+      <span class="t">Advanced search <em>&ldquo;cerea&rdquo;</em></span>
+      <span class="arw">&#8599;</span>
+    </div>
+    <div class="row">
+      <span class="g">&#9707;</span>
+      <span class="t">Scan a barcode</span>
+      <span class="arw">&#8250;</span>
+    </div>
+  </div>
+
+  <span class="paste">Paste from clipboard</span>
+
+</div>
+
+</body>
+</html>

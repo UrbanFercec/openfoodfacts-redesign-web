@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product page - Nutella</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="spacer"></span>
+  <span class="btn">Search</span>
+  <span class="btn">Scan barcode</span>
+</div>
+
+<div class="appbar">
+  <span class="ico">&#8592;</span>
+  <span class="ttl">Nutella</span>
+  <span class="ico">&#8942;</span>
+</div>
+
+<div class="wrap">
+  <div class="cols">
+
+    <aside>
+      <div class="ident">
+        <div class="photo">
+          <img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt="">
+        </div>
+        <div class="txt">
+          <div class="code">3017620422003</div>
+          <h1>Nutella</h1>
+          <div class="brand">Ferrero</div>
+        </div>
+      </div>
+
+      <div class="scores">
+        <div class="shead">
+          <h2>Matching with your preferences</h2>
+          <span class="spacer"></span>
+          <span class="pill quiet"><b>3%</b> Poor match</span>
+        </div>
+
+        <div class="score">
+          <span class="lab"><span class="n">Nutri-Score E</span><span class="s">Lower nutritional quality</span></span>
+          <span class="scale"><span>A</span><span>B</span><span>C</span><span>D</span><span class="on bad">E</span></span>
+        </div>
+
+        <!-- Green-Score has SEVEN grades (A+ A B C D E F) and this product has none of them -->
+        <div class="score">
+          <span class="lab">
+            <span class="n">Green-Score not computed</span>
+            <span class="s">Missing a precise category</span>
+            <span class="fix">Add a category</span>
+          </span>
+          <span class="scale g7 off"><span>A+</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></span>
+        </div>
+
+        <div class="score">
+          <span class="lab"><span class="n">Ultra-processed foods</span><span class="s">2 ultra-processing markers</span></span>
+          <span class="scale"><span>1</span><span>2</span><span>3</span><span class="on bad">4</span></span>
+        </div>
+
+        <div class="sfoot">
+          <span class="toggle"></span>
+          <span>Your 3 criteria</span>
+          <span class="spacer"></span>
+          <span class="chip">Edit your preferences</span>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+
+      <!-- the tab set is server output: root returns health_card,
+           environment_card, report_problem_card, product_card. "Overview" and
+           "Contribute" are the client's own tabs, exactly as the shipped app
+           hard-codes For me / Prices / Folksonomy around the server ones. -->
+      <nav class="tabs">
+        <a class="on">Overview</a>
+        <a href="../02-product-subpages/v2-health.html">Health</a>
+        <a href="../02-product-subpages/v2-environment.html">Environment</a>
+        <a class="todo" title="Not drawn yet - family 1, Contribute pane">Contribute</a>
+      </nav>
+
+      <!-- Every tile opens on one tilehead: the attribute's own icon_url at 58px, its
+           title and its description_short. Server output, readable size. -->
+      <div class="tile paned">
+        <h3>Health</h3>
+        <div class="tilehead">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-e-new-en.svg" alt="">
+          <span class="h"><b>Nutri-Score E</b><i>Lower nutritional quality</i></span>
+          <span class="scale"><span>A</span><span>B</span><span>C</span><span>D</span><span class="on bad">E</span></span>
+        </div>
+        <div class="grp">
+          <div class="sub">Nutrient levels <em>per 100 g</em></div>
+          <div class="vals">
+            <span><span class="dot bad"></span>Fat <b class="bad">30.9 g</b></span>
+            <span><span class="dot bad"></span>Saturated fat <b class="bad">10.6 g</b></span>
+            <span><span class="dot bad"></span>Sugars <b class="bad">56.3 g</b></span>
+            <span><span class="dot good"></span>Salt <b>0.107 g</b></span>
+          </div>
+        </div>
+        <div class="grp">
+          <div class="sub">Allergens</div>
+          <div class="vals">
+            <span><span class="dot bad"></span><b class="bad">Milk</b></span>
+            <span><span class="dot bad"></span><b class="bad">Nuts</b></span>
+            <span><span class="dot bad"></span><b class="bad">Soybeans</b></span>
+            <span class="more">11 others: does not contain</span>
+          </div>
+        </div>
+        <div class="grp">
+          <div class="sub">Ingredient analysis</div>
+          <div class="vals">
+            <span><span class="dot bad"></span><b class="bad">Palm oil</b></span>
+            <span><span class="dot bad"></span><b class="bad">Non-vegan</b></span>
+            <span><span class="dot warn"></span><b>Maybe vegetarian</b></span>
+            <span><span class="dot warn"></span><b>2 additives</b></span>
+          </div>
+        </div>
+        <div class="tilefoot"><a href="../02-product-subpages/v2-health.html">All health details</a></div>
+      </div>
+
+      <div class="tile paned">
+        <h3>Environment</h3>
+        <div class="tilehead">
+          <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg" alt="">
+          <span class="h"><b>Green-Score not computed</b><i>Missing a precise category</i>
+            <span class="fix">Add a category</span></span>
+          <span class="scale g7 off"><span>A+</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></span>
+        </div>
+        <!-- No carbon footprint row: this BARCODE has none. 9.11 kg CO2e/kg is the
+             correct Nutella figure and every other Nutella record returns it, but
+             3017620422003 has ecoscore_data.status "unknown" and
+             agribalyse {"warning":"missing_agribalyse_match"}, and for food the
+             carbon_footprint panel only exists inside the branch that computes the
+             score (KnowledgePanels.pm:697). Root cause is the broken category tags. -->
+        <div class="grp">
+          <div class="sub">Packaging</div>
+          <div class="vals"><span>Low impact <b>Glass, paperboard, PP 5</b></span></div>
+        </div>
+        <!-- the server's own threatened_species panel, verbatim. Was a paraphrase
+             ("Ingredient linked to biodiversity loss / Palm oil") until 2026-08-17. -->
+        <div class="grp">
+          <div class="sub">Biodiversity</div>
+          <!-- one flex child, so the sentence wraps as text instead of as a second column -->
+          <div class="vals"><span><span><b class="bad">Contains palm oil</b> &middot; Drives deforestation and threatens species such as the orangutan</span></span></div>
+        </div>
+        <div class="tilefoot"><a href="../02-product-subpages/v2-environment.html">All environmental details</a></div>
+      </div>
+
+      <div class="tile">
+        <h3>Prices</h3>
+        <div class="grp">
+          <div class="sub">User reported prices</div>
+          <div class="vals"><span><b>6 prices</b> &euro;3.00 - &euro;299.00</span></div>
+        </div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All price details</a></div>
+      </div>
+
+      <div class="tile">
+        <h3>Category &amp; labels</h3>
+        <div class="grp">
+          <div class="sub">Categories</div>
+          <div class="vals"><span><b>Hazelnut spreads</b></span><span class="more">+ 7 more</span></div>
+        </div>
+        <div class="grp">
+          <div class="sub">Labels</div>
+          <div class="vals"><span><b>No gluten</b></span></div>
+        </div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All categories and labels</a></div>
+      </div>
+
+      <div class="tile">
+        <h3>Contribution</h3>
+        <div class="grp">
+          <div class="sub">Data completeness</div>
+          <div class="meter"><i style="width:79%"></i></div>
+          <div class="metertxt"><span>79% complete</span><span class="spacer"></span><span>172 contributors, last checked 5 years ago</span></div>
+        </div>
+        <div class="grp">
+          <div class="sub">Your help needed</div>
+          <div class="task"><span class="num">1</span><span class="t"><b>Add a precise category</b> <i>unlocks the Green-Score</i></span><span class="time">10 s</span></div>
+          <div class="task"><span class="num">2</span><span class="t"><b>Add the per-serving nutrition</b> <i>serving size is missing</i></span><span class="time">30 s</span></div>
+        </div>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All contribution details</a></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food preferences - the starting point</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+</head>
+<body>
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <span class="btn">Scan barcode</span>
+</div>
+
+<div class="appbar">
+  <div class="top">
+    <a class="ico" href="../04-profile/profile-in.html">&#8592;</a>
+    <span class="ttl">Personalise the app</span>
+  </div>
+  <div class="bar"><i style="width:12.5%"></i></div>
+</div>
+
+<div class="wrap">
+
+  <h1>Food Preferences</h1>
+  <div class="sub">Choose what information about food matters most to you.</div>
+
+  <div class="privacy">
+    <span class="g">&#9679;</span>
+    <span>Those food preferences stay on your device, and are not associated with your Open&#8239;Food&#8239;Facts contributor account if you have one.</span>
+  </div>
+
+  <div class="cols">
+    <div class="main">
+
+      <!-- the app step 1: the shipped IntroductionPage, which lists the attribute groups as a
+           numbered timeline. Titles are `group.name` from /api/v2/attribute_groups, in server
+           order, so the step list is the taxonomy rather than a design choice. -->
+      <div class="apponly">
+        <div class="lede">In the following steps, you can <b>personalise the app</b> by indicating your preferences:</div>
+        <div class="steps">
+          <div class="step"><span class="n">1</span><span class="t"><b>Nutritional quality</b><i>5 settings</i></span></div>
+          <div class="step"><span class="n">2</span><span class="t"><b>Food processing</b><i>2 settings</i></span></div>
+          <div class="step"><span class="n">3</span><span class="t"><b>Allergens</b><i>14 settings</i></span></div>
+          <div class="step"><span class="n">4</span><span class="t"><b>Ingredients</b><i>3 settings</i></span></div>
+          <div class="step"><span class="n">5</span><span class="t"><b>Labels</b><i>2 settings</i></span></div>
+          <div class="step"><span class="n">6</span><span class="t"><b>Environment</b><i>2 settings</i></span></div>
+        </div>
+      </div>
+
+      <!-- the web twin is one page, exactly as Explorer's /settings -> Preferences is today.
+           What is added is the per-group state: their form renders 28 rows with nothing
+           selected and no way to see whether a group is configured. -->
+      <div class="webonly">
+        <div class="grp">
+          <div class="ghead">
+            <span class="n">Nutritional quality</span>
+            <span class="gstate set">1 of 5 set</span>
+            <span class="ch">&#9660;</span>
+          </div>
+          <div class="gbody">
+            <div class="collapsed">Good nutritional quality (Nutri-Score) &middot; Very important</div>
+          </div>
+        </div>
+
+        <div class="grp">
+          <div class="ghead">
+            <span class="n">Food processing</span>
+            <span class="gstate set">1 of 2 set</span>
+            <span class="ch">&#9654;</span>
+          </div>
+        </div>
+
+        <div class="grp">
+          <div class="ghead">
+            <span class="n">Allergens</span>
+            <span class="gstate">Not set</span>
+            <span class="ch">&#9654;</span>
+          </div>
+        </div>
+
+        <div class="grp">
+          <div class="ghead">
+            <span class="n">Ingredients</span>
+            <span class="gstate">Not set</span>
+            <span class="ch">&#9654;</span>
+          </div>
+        </div>
+
+        <div class="grp">
+          <div class="ghead">
+            <span class="n">Labels</span>
+            <span class="gstate">Not set</span>
+            <span class="ch">&#9654;</span>
+          </div>
+        </div>
+
+        <div class="grp">
+          <div class="ghead">
+            <span class="n">Environment</span>
+            <span class="gstate set">1 of 2 set</span>
+            <span class="ch">&#9654;</span>
+          </div>
+        </div>
+
+        <div class="reset">Reset food preferences</div>
+      </div>
+
+    </div>
+
+    <!-- the live preview. Not ours: the shipped onboarding step already puts a real product
+         summary above the controls (onboarding/preferences_page.dart), so a preference change
+         has a visible consequence. The wizard and Explorer both dropped it.
+         Numbers below are OFF's own algorithm on live data - see api-note.md §3. -->
+    <div class="prev">
+      <div class="lbl">What this changes</div>
+      <div class="pd">
+        <img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt="">
+        <span class="t"><b>Nutella</b><i>Ferrero &middot; 3017620422003</i></span>
+      </div>
+
+      <div class="verdict">
+        <span class="badge">5%</span>
+        <span class="st">Poor match<i>With your 3 current criteria</i></span>
+      </div>
+
+      <div class="why2">
+        <div class="r"><span class="t">Nutri-Score E</span><em>Very important</em></div>
+        <div class="r"><span class="t">Green-Score not computed</span><em>Important</em></div>
+        <div class="r"><span class="t">Ultra-processed foods</span><em>Important</em></div>
+      </div>
+    </div>
+
+
+    <div class="foot">
+      <a class="later" href="../03-home/home-app.html">Later</a>
+      <span class="spacer"></span>
+      <a class="go" href="prefs-severity.html">Continue</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
