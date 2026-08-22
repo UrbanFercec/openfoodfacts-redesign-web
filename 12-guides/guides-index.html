@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides - all eight</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- ⛔ Every title and every subtitle on this page is a verbatim `app_en.arb` string: the card title
+     is the guide's own `guide_*_title` (the one its header draws), and the subtitle is that guide's
+     FIRST chapter title. Nothing is authored except the two group labels and the note at the foot.
+     ⭐ This page is the one thing batch 7 ADDS: the 8 guides have no index in the shipped app. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="../03-home/home-app.html">&#8592;</a>
+  <span class="ttl">Guides</span>
+</div>
+
+<div class="wrap">
+
+  <h1>Guides</h1>
+  <div class="hmeta">
+    <span>Eight guides, written by Open Food Facts.</span>
+  </div>
+
+  <div class="seclbl">Scores &amp; methodologies</div>
+  <div class="ggrid">
+    <a class="gcard" href="guides-reader.html">
+      <span class="art"><img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+"></span>
+      <span class="t"><b>Green-Score</b><span>What is the Green Score?</span></span>
+    </a>
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A"></span>
+      <span class="t"><b>The Nutri-Score is evolving: explanations!</b><span>What is the Nutri-Score?</span></span>
+    </a>
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods"></span>
+      <span class="t"><b>Ultra-processed foods</b><span>What is ultra-processing?</span></span>
+    </a>
+  </div>
+
+  <div class="seclbl">Discover the project</div>
+  <div class="ggrid">
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><span class="emo">&#127822;</span></span>
+      <span class="t"><b>Welcome to Open Food Facts!</b><span>What is Open Food Facts?</span></span>
+    </a>
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><span class="emo">&#129725;</span></span>
+      <span class="t"><b>Welcome to Open Beauty Facts!</b><span>What is Open Beauty Facts?</span></span>
+    </a>
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><span class="emo">&#128054;</span></span>
+      <span class="t"><b>Welcome to Open Pet Food Facts!</b><span>What is Open Pet Food Facts?</span></span>
+    </a>
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><span class="emo">&#128230;</span></span>
+      <span class="t"><b>Welcome to Open Products Facts!</b><span>What is Open Products Facts?</span></span>
+    </a>
+    <a class="gcard todo" title="Only the Green-Score guide is drawn - one reader, eight bodies">
+      <span class="art"><span class="emo">&#128181;</span></span>
+      <span class="t"><b>Welcome to Open Prices!</b><span>What is Open Prices?</span></span>
+    </a>
+  </div>
+
+  <!-- ⛔ The correction this page exists to make visible. Batch 5 moved the five `Discover …` rows
+       off the FAQ root and onto `about.html`, described in its ledger row as "5 sibling-project
+       links". They are not links: every one of them pushes an IN-APP GUIDE
+       (faq_root.dart:131, :148, :165, :182, :198 -> AppRoutes.GUIDE_OPEN_*), and one of them even
+       loads its icon from `assets/guides/open_prices/`. So they belong to this index. -->
+  <div class="surfaces">
+    <b>Where a guide can be read today.</b>
+    <span>All eight are inside the app, reached one at a time from the FAQ screen in settings. There is no index, so there is no way to see that there are eight. On the web they do not exist at all: the newer site shows the old site&rsquo;s page in a frame instead. Changing a word in a guide currently needs an app release.</span>
+  </div>
+
+</div>
+
+</body>
+</html>
