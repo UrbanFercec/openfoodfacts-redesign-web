@@ -10,18 +10,6 @@
 </head>
 <body>
 
-<!-- ⭐ THIS BATCH HAS A REAL WEB TWIN, unlike batch 4. Explorer ships product edit AND photo
-     upload today: `openfoodfacts-explorer/src/routes/products/[barcode]/edit/+page.svelte` (589
-     lines) with `EditProductForm.svelte`, `AddProductForm.svelte`,
-     `edit-product-steps/ImagesStep.svelte`, `ImageManagerCard.svelte`, `ImageModal.svelte`, and it
-     persists through `$lib/api/product.ts` - `addOrEditProductV2`, `updatePackagingsV3`,
-     `uploadImageV3`, `selectAndCropImagesV3`, `unselectImageV3` - against the real write API.
-
-     ⛔ Same design at two widths (design-constraints.md §7c); only the SHELL is per-surface. What
-     the extra width buys is not more content, it is FEWER TAPS: every section that is collapsed on
-     the phone is open here, and the rail is the same ordered list the phone shows as cards. The
-     phone orders by what is missing; so does this. -->
-
 <div class="webbar">
   <span class="logo">open <em>FOOD</em> facts</span>
   <span class="spacer"></span>
@@ -48,7 +36,6 @@
 
   <div class="ecols">
 
-    <!-- the rail is the phone's card order, as a jump list. Same ranking, same shipped labels. -->
     <aside class="erail">
       <div class="pcard2">
         <h3>Needs data</h3>
@@ -153,9 +140,7 @@
           <div class="tags">
             <span class="chip">Maretti <i>&#10005;</i></span>
           </div>
-          <!-- the same real Robotoff insight the phone draws: `product_weight` = `150 g`,
-               predictor `regex`, proof `/380/020/587/2962/2.jpg`. On the web the proof crop can be
-               bigger, which is the only thing that changes. -->
+          
           <div class="sugg">
             <div class="sg">
               <span>Quantity and weight</span><b>150 g</b>

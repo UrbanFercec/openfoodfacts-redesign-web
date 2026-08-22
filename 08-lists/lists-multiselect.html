@@ -10,14 +10,10 @@
 </head>
 <body>
 
-<!-- shell: Lists tab = one of the four flat slots, Home default, no Search tab (shell-contract.md, rows Tabs + Search) -->
-
 <div class="app">
 
   <div class="dim">
-    <!-- shipped swaps the whole app bar for ✕ + a pluralised SENTENCE, not "2 selected".
-         `multiselect_title` = {=0 No selected product, =1 One selected product,
-         other {count} selected products} - so the string on screen is exact, not shortened. -->
+    
     <div class="lbar sel">
       <span class="ico">&#10005;</span>
       <span class="count">2 selected products</span>
@@ -79,9 +75,6 @@
     </div>
   </div>
 
-  <!-- `menu_button_list_actions` titles it; the three items are the shipped labels from
-       product_list_item_popup_items.dart. ⛔ Compare stays out: it is family 11 and it is
-       dev-flag gated in the shipped menu (ProductListItemPopupSideBySide). -->
   <div class="sheet">
     <div class="grab"><span class="bar"></span></div>
     <div class="shd">

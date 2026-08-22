@@ -10,23 +10,14 @@
 </head>
 <body>
 
-<!-- shell: Lists tab = one of the four flat slots, Home default, no Search tab (shell-contract.md, rows Tabs + Search) -->
-
 <div class="app">
 
-  <!-- CHANGED: ONE generated list, called History. Shipped has three that overlap
-       (All viewed products / Scan history / Products from the Scan screen) and their own
-       newer artboards already merged them into "Historique des produits consultés"
-       (their-designs/all/Lists/05-10). The title is the switcher, with an edge on it. -->
   <div class="lbar">
     <a class="ltitle" href="lists-switcher.html"><b>History</b><span class="ch">&#8597;</span></a>
     <span class="spacer"></span>
     <a class="ico" href="lists-menu.html">&#8942;</a>
   </div>
 
-  <!-- `user_list_length` gives the count sentence. The chip is the promotion: shipped
-       history gives no reason to come back, and `preferences_contributions_all_incomplete_subtitle`
-       is already the shipped words for what it filters to. -->
   <div class="lmeta">
     <span>5 products</span>
     <span class="spacer"></span>
@@ -86,9 +77,6 @@
       <span class="chev">&rsaquo;</span>
     </a>
 
-    <!-- the two rows that carry a gap. No badge at all on this one: the shipped helper
-         hides the percentage for UNKNOWN_MATCH (getFormattedScore returns null), so the
-         honest thing on screen is the missing-data line, not a 0%. -->
     <a class="plrow todo" title="Only Nutella has a product page drawn">
       <div class="thumb">
         <img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.200.jpg" alt="">

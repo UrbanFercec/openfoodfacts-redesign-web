@@ -10,26 +10,19 @@
 </head>
 <body>
 
-<!-- shell: Home tab = a home with a prominent Scan button, never a full-bleed camera (shell-contract.md line 16 + design-constraints.md §8c, conceded to the founder) -->
-
 <div class="app">
 
-  <!-- their block two, now first: the Scan tab carries the full-screen scanner,
-       so the home keeps the logo + search and the scan block shrinks to a banner -->
   <div class="brandblock">
     <div class="logo">open <em>FOOD</em> facts</div>
     <a class="searchpill" href="../07-search/search-entry.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
   </div>
 
-  <!-- compact scan banner. Copy is their own shipped string
-       `homepage_scanner_overlay_message`, already in 128 locales -->
   <div class="scanbar">
     <span class="glyph">||||</span>
     <span class="t">Tap to scan a <b>barcode</b><br>and discover if it's <b>good for you</b>!</span>
     <span class="chev">&rsaquo;</span>
   </div>
 
-  <!-- CHANGED: the user's own scans come FIRST, not seventh (§8b) -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>Last scanned products</span>
@@ -60,10 +53,6 @@
     </div>
   </div>
 
-  <!-- MOVED HERE from the Community tab (Urban, 2026-08-16). The three action
-       tiles are theirs, from `Profil (connecté)` and live in the app today.
-       The two counters come with them but stop being the hero: one line, and
-       a zero says what to do next instead of showing a scoreboard of nothing. -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>Contribute</span>
@@ -83,9 +72,6 @@
     </div>
   </div>
 
-  <!-- ONE rotating tagline slot, below the user's own scans, carrying the
-       funding meter that is already live in production (#7667 + assets#73).
-       Title, message, button label and both numbers are the real feed. -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>From Open Food Facts</span>
@@ -109,7 +95,6 @@
     </div>
   </div>
 
-  <!-- their own module, from the `HomePage Personnalisation` list -->
   <div class="mod">
     <div class="mhead">
       <span class="mlabel"><i></i>Most scanned products</span>
@@ -150,8 +135,6 @@
     <span class="chip">Choose what appears here</span>
   </div>
 
-  <!-- Urban, 2026-08-16: Home first and default, Scan stays, Community renamed
-       to Profile. No Search tab - the search field on this screen is the entry -->
   <div class="tabbar">
     <a class="on"><span class="g">&#9750;</span>Home</a>
     <a href="../07-scan-states/scan-default.html"><span class="g">&#9678;</span>Scan</a>

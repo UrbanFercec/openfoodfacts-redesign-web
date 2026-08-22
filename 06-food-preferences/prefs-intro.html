@@ -41,9 +41,6 @@
   <div class="cols">
     <div class="main">
 
-      <!-- the app step 1: the shipped IntroductionPage, which lists the attribute groups as a
-           numbered timeline. Titles are `group.name` from /api/v2/attribute_groups, in server
-           order, so the step list is the taxonomy rather than a design choice. -->
       <div class="apponly">
         <div class="lede">In the following steps, you can <b>personalise the app</b> by indicating your preferences:</div>
         <div class="steps">
@@ -56,9 +53,6 @@
         </div>
       </div>
 
-      <!-- the web twin is one page, exactly as Explorer's /settings -> Preferences is today.
-           What is added is the per-group state: their form renders 28 rows with nothing
-           selected and no way to see whether a group is configured. -->
       <div class="webonly">
         <div class="grp">
           <div class="ghead">
@@ -116,10 +110,6 @@
 
     </div>
 
-    <!-- the live preview. Not ours: the shipped onboarding step already puts a real product
-         summary above the controls (onboarding/preferences_page.dart), so a preference change
-         has a visible consequence. The wizard and Explorer both dropped it.
-         Numbers below are OFF's own algorithm on live data - see api-note.md §3. -->
     <div class="prev">
       <div class="lbl">What this changes</div>
       <div class="pd">
@@ -138,7 +128,6 @@
         <div class="r"><span class="t">Ultra-processed foods</span><em>Important</em></div>
       </div>
     </div>
-
 
     <div class="foot">
       <a class="later" href="../03-home/home-app.html">Later</a>

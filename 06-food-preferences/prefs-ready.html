@@ -20,8 +20,6 @@
   <span class="btn">Scan barcode</span>
 </div>
 
-<!-- the shipped wizard hides the progress bar at 100% (`progress == 1 ? null : FAProgressBar`),
-     so the summary step has no bar - copied rather than decided. -->
 <div class="appbar">
   <div class="top">
     <a class="ico" href="prefs-group.html">&#8592;</a>
@@ -42,10 +40,6 @@
   <div class="cols">
     <div class="main">
 
-      <!-- the app's summary step: one section per group with an edit pencil, exactly as
-           summary_page.dart + summary_section.dart already build it. What is added is the LEVEL
-           beside each row, because a summary that lists "Nutri-Score" without saying how much it
-           weighs cannot be checked. -->
       <div class="apponly">
         <div class="lede">Here is your profile:</div>
 
@@ -106,8 +100,6 @@
         </div>
       </div>
 
-      <!-- the web page after it is configured. Same six group cards, each carrying its own state,
-           which is what makes a return visit readable. -->
       <div class="webonly">
         <div class="grp">
           <div class="ghead"><span class="n">Nutritional quality</span><span class="gstate set">2 of 5 set</span><span class="ch">&#9654;</span></div>
@@ -153,7 +145,6 @@
         <div class="r"><span class="t">Ultra-processed foods</span><em>Important</em></div>
       </div>
     </div>
-
 
     <div class="foot">
       <span class="spacer"></span>

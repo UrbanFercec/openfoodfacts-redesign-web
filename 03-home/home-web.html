@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<!-- his header, his nav strip -->
 <div class="webbar">
   <span class="logo">open <em>FOOD</em> facts</span>
   <span class="spacer"></span>
@@ -30,8 +29,6 @@
   <span>Prices</span><span>Folksonomy</span><span>Facets</span>
 </div>
 
-<!-- his hero card, with the search field folded in so the first action on web
-     is the same as the first action in the app -->
 <div class="hero">
   <div class="card">
     <div class="logo">open <em>FOOD</em> facts</div>
@@ -54,13 +51,6 @@
     <div class="stat"><b>100%</b><span>Open data</span></div>
   </div>
 
-  <!-- PROMOTED: getting a phone in hand is the highest-value action on this
-       page and it is the one we can actually measure (Play Console attributes
-       installs by UTM, metrics-baseline Q2). It used to be a thin strip below
-       the fundraiser; it is now the band right under the stats, with a QR,
-       because a store badge on a 1440 desktop cannot be tapped.
-       ⚠️ The QR carries utm_campaign=install_the_app_web_home_hero, NOT the
-       existing ..._footer, so the two placements stay distinguishable. -->
   <div class="appband">
     <div class="phone"><div class="screen"><img src="renders/home-app-412.png" alt=""></div></div>
     <div>
@@ -79,19 +69,13 @@
         <span class="badge">APK</span>
       </div>
     </div>
-    <!-- ONE code, pointing at OFF's own install page, which already detects
-         Android / iOS / Windows and already forwards the UTM parameters.
-         Rendered at 200px: this exact PNG was decoded back at that size, and it
-         stops decoding below ~140px (49 modules) -->
+    
     <div class="qr">
       <img src="qr-get-the-app.png" alt="">
       <span>Point your camera here</span>
     </div>
   </div>
 
-  <!-- CHANGED: his banner is the live site's raw asset. Same campaign, same
-       numbers, redrawn in the palette and carrying the meter that already
-       ships in the app. Both figures come from the feed. -->
   <div class="support">
     <div>
       <h3>Help us inform millions of consumers on what they eat</h3>
@@ -108,8 +92,6 @@
     </div>
   </div>
 
-  <!-- ADDED: the same module as the app home. Same search-a-licious query,
-       no login, no new endpoint -->
   <div class="sechead">
     <h3>Most scanned products</h3>
     <p>What people around you actually put in the basket.</p>
@@ -142,10 +124,6 @@
     </div>
   </div>
 
-  <!-- ADDED: personalisation, stated. Explorer already stores food preferences
-       in localStorage with no account, and its home already renders the toggle;
-       what is missing is saying WHICH criteria are on and letting you change
-       them here. The live Perl site ships this framing and Explorer dropped it -->
   <div class="prefstrip">
     <div class="l">
       <b>Matching with your preferences</b>
@@ -161,8 +139,6 @@
     <p>Six products scanned near you that are missing one thing each.</p>
   </div>
 
-  <!-- CHANGED: his cards print score badge images with a "?" in them. These
-       say which field is missing and what filling it unlocks. -->
   <div class="grid3">
 
     <div class="icard">

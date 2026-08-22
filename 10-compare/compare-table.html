@@ -10,13 +10,6 @@
 </head>
 <body>
 
-<!-- Every value is live: three products pulled in one api/v2 call, saved as
-     ../../evidence/batch7_compare_products_2026-08-22.json. The score rows are
-     `attribute.title` verbatim, the nutrient numbers are `nutriments.*_100g`, the dot beside a
-     nutrient is READ from the server's own `low_*` verdict (never derived from the number), and
-     the % is OFF's own MatchedScoreV2 (../05-search/match.py).
-     Section headings and the mode switch are Explorer's own i18n keys, verbatim. -->
-
 <div class="webbar">
   <span class="logo">open <em>FOOD</em> facts</span>
   <span class="field">
@@ -41,7 +34,6 @@
     <span class="spacer"></span>
   </div>
 
-  <!-- ⭐ all three modes already ship on Explorer (compare.mode_absolute / _vs_first / _vs_best) -->
   <div class="acts">
     <span class="lbl">Show</span>
     <span class="mode on">Absolute</span>
@@ -163,10 +155,6 @@
       <div class="v"><span class="d good"></span><span class="num">0.0125</span><span class="u">g &middot; Salt in low quantity</span></div>
     </div>
 
-    <!-- ⛔ 15 of the 28 attributes are byte-identical across all three products and 1 nutrient is
-         too, so they are one row instead of sixteen. The 6 that differ are allergen, label and diet
-         flags, which are not better or worse - only the user's preferences make one matter, so they
-         open rather than rank (design-system.md §3h tier 1) -->
     <div class="samerow">
       <b>Allergens, labels and diet</b> &middot; 6 differ, 15 are the same for all three
       <span class="ch">&#9662;</span>

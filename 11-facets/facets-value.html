@@ -10,12 +10,6 @@
 </head>
 <body>
 
-<!-- Every product string on this page is server output, verbatim: the names, brands and
-     quantities are `product_name_en` / `brands` / `quantity` from api/v2 (evidence
-     batch7_facet_products_api_2026-08-22.json), the verdict lines are `attribute.title` and
-     `attribute.description_short`, and the % is computed by OFF's OWN algorithm
-     (screens/05-search/match.py, the ported MatchedScoreV2). api-note.md has the derivation. -->
-
 <div class="webbar">
   <span class="logo">open <em>FOOD</em> facts</span>
   <span class="field">
@@ -36,7 +30,6 @@
 
 <div class="wrap">
 
-  <!-- `Belongs to:` on the live page is five stacked links. They are a taxonomy PATH, so one line -->
   <div class="crumb">
     <a href="facets-index.html">Facets</a><span class="sep">&rsaquo;</span>
     <a href="facets-values.html">Categories</a><span class="sep">&rsaquo;</span>
@@ -53,8 +46,6 @@
 
   <div class="critline"><span>Sorted by your <b>3 criteria</b>: Nutri-Score, Green-Score, NOVA</span> <a class="todo" title="Food preferences - screens/06-food-preferences">Edit</a></div>
 
-  <!-- ⭐ The live site already computes all four of these. They are one `swap_vert` dropdown
-       nobody opens; here they are the control -->
   <div class="sortbar">
     <span class="lbl">Sort</span>
     <span class="sort on">Sorted by your preferences</span>
@@ -210,9 +201,6 @@
           </div>
         </a>
 
-        <!-- ⛔ drawn with `product_name_en` on purpose: this product's `product_name` is
-             `Céréales Chocapic`, so a client reading product_name prints French here. 10 of the
-             50 products on this one page have that gap - api-note.md §5 -->
         <a class="res todo" title="Product page - screens/01-product-page draws a different product">
           <div class="shot">
             <span class="badge bad">35%</span>
@@ -242,9 +230,6 @@
         <span>50 per page</span>
       </div>
 
-      <!-- ⛔ The `Facet knowledge panel` heading is on every facet page on BOTH surfaces, and one
-           panel comes back: a Robotoff task. So it sits under the results, where a task belongs,
-           not in the rail above them. Enumerated over 6 facet types - api-note.md §3 -->
       <div class="card">
         <h2>Facet knowledge panel</h2>
         <div class="note">One panel comes back for this category, and for every other facet we asked.</div>

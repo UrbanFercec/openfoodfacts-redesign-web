@@ -10,12 +10,8 @@
 </head>
 <body>
 
-<!-- shell: Lists tab = one of the four flat slots, Home default, no Search tab (shell-contract.md, rows Tabs + Search) -->
-
 <div class="app">
 
-  <!-- the sheet covers the tab bar, exactly as it does in the shipped app
-       (captures/2026-08-21-app/frames/v4_t005) -->
   <div class="dim">
     <div class="lbar">
       <span class="ltitle"><b>History</b><span class="ch">&#8597;</span></span>
@@ -63,9 +59,6 @@
     </div>
   </div>
 
-  <!-- ONE generated list instead of three. `product_list_select` is the shipped sheet
-       title, `user_list_length` the shipped count sentence, `user_list_button_new` the
-       shipped create row, and `My list` is the shipped name hint (`user_list_name_hint`). -->
   <div class="sheet">
     <div class="grab"><span class="bar"></span></div>
     <div class="shd">
@@ -92,10 +85,6 @@
       <span class="t"><b>Create a new list</b></span>
     </a>
 
-    <!-- ⛔ ADDED 2026-08-21 (_CHANGES-REQUESTED.md). The switcher is where a user picks a list, so
-         it is also where the app should say what a list can be filled FROM. `user_list_add_product`
-         is the shipped sentence and it names both halves - the product, and your lists.
-         ✅ CLOSED 2026-08-22, same as the empty state: the product footer is drawn (decision D). -->
     <a class="srow" href="../01-product-page/product-nutella.html">
       <span class="g">&#8853;</span>
       <span class="t"><b>Add the product to your lists</b></span>

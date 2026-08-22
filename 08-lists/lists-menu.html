@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Lists tab = one of the four flat slots, Home default, no Search tab (shell-contract.md, rows Tabs + Search) -->
-
 <div class="app popwrap">
 
   <div class="lbar">
@@ -20,11 +18,6 @@
     <a class="ico" href="lists-history.html">&#8942;</a>
   </div>
 
-  <!-- CHANGED: the two items that can never apply to a generated list say so instead of
-       being absent. In the shipped app `ProductListPopupDelete` and `...Rename` exist as
-       classes but the History menu never inserts them (product_list_page.dart:157-160
-       builds rename/share/openInWeb/clear only), so a user who wants to rename or delete
-       a list finds nothing at all and no reason why. Labels are the shipped ones. -->
   <div class="pop">
     <div class="srow">
       <span class="g">&#10150;</span>

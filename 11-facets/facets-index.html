@@ -10,11 +10,6 @@
 </head>
 <body>
 
-<!-- The 29 facet names are Explorer's own array (routes/facets/+page.ts:34-70), verbatim.
-     Every count is live: one `<facet>.json` call per facet against staging, 2026-08-22, saved as
-     ../../evidence/batch7_facet_index_counts_2026-08-22.json. The `Unknown` figures are the
-     server's own top tag for that facet - its name is literally `Unknown`. -->
-
 <div class="webbar">
   <span class="logo">open <em>FOOD</em> facts</span>
   <span class="field">
@@ -52,8 +47,6 @@
     <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9645;</span><b>Packaging</b><span>25,824 values &middot; Plastic leads with 128,415</span></a>
   </div>
 
-  <!-- ⭐ Three facets whose largest single value is `Unknown`, by the server's own count. A grade
-       facet is therefore a contribution surface as much as a browse one (design-system.md §4 rule 3) -->
   <div class="seclbl">What the scores say, and what they do not</div>
   <div class="fgrid">
     <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9679;</span><b>Nutrition grades</b><span>7 grades &middot; <b>2,291,283 Unknown</b></span></a>
@@ -66,8 +59,6 @@
   <div class="fgrid">
     <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9873;</span><b>Countries</b><span>476 values &middot; France leads with 1,114,545</span></a>
 
-    <!-- ⛔ 16 of Explorer's 29 facets are contributor and data-quality facets, not shopper ones.
-         They are not dropped - they are one row, and the row says what they are -->
     <a class="fcard wide todo" title="The 16 contributor facets - not drawn in this batch"><b>Data and contribution &rsaquo;</b><span>The other 16 facets: contributors, states, teams, data sources, languages, entry and last-edit dates, last-check dates, traceability codes, manufacturing places, added vitamins, minerals, amino acids, nucleotides, other nutritional substances, miscellaneous</span></a>
   </div>
 

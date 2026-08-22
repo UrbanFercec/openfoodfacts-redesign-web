@@ -10,21 +10,14 @@
 </head>
 <body>
 
-<!-- shell: Profile tab = the renamed Community tab, one of four flat slots (shell-contract.md, rows Tabs + First tab's name) -->
-
 <div class="app">
 
-  <!-- the pencil is the shipped `preferences_manage_account_tooltip` button; Sign out lives
-       behind it, in AccountRoot, exactly as the app and their `16_My_account` artboard do.
-       ⛔ no member-since line: `registered_t` is not on any API today (api-asks.md A8) -->
   <div class="phead">
     <span class="av">&#127818;</span>
     <span class="who"><b>teolemon</b></span>
     <span class="edit">&#9998;</span>
   </div>
 
-  <!-- the record stays here. The three ACTIONS that used to sit above it are
-       now on Home, where intent already is -->
   <div class="record">
     <div class="recs">
       <div class="rec"><b>431,052</b><span>Products modified</span></div>
@@ -33,18 +26,13 @@
     <div class="statlink">See all stats <span class="go2">&rsaquo;</span></div>
   </div>
 
-  <!-- pinned in production: it is the one part of the collapsing header that survives the
-       collapse (profile_app_bar.dart:34-40) -->
   <div class="psearch">
     <div class="searchpill"><span>Search for a setting (e.g. Nutri-Score)</span><span class="go">&#9906;</span></div>
   </div>
 
   <div class="pcard2">
     <h3>Customize the app</h3>
-    <!-- ⛔ FOUR verticals, not one. This card is the ONLY route to Beauty / Pet food / Products
-         preferences in the shipped app (`FoodPreferencesPage(project:)`), and design-constraints.md
-         §4 makes the four a hard context. Their Prefs_V2/06 shows one row because their file is
-         food-only. The postscript is the shipped `myPreferences_not_configured_yet`. -->
+    
     <a class="setrow" href="../06-food-preferences/prefs-intro.html">
       <span class="pi">&#127838;</span>
       <span class="t"><b>Food Preferences</b><i>Choose what information about food matters most to you.</i></span>

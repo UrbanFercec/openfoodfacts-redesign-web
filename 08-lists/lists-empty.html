@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<!-- shell: Lists tab = one of the four flat slots, Home default, no Search tab (shell-contract.md, rows Tabs + Search) -->
-
 <div class="app">
 
   <div class="lbar">
@@ -20,14 +18,6 @@
     <a class="ico" href="lists-menu.html">&#8942;</a>
   </div>
 
-  <!-- every string is shipped: `product_list_empty_message`, `product_list_empty_title` on the
-       primary button, and `user_list_add_product` on the second one. ⛔ The count line and the
-       filter chip are dropped here - an empty list has nothing to count and nothing to fix.
-       ⛔ CHANGED 2026-08-21 (_CHANGES-REQUESTED.md): the second action. Before this, the only
-       way to fill a list you had just created was to go and scan something, which is what Urban
-       called "kind of dumb" - and the app already ships the other way, on the product footer.
-       ✅ CLOSED 2026-08-22: the product footer is now drawn (decision D), so this is a live route
-       instead of a named gap - `screens/01-product-page` carries `Add to list` as one of four. -->
   <div class="empty">
     <div class="art">||||</div>
     <p>Scanned products will appear here and you can check detailed information about them</p>

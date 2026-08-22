@@ -10,13 +10,10 @@
 </head>
 <body>
 
-<!-- shell: Scan tab = the FULL-SCREEN scanner, and a scanned product arrives as a bottom sheet over the video (shell-contract.md line 16). The flat four-slot bar stays on it, because Scan is a TAB and not a modal (same file, the block CLOSED 2026-08-18) - so the camera fills everything above the bar and nothing else. -->
-
 <div class="app full">
 
   <div class="scan">
-    <!-- ⛔ no Clear / Compare chips here: they appear only once something has been scanned
-         (scan_header.dart, and frame t067 has none while t108 onwards do) -->
+    
     <div class="ctop">
       <span class="spacer"></span>
       <a class="cbtn" href="../07-search/search-entry.html" title="Enter the Barcode">&#9000;</a>
@@ -26,10 +23,6 @@
 
     <div class="reticle"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i><span class="glyph"></span></div>
 
-    <!-- `HomePageScannerMessageOverlay` with `homepage_scanner_banner_start_scanning` - both
-         shipped, and this is the English of the sentence on their own artboards 20 / 21 / 28.
-         ⭐ The whole `homepage_scanner_*` string family exists because OFF already built a
-         full-bleed scanner behind `__homePageV2`; it is translated into 128 locales. -->
     <div class="hint">
       <span class="i">&#9432;</span>
       <span class="t">Scan a product by approaching its barcode</span>

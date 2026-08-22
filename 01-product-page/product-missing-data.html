@@ -38,7 +38,6 @@
         </div>
       </div>
 
-      <!-- Same card, unknown state. Every string is what the API returns for this barcode. -->
       <div class="scores">
         <div class="shead">
           <h2>Matching with your preferences</h2>
@@ -80,9 +79,7 @@
           <span class="chip">Edit your preferences</span>
         </div>
       </div>
-      <!-- ⛔ decision D, 2026-08-22. Four promoted actions + the overflow. Why four and not the
-           "12" three of our own docs claimed: mock.css, the .pfoot block. Every label is a
-           verbatim app_en.arb string. -->
+      
       <div class="pfoot">
         <a class="pact prime" href="#"><span class="g">&#9998;</span>Edit</a>
         <a class="pact" href="product-actions.html"><span class="g">&#9782;</span>Add to list</a>
@@ -94,10 +91,6 @@
 
     <main>
 
-      <!-- the tab set is server output: root returns health_card,
-           environment_card, report_problem_card, product_card. "Overview" and
-           "Contribute" are the client's own tabs, exactly as the shipped app
-           hard-codes For me / Prices / Folksonomy around the server ones. -->
       <nav class="tabs">
         <a class="on">Overview</a>
         <a href="../02-product-subpages/v2-health.html">Health</a>
@@ -105,8 +98,6 @@
         <a class="todo" title="Not drawn yet - family 1, Contribute pane">Contribute</a>
       </nav>
 
-      <!-- the dataless product opens with the route out of it, not with
-           six lines of "not available for this product" -->
       <div class="tile">
         <h3>What we do not know yet</h3>
         <div class="grp">
@@ -123,8 +114,6 @@
         <div class="tilefoot"><a class="todo" title="Not drawn yet">Start with the front photo</a></div>
       </div>
 
-      <!-- the tilehead carries the UNKNOWN icon the server actually returns for this
-           barcode - nutriscore-unknown-new-en.svg, not a worst-grade stand-in -->
       <div class="tile paned">
         <h3>Health</h3>
         <div class="tilehead">
@@ -184,7 +173,6 @@
     </main>
   </div>
 </div>
-
 
 </body>
 </html>
