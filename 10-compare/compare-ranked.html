@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My personalised ranking - Breakfast cereals</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- The list is the shipped `PersonalizedRankingPage`, restyled. Products, grades and verdict
+     lines are live data (../../evidence/batch7_facets_corpus.json), the order and the section
+     grouping are OFF's own MatchedScoreV2 (../05-search/match.py), and every label is a shipped
+     `app_en.arb` string: myPersonalizedRanking, match_very_good / match_good / match_poor,
+     multiselect_title, product_list_compare_side_by_side. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<!-- the shipped app bar is two lines: the source above, what the screen IS below (frames
+     alternatives-01, ranking-02) -->
+<div class="appbar">
+  <a class="ico" href="../11-facets/facets-value.html">&#8592;</a>
+  <span class="ttl"><b>Breakfast cereals</b><i>My personalised ranking</i></span>
+  <span class="ov">&#8942;</span>
+</div>
+
+<div class="wrap">
+
+  <h1>My personalised ranking</h1>
+  <div class="hmeta">
+    <span>Breakfast cereals &middot; <b>50 products</b></span>
+    <span class="spacer"></span>
+  </div>
+
+  <div class="cols">
+
+    <aside>
+      <div class="card">
+        <h2>Your 3 criteria</h2>
+        <div class="note">The order below is these three, weighted as you set them.</div>
+        <ul class="crit">
+          <li><span class="d good"></span>Good nutritional quality (Nutri-Score)<span class="w">Very important</span></li>
+          <li><span class="d good"></span>Low environmental impact (Green-Score)<span class="w">Important</span></li>
+          <li><span class="d good"></span>No or little food processing (NOVA group)<span class="w">Important</span></li>
+        </ul>
+        <a class="chip todo" title="Food preferences - screens/06-food-preferences">Edit your food preferences</a>
+      </div>
+
+      <div class="card">
+        <h2>Pick two or three</h2>
+        <div class="note">A ranking answers which one. Side by side answers how they differ. Both are this screen.</div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="results">
+
+        <div class="grp good">Very good match <span class="n">16 of 50</span></div>
+
+        <a class="res pickable sel" href="compare-table.html">
+          <div class="shot">
+            <span class="badge good">95%</span>
+            <img src="https://images.openfoodfacts.org/images/products/509/980/100/3339/front_en.6.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Organic Jumbo Oats</div>
+            <div class="sub">Flahavan&rsquo;s &middot; 1kg</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Green-Score A+</b><i>Very low environmental impact</i></div>
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+            </div>
+          </div>
+          <div class="pickbox"><span class="pick on">&#10003;</span></div>
+        </a>
+
+        <a class="res pickable todo" title="Only the three selected products have a side-by-side drawn">
+          <div class="shot">
+            <span class="badge good">90%</span>
+            <img src="https://images.openfoodfacts.org/images/products/500/010/802/2152/front_en.61.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">BRITISH PORRIDGE OATS</div>
+            <div class="sub">QUAKER &middot; 1kg</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg" alt="Green-Score A">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Unprocessed or minimally processed foods</b></div>
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+            </div>
+          </div>
+          <div class="pickbox"><span class="pick">&#43;</span></div>
+        </a>
+
+        <a class="res pickable todo" title="Only the three selected products have a side-by-side drawn">
+          <div class="shot">
+            <span class="badge good">88%</span>
+            <img src="https://images.openfoodfacts.org/images/products/322/982/001/9307/front_fr.300.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Flocons d&rsquo;avoine</div>
+            <div class="sub">Bjorg &middot; 500 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg" alt="Green-Score A">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Green-Score A</b><i>Very low environmental impact</i></div>
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+            </div>
+          </div>
+          <div class="pickbox"><span class="pick">&#43;</span></div>
+        </a>
+
+        <div class="grp warn">Good match <span class="n">17 of 50</span></div>
+
+        <a class="res pickable sel" href="compare-table.html">
+          <div class="shot">
+            <span class="badge warn">74%</span>
+            <img src="https://images.openfoodfacts.org/images/products/501/002/900/0016/front_en.44.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Weetabix</div>
+            <div class="sub">Weetabix &middot; 430 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg" alt="Green-Score C">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+              <div><span class="d unk"></span><b>Green-Score C</b><i>Moderate environmental impact</i></div>
+            </div>
+          </div>
+          <div class="pickbox"><span class="pick on">&#10003;</span></div>
+        </a>
+
+        <div class="grp bad">Poor match <span class="n">17 of 50</span></div>
+
+        <a class="res pickable sel" href="compare-table.html">
+          <div class="shot">
+            <span class="badge bad">35%</span>
+            <img src="https://images.openfoodfacts.org/images/products/761/303/462/6844/front_fr.355.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Chocapic Cereals</div>
+            <div class="sub">Nestl&eacute;, Chocapic &middot; 430 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg" alt="Nutri-Score C">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg" alt="Green-Score D">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d unk"></span><b>Nutri-Score C</b><i>Average nutritional quality</i></div>
+              <div><span class="d bad"></span><b>Ultra-processed foods</b></div>
+            </div>
+          </div>
+          <div class="pickbox"><span class="pick on">&#10003;</span></div>
+        </a>
+
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<!-- their own artboards put this bar at the foot of every screen in comparison mode
+     (Comparaison_WIP/04, 05: `2 produits sélectionnés` + `Tout sélectionner` + `Comparer`).
+     Both labels here are shipped English arb strings instead -->
+<div class="selbar">
+  <b>3 selected products</b>
+  <span class="spacer"></span>
+  <a class="btnpeach" href="compare-table.html">Compare side by side</a>
+</div>
+
+</body>
+</html>

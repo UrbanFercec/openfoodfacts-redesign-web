@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare Products - side by side</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- Every value is live: three products pulled in one api/v2 call, saved as
+     ../../evidence/batch7_compare_products_2026-08-22.json. The score rows are
+     `attribute.title` verbatim, the nutrient numbers are `nutriments.*_100g`, the dot beside a
+     nutrient is READ from the server's own `low_*` verdict (never derived from the number), and
+     the % is OFF's own MatchedScoreV2 (../05-search/match.py).
+     Section headings and the mode switch are Explorer's own i18n keys, verbatim. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="compare-ranked.html">&#8592;</a>
+  <span class="ttl"><b>Compare Products</b><i>3 selected products</i></span>
+  <span class="ov">&#8942;</span>
+</div>
+
+<div class="wrap">
+
+  <h1>Compare Products</h1>
+  <div class="hmeta">
+    <span><b>3 selected products</b></span>
+    <span class="spacer"></span>
+  </div>
+
+  <!-- ⭐ all three modes already ship on Explorer (compare.mode_absolute / _vs_first / _vs_best) -->
+  <div class="acts">
+    <span class="lbl">Show</span>
+    <span class="mode on">Absolute</span>
+    <span class="mode">vs First</span>
+    <span class="mode">vs Best</span>
+    <span class="spacer"></span>
+    <a class="txt todo" title="Shipped on Explorer: it builds /compare/shared?barcodes=…">Share</a>
+    <a class="txt todo" title="Shipped on Explorer: compare.clear_all">Clear All</a>
+  </div>
+
+  <div class="cmp">
+    <div class="hd">
+      <div class="corner">
+        <b>Your 3 criteria</b>
+        Nutri-Score, Green-Score, NOVA
+      </div>
+      <a class="who todo" title="Product page - screens/01-product-page draws a different product">
+        <span class="pic"><img src="https://images.openfoodfacts.org/images/products/501/002/900/0016/front_en.44.400.jpg" alt=""></span>
+        <span class="pct warn">74%</span>
+        <b>Weetabix</b><i>Weetabix &middot; 430 g</i>
+      </a>
+      <a class="who todo" title="Product page - screens/01-product-page draws a different product">
+        <span class="pic"><img src="https://images.openfoodfacts.org/images/products/761/303/462/6844/front_fr.355.400.jpg" alt=""></span>
+        <span class="pct bad">35%</span>
+        <b>Chocapic Cereals</b><i>Nestl&eacute;, Chocapic &middot; 430 g</i>
+      </a>
+      <a class="who todo" title="Product page - screens/01-product-page draws a different product">
+        <span class="pic"><img src="https://images.openfoodfacts.org/images/products/509/980/100/3339/front_en.6.400.jpg" alt=""></span>
+        <span class="pct good">95%</span>
+        <b>Organic Jumbo Oats</b><i>Flahavan&rsquo;s &middot; 1kg</i>
+      </a>
+    </div>
+
+    <div class="sec">Scores</div>
+
+    <div class="crow">
+      <div class="k">Nutri-Score</div>
+      <div class="v"><img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A"></div>
+      <div class="v"><img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg" alt="Nutri-Score C"><span class="tag worst">Worst</span></div>
+      <div class="v"><img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A"></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Green-Score</div>
+      <div class="v"><img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg" alt="Green-Score C"></div>
+      <div class="v"><img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg" alt="Green-Score D"><span class="tag worst">Worst</span></div>
+      <div class="v"><img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+"><span class="tag best">Best</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Nova Group</div>
+      <div class="v"><img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods"><span class="u">Processed foods</span></div>
+      <div class="v"><img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods"><span class="u">5 ultra-processing markers</span><span class="tag worst">Worst</span></div>
+      <div class="v"><img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods"><span class="u">Unprocessed or minimally processed foods</span><span class="tag best">Best</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">N. of additives</div>
+      <div class="v"><span class="d good"></span><span class="num">Without additives</span></div>
+      <div class="v"><span class="d mid"></span><span class="num">1 additive</span><span class="tag worst">Worst</span></div>
+      <div class="v"><span class="d good"></span><span class="num">Without additives</span></div>
+    </div>
+
+    <div class="sec">Nutrients / 100g</div>
+
+    <div class="crow">
+      <div class="k">Energy</div>
+      <div class="v"><span class="num">400</span><span class="u">kcal</span></div>
+      <div class="v"><span class="num">388</span><span class="u">kcal</span></div>
+      <div class="v"><span class="num">370</span><span class="u">kcal</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Fat</div>
+      <div class="v"><span class="d good"></span><span class="num">2</span><span class="u">g &middot; Fat in low quantity</span></div>
+      <div class="v"><span class="d mid"></span><span class="num">4.8</span><span class="u">g &middot; Fat in moderate quantity</span></div>
+      <div class="v"><span class="d mid"></span><span class="num">5.75</span><span class="u">g &middot; Fat in moderate quantity</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Saturated fat</div>
+      <div class="v"><span class="d good"></span><span class="num">0.6</span><span class="u">g &middot; Saturated fat in low quantity</span></div>
+      <div class="v"><span class="d mid"></span><span class="num">2</span><span class="u">g &middot; Saturated fat in moderate quantity</span></div>
+      <div class="v"><span class="d good"></span><span class="num">0.5</span><span class="u">g &middot; Saturated fat in low quantity</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Carbohydrates</div>
+      <div class="v"><span class="num">69</span><span class="u">g</span></div>
+      <div class="v"><span class="num">73.6</span><span class="u">g</span></div>
+      <div class="v"><span class="num">65</span><span class="u">g</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Sugars</div>
+      <div class="v"><span class="d good"></span><span class="num">4.2</span><span class="u">g &middot; Sugars in low quantity</span></div>
+      <div class="v"><span class="d bad"></span><span class="num">22.4</span><span class="u">g &middot; Sugars in high quantity</span></div>
+      <div class="v"><span class="d good"></span><span class="num">1</span><span class="u">g &middot; Sugars in low quantity</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Fibre</div>
+      <div class="v"><span class="num">10</span><span class="u">g</span></div>
+      <div class="v"><span class="num">7.5</span><span class="u">g</span></div>
+      <div class="v"><span class="num">8.25</span><span class="u">g</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Proteins</div>
+      <div class="v"><span class="num">12</span><span class="u">g</span></div>
+      <div class="v"><span class="num">8.8</span><span class="u">g</span></div>
+      <div class="v"><span class="num">11.25</span><span class="u">g</span></div>
+    </div>
+
+    <div class="crow">
+      <div class="k">Salt</div>
+      <div class="v"><span class="d good"></span><span class="num">0.28</span><span class="u">g &middot; Salt in low quantity</span></div>
+      <div class="v"><span class="d good"></span><span class="num">0.22</span><span class="u">g &middot; Salt in low quantity</span></div>
+      <div class="v"><span class="d good"></span><span class="num">0.0125</span><span class="u">g &middot; Salt in low quantity</span></div>
+    </div>
+
+    <!-- ⛔ 15 of the 28 attributes are byte-identical across all three products and 1 nutrient is
+         too, so they are one row instead of sixteen. The 6 that differ are allergen, label and diet
+         flags, which are not better or worse - only the user's preferences make one matter, so they
+         open rather than rank (design-system.md §3h tier 1) -->
+    <div class="samerow">
+      <b>Allergens, labels and diet</b> &middot; 6 differ, 15 are the same for all three
+      <span class="ch">&#9662;</span>
+    </div>
+  </div>
+
+  <div class="hint">Sodium is not shown: it is salt divided by 2.5, the same measurement twice.</div>
+
+</div>
+
+</body>
+</html>

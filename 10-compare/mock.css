@@ -1,0 +1,217 @@
+/* Batch 7, screen 2 - Compare (family 11). Tokens, base, the app shell and the web shell come
+   from ../shared/mock.css.
+   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
+
+   ⛔ THE BROWSE ROW IS NOT NEW - and this is its THIRD user. `.res .shot .badge .grades .why
+   .grp .cols .card .crit` are the same bodies as screens/05-search and screens/11-facets, because
+   a ranking IS a result list ordered differently. Three users is past the threshold: proposed as a
+   MOVE into shared/ in ../../CROSS-SCREEN-batch7.md. */
+
+@import url('../shared/mock.css');
+
+/* ---------- shell ---------- */
+
+.field {
+  display: flex; align-items: center; gap: 10px; min-width: 0;
+  background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px; padding: 4px;
+}
+.webbar .field { width: 420px; }
+.field .q { flex: 1; min-width: 0; font-size: 14.5px; font-weight: 500; color: var(--muted2); }
+.field .go {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--orange); color: var(--on-accent);
+  display: flex; align-items: center; justify-content: center; font-size: 17px; flex: none;
+}
+.cols { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
+
+h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
+.hmeta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 6px 0 18px; font-size: 13px; color: var(--muted); }
+.hmeta b { color: var(--txt2); font-weight: 700; }
+.hmeta .spacer { flex: 1; }
+
+.acts { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
+.acts .lbl { font-size: 12.5px; font-weight: 700; color: var(--muted); margin-right: 2px; }
+.mode { border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px; font-size: 12.5px; font-weight: 600; color: var(--muted2); white-space: nowrap; }
+.mode.on { background: var(--orange); border-color: var(--orange); color: var(--on-accent); }
+.acts .spacer { flex: 1; }
+.acts .txt { font-size: 12.5px; font-weight: 600; color: var(--peach); white-space: nowrap; }
+
+/* ---------- the side-by-side table ---------- */
+
+/* ⛔ A GRID, not a <table>, because the mobile stop restacks the same cells: at <=700 the label
+   takes its own row and the value cells sit under it, so a three-way comparison survives 412.
+   Explorer falls back to one card per product there, which loses the comparison itself. */
+.cmp { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.cmp .hd { display: grid; grid-template-columns: 190px repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+.cmp .hd > * { padding: 14px 16px; }
+.cmp .hd > * + * { border-left: 1px solid var(--line); }
+.cmp .who { display: block; text-decoration: none; color: inherit; }
+.cmp .who .pic { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--card2); margin-bottom: 8px; }
+/* ⛔ CONTAIN, not cover. A compare column is ~380px wide at 1440 and an OFF front photo is
+   1308x1200, so a 92px cover crop showed a horizontal slice of the wordmark and nothing else -
+   which defeats the one job of a column header. §2's "square + cover" rule is for the product
+   page's identity photo, where the box IS square. */
+.cmp .who .pic img { width: 100%; height: 104px; object-fit: contain; padding: 6px; box-sizing: border-box; }
+.cmp .who .pct { display: block; text-align: center; padding: 4px; font-size: 13.5px; font-weight: 700; }
+.cmp .who .pct.good { background: var(--good); color: var(--on-accent); }
+.cmp .who .pct.warn { background: var(--orange); color: var(--on-warm); }
+.cmp .who .pct.bad { background: var(--bad); color: var(--on-bad); }
+.cmp .who b { display: block; font-size: 14.5px; font-weight: 700; line-height: 1.25; }
+.cmp .who i { display: block; font-style: normal; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.cmp .corner { font-size: 12.5px; color: var(--muted); }
+.cmp .corner b { display: block; font-size: 13.5px; color: var(--txt); font-weight: 700; margin-bottom: 3px; }
+
+.sec { padding: 10px 16px; background: var(--card2); font-size: 12.5px; font-weight: 700; letter-spacing: .2px; color: var(--peach); text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.crow { display: grid; grid-template-columns: 190px repeat(3, 1fr); border-bottom: 1px solid var(--line-soft); }
+.crow:last-child { border-bottom: 0; }
+.crow > * { padding: 9px 16px; font-size: 13px; min-width: 0; }
+.crow > * + * { border-left: 1px solid var(--line-soft); }
+.crow .k { color: var(--muted); font-weight: 600; }
+.crow .v { display: flex; align-items: center; gap: 7px; }
+.crow .v img { height: 24px; width: auto; flex: none; }
+.crow .v .num { font-weight: 700; color: var(--txt); }
+.crow .v .u { color: var(--muted); font-size: 12px; }
+/* `Best` / `Worst` are Explorer's own labels (compare.best / compare.worst) */
+.tag { border-radius: 999px; padding: 1px 7px; font-size: 10.5px; font-weight: 800; letter-spacing: .2px; flex: none; }
+.tag.best { background: var(--good); color: var(--on-accent); }
+.tag.worst { background: var(--bad); color: var(--on-bad); }
+.crow .v .d { flex: none; }
+/* the server's nutrient-level verdict has THREE values (low / moderate / high) and shared/mock.css
+   carries good / bad / unknown, so the middle one gets a dot here. ⛔ The colour is READ from
+   `low_*.title`, never derived from the number (design-system.md §3d) */
+.d.mid { background: var(--orange); }
+
+/* the rows that say the same thing three times, as one row instead of sixteen */
+.samerow { display: flex; align-items: baseline; gap: 8px; padding: 12px 16px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); }
+.samerow b { color: var(--txt2); font-weight: 700; }
+.samerow .ch { margin-left: auto; color: var(--faint); font-size: 15px; }
+
+.hint { margin-top: 12px; font-size: 12.5px; color: var(--muted); }
+
+/* ---------- the ranked list: same row as 05-search and 11-facets ---------- */
+
+.results { display: grid; gap: 12px; }
+.res {
+  display: grid; grid-template-columns: 104px 1fr; gap: 16px;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px;
+  text-decoration: none; color: inherit;
+}
+.shot { align-self: start; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--card2); }
+.shot .badge { display: block; text-align: center; padding: 4px; font-size: 13.5px; font-weight: 700; color: var(--on-accent); background: var(--unknown-fill); }
+.shot .badge.good { background: var(--good); }
+.shot .badge.warn { background: var(--orange); color: var(--on-warm); }
+.shot .badge.bad { background: var(--bad); color: var(--on-bad); }
+.shot img { width: 100%; height: 78px; object-fit: cover; }
+.res .name { font-size: 15.5px; font-weight: 700; line-height: 1.3; }
+.res .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.grades { display: flex; align-items: center; gap: 10px; margin: 8px 0 2px; }
+.grades img { height: 26px; width: auto; }
+.grades .nova { height: 24px; }
+.why { display: grid; gap: 4px; margin-top: 8px; }
+.why div { display: flex; align-items: baseline; gap: 8px; font-size: 13px; }
+.why .d { position: relative; top: 4px; }
+.why b { font-weight: 600; }
+.why i { font-style: normal; color: var(--muted); }
+.res .pickbox { align-self: center; justify-self: end; }
+.pick { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--muted); }
+.pick.on { background: var(--orange); border-color: var(--orange); color: var(--on-accent); }
+.res.sel { border-color: var(--orange); }
+
+.grp { display: flex; align-items: center; gap: 10px; margin: 22px 0 12px; padding: 9px 16px; border-radius: var(--r); font-size: 13.5px; font-weight: 700; }
+.grp .n { margin-left: auto; font-weight: 600; opacity: .82; }
+.grp.good { background: var(--good); color: var(--on-accent); }
+.grp.warn { background: var(--orange); color: var(--on-warm); }
+.grp.bad { background: var(--bad); color: var(--on-bad); }
+.grp:first-child { margin-top: 0; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
+.card + .card { margin-top: 16px; }
+.card h2 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.card .note { font-size: 12.5px; color: var(--muted); }
+.crit { list-style: none; margin: 12px 0; display: grid; gap: 8px; }
+.crit li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
+.crit li .w { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+/* the selection bar their own artboards draw at the foot of every screen in comparison mode */
+.selbar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--card); border-top: 1px solid var(--line); font-size: 13px; }
+.selbar b { font-weight: 700; }
+.selbar .spacer { flex: 1; }
+
+/* ---------- the empty state ---------- */
+
+.empty { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 34px 28px; text-align: center; }
+.empty .g { font-size: 40px; color: var(--faint); }
+.empty h2 { font-size: 19px; font-weight: 700; margin: 12px 0 6px; }
+.empty p { font-size: 13.5px; color: var(--muted); max-width: 440px; margin: 0 auto; }
+.empty .btnpeach { margin-top: 18px; }
+.ways { display: grid; gap: 10px; margin-top: 22px; text-align: left; }
+.way { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--card2); border: 1px solid var(--line); border-radius: var(--r); text-decoration: none; color: inherit; }
+.way .g2 { width: 26px; text-align: center; font-size: 17px; color: var(--peach); flex: none; }
+.way .t { flex: 1; min-width: 0; font-size: 13.5px; }
+.way .t b { display: block; font-weight: 700; }
+.way .t i { font-style: normal; color: var(--muted); font-size: 12.5px; }
+.way .arw { color: var(--faint); font-size: 16px; flex: none; }
+
+/* ---------- <=700: the app. Compare is a ROUTE, not a tab root, so there is NO bottom bar
+     (design-system.md §2 - app_navigator.dart:135 has no ShellRoute) ---------- */
+
+@media (max-width: 700px) {
+  .webbar { display: none; }
+  .appbar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--card); border-bottom: 1px solid var(--line); }
+  .appbar .ico { font-size: 19px; color: var(--txt); flex: none; text-decoration: none; }
+  .appbar .ttl { flex: 1; min-width: 0; }
+  .appbar .ttl b { display: block; font-size: 15px; font-weight: 700; }
+  .appbar .ttl i { display: block; font-style: normal; font-size: 12px; color: var(--muted); }
+  .appbar .ov { font-size: 19px; color: var(--muted); flex: none; }
+
+  .wrap { padding: 12px 12px 20px; }
+  .cols { grid-template-columns: 1fr; gap: 0; }
+  .cols > aside { order: -1; }
+  h1, .hmeta { display: none; }
+  .acts { flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .acts .lbl, .acts .spacer { display: none; }
+  .card { padding: 12px 14px; }
+
+  /* ⛔ the label takes its own row and the three value cells sit under it. 190px of label plus
+     three columns cannot fit 412, and Explorer's answer - one card per product - stops being a
+     comparison at all */
+  .cmp .hd { grid-template-columns: repeat(3, 1fr); }
+  .cmp .hd > .corner { display: none; }
+  .cmp .hd > * { padding: 10px 8px; }
+  .cmp .who .pic img { height: 66px; padding: 4px; }
+  /* the tag drops to its own line instead of overflowing the cell - the NOVA row's third value is
+     'Unprocessed or minimally processed foods' plus a Best tag, and 412/3 cannot hold both inline */
+  .crow .v { flex-wrap: wrap; }
+  .cmp .who b { font-size: 12.5px; }
+  .cmp .who i { font-size: 11px; }
+  .crow { grid-template-columns: repeat(3, 1fr); padding-top: 6px; }
+  .crow > .k {
+    grid-column: 1 / -1; padding: 8px 12px 2px; border-left: 0;
+    font-size: 12px; text-transform: uppercase; letter-spacing: .3px;
+  }
+  .crow > .v { padding: 4px 8px 10px; font-size: 12.5px; }
+  .crow > .v:first-of-type { border-left: 0; }
+  .crow .v img { height: 21px; }
+  .sec { padding: 9px 12px; }
+  .samerow { padding: 12px; }
+
+  .res { grid-template-columns: 88px 1fr; gap: 12px; padding: 12px; }
+  .res.pickable { grid-template-columns: 88px 1fr 26px; }
+  .shot img { height: 66px; }
+  .res .name { font-size: 14.5px; }
+  .grades img { height: 23px; }
+  .why div { font-size: 12.5px; }
+  .empty { padding: 26px 18px; }
+}
+
+@media (min-width: 701px) and (max-width: 1023px) {
+  .wrap { max-width: 860px; }
+  .cols { grid-template-columns: 1fr; gap: 0; }
+  .cmp .hd, .crow { grid-template-columns: 150px repeat(3, 1fr); }
+}
+
+@media (min-width: 1100px) {
+  .wrap { max-width: 1320px; padding: 32px 40px 60px; }
+  .cols { grid-template-columns: 320px 1fr; gap: 36px; }
+  .res { grid-template-columns: 120px 1fr; gap: 16px; padding: 16px; }
+  .shot img { height: 90px; }
+}
