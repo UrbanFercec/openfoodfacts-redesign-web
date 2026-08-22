@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Categories - all values of one facet</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- Every value and every count on this page is live data: `world.openfoodfacts.net/categories.json`
+     pulled 2026-08-22, saved as ../../evidence/batch7_categories_facet_list.json. 72,047 values,
+     100 per page on the shipped page = 721 pages. Nothing here is typed. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="facets-index.html">&#8592;</a>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+</div>
+
+<div class="wrap">
+
+  <div class="crumb">
+    <a href="facets-index.html">Facets</a><span class="sep">&rsaquo;</span>
+    <span>Categories</span>
+  </div>
+
+  <h1>Categories</h1>
+  <div class="hmeta">
+    <span><b>72,047 categories</b></span>
+    <span class="spacer"></span>
+  </div>
+
+  <!-- ⛔ The one control the shipped page does not have. 72,047 values at 100 per page is 721
+       pages of taxonomy, and the only way through it today is Next -->
+  <div class="sortbar">
+    <span class="lbl">Sort</span>
+    <span class="sort on">Most products</span>
+    <span class="sort">A to Z</span>
+  </div>
+
+  <div class="cols">
+
+    <aside>
+      <div class="card">
+        <h2>Filter these categories</h2>
+        <div class="note">Type to narrow 72,047 values. The shipped page has no name filter at all.</div>
+        <div class="kids">
+          <span class="kid more">cereal</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Facet knowledge panel</h2>
+        <div class="note">One panel comes back for the categories facet, the same one every facet gets.</div>
+        <div class="kp">
+          <span class="g">&#9873;</span>
+          <span class="t"><b>Hunger games</b><i>Answer robotoff questions</i></span>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="vrows">
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Plant-based foods and beverages</span><span class="n">487,057 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Plant-based foods</span><span class="n">424,159 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Snacks</span><span class="n">294,974 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Sweet snacks</span><span class="n">216,756 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Beverages</span><span class="n">187,708 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Dairies</span><span class="n">155,759 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow" href="facets-value.html"><span class="t">Cereals and potatoes<i>Contains Breakfast cereals, and 17 more</i></span><span class="n">146,225 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Meats and their products</span><span class="n">138,199 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Fermented foods</span><span class="n">121,399 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Fermented milk products</span><span class="n">117,158 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Fruits and vegetables based foods</span><span class="n">113,404 products</span><span class="arw">&rsaquo;</span></a>
+        <a class="vrow todo" title="Facet value page - only Breakfast cereals is drawn"><span class="t">Condiments</span><span class="n">111,677 products</span><span class="arw">&rsaquo;</span></a>
+      </div>
+
+      <div class="pager">
+        <span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span>
+        <span>&hellip; 721</span>
+        <span class="spacer"></span>
+        <span>100 per page</span>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

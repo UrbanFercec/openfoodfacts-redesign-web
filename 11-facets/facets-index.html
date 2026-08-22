@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facets - browse the database</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- The 29 facet names are Explorer's own array (routes/facets/+page.ts:34-70), verbatim.
+     Every count is live: one `<facet>.json` call per facet against staging, 2026-08-22, saved as
+     ../../evidence/batch7_facet_index_counts_2026-08-22.json. The `Unknown` figures are the
+     server's own top tag for that facet - its name is literally `Unknown`. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<div class="appbar">
+  <a class="ico todo" title="Web home - screens/03-home/home-web.html has no phone layout yet">&#8592;</a>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+</div>
+
+<div class="wrap">
+
+  <h1>Facets</h1>
+  <div class="hmeta">
+    <span>Every way into <b>4,684,418 products</b> that is not a search box.</span>
+  </div>
+
+  <div class="seclbl">What is on the label</div>
+  <div class="fgrid">
+    <a class="fcard" href="facets-values.html"><span class="g">&#9776;</span><b>Categories</b><span>72,047 values</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#10003;</span><b>Labels</b><span>28,916 values &middot; Organic leads with 258,333</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9635;</span><b>Brands</b><span>278,625 values</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9906;</span><b>Ingredients</b><span>1,392,249 values</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9678;</span><b>Additives</b><span>609 values</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9888;</span><b>Allergens</b><span>6,931 values &middot; milk leads with 313,469</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9888;</span><b>Traces</b><span>10,667 values</span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9645;</span><b>Packaging</b><span>25,824 values &middot; Plastic leads with 128,415</span></a>
+  </div>
+
+  <!-- ⭐ Three facets whose largest single value is `Unknown`, by the server's own count. A grade
+       facet is therefore a contribution surface as much as a browse one (design-system.md §4 rule 3) -->
+  <div class="seclbl">What the scores say, and what they do not</div>
+  <div class="fgrid">
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9679;</span><b>Nutrition grades</b><span>7 grades &middot; <b>2,291,283 Unknown</b></span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9679;</span><b>Green-Score</b><span>9 grades &middot; <b>2,654,362 Unknown</b></span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9679;</span><b>NOVA groups</b><span>6 groups &middot; <b>2,601,411 Unknown</b></span></a>
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9873;</span><b>Origins of ingredients</b><span>15,296 values &middot; France leads with 39,665</span></a>
+  </div>
+
+  <div class="seclbl">Where it is sold</div>
+  <div class="fgrid">
+    <a class="fcard todo" title="Only Categories is drawn"><span class="g">&#9873;</span><b>Countries</b><span>476 values &middot; France leads with 1,114,545</span></a>
+
+    <!-- ⛔ 16 of Explorer's 29 facets are contributor and data-quality facets, not shopper ones.
+         They are not dropped - they are one row, and the row says what they are -->
+    <a class="fcard wide todo" title="The 16 contributor facets - not drawn in this batch"><b>Data and contribution &rsaquo;</b><span>The other 16 facets: contributors, states, teams, data sources, languages, entry and last-edit dates, last-check dates, traceability codes, manufacturing places, added vitamins, minerals, amino acids, nucleotides, other nutritional substances, miscellaneous</span></a>
+  </div>
+
+</div>
+
+</body>
+</html>

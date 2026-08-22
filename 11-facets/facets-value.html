@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breakfast cereals - browse a category</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- Every product string on this page is server output, verbatim: the names, brands and
+     quantities are `product_name_en` / `brands` / `quantity` from api/v2 (evidence
+     batch7_facet_products_api_2026-08-22.json), the verdict lines are `attribute.title` and
+     `attribute.description_short`, and the % is computed by OFF's OWN algorithm
+     (screens/05-search/match.py, the ported MatchedScoreV2). api-note.md has the derivation. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="facets-values.html">&#8592;</a>
+  <span class="field">
+    <span class="q">Search a product, a brand or a barcode</span>
+    <span class="go">&#9906;</span>
+  </span>
+</div>
+
+<div class="wrap">
+
+  <!-- `Belongs to:` on the live page is five stacked links. They are a taxonomy PATH, so one line -->
+  <div class="crumb">
+    <a href="facets-index.html">Facets</a><span class="sep">&rsaquo;</span>
+    <a href="facets-values.html">Categories</a><span class="sep">&rsaquo;</span>
+    <a class="todo" title="Parent category - one of the 5 in `Belongs to`, not drawn">Cereals and their products</a><span class="sep">&rsaquo;</span>
+    <span>Breakfast cereals</span>
+  </div>
+
+  <h1>Breakfast cereals</h1>
+  <div class="hmeta">
+    <span><b>21,616 products</b></span>
+    <span class="spacer"></span>
+    <span class="toggle"><i></i>Sorted by your preferences</span>
+  </div>
+
+  <div class="critline"><span>Sorted by your <b>3 criteria</b>: Nutri-Score, Green-Score, NOVA</span> <a class="todo" title="Food preferences - screens/06-food-preferences">Edit</a></div>
+
+  <!-- ⭐ The live site already computes all four of these. They are one `swap_vert` dropdown
+       nobody opens; here they are the control -->
+  <div class="sortbar">
+    <span class="lbl">Sort</span>
+    <span class="sort on">Sorted by your preferences</span>
+    <span class="sort">Most scanned products</span>
+    <span class="sort">Products with the best Nutri-Score</span>
+    <span class="sort">Products with the best Green-Score</span>
+    <span class="sort">Recently added products</span>
+  </div>
+
+  <div class="cols">
+
+    <aside>
+      <div class="card critcard">
+        <h2>Your 3 criteria</h2>
+        <div class="note">Every product below is scored against these, and the order is that score.</div>
+        <ul class="crit">
+          <li><span class="d good"></span>Good nutritional quality (Nutri-Score)<span class="w">Very important</span></li>
+          <li><span class="d good"></span>Low environmental impact (Green-Score)<span class="w">Important</span></li>
+          <li><span class="d good"></span>No or little food processing (NOVA group)<span class="w">Important</span></li>
+        </ul>
+        <a class="chip todo" title="Food preferences - screens/06-food-preferences">Edit your food preferences</a>
+      </div>
+
+      <div class="card">
+        <h2>Narrow it down</h2>
+        <div class="note">18 sub-categories. Five of them are &ldquo;fortified with vitamins and chemical elements&rdquo; variants.</div>
+        <div class="kids">
+          <span class="kid">Mueslis</span>
+          <span class="kid">Porridge</span>
+          <span class="kid">Cereal flakes</span>
+          <span class="kid">Puffed cereals</span>
+          <span class="kid">Chocolate cereals</span>
+          <span class="kid">Cereals with fruits</span>
+          <span class="kid">Cereals with nuts</span>
+          <span class="kid">Cereals with honey</span>
+          <span class="kid">Cereals with caramel</span>
+          <span class="kid">Crunchy cereal clusters</span>
+          <span class="kid">Extruded cereals</span>
+          <span class="kid">Diet breakfast cereals</span>
+          <span class="kid">Breakfast cereals rich in fibre</span>
+          <span class="kid more">+5 fortified variants</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <main>
+      <div class="results">
+
+        <div class="grp good">Very good match <span class="n">16 of 50 on this page</span></div>
+
+        <a class="res todo" title="Product page - screens/01-product-page draws a different product">
+          <div class="shot">
+            <span class="badge good">95%</span>
+            <img src="https://images.openfoodfacts.org/images/products/509/980/100/3339/front_en.6.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Organic Jumbo Oats</div>
+            <div class="sub">Flahavan&rsquo;s &middot; 1kg</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg" alt="Green-Score A+">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Green-Score A+</b><i>Very low environmental impact</i></div>
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="res todo" title="Product page - screens/01-product-page draws a different product">
+          <div class="shot">
+            <span class="badge good">90%</span>
+            <img src="https://images.openfoodfacts.org/images/products/500/010/802/2152/front_en.61.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">BRITISH PORRIDGE OATS</div>
+            <div class="sub">QUAKER &middot; 1kg</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg" alt="Green-Score A">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Unprocessed or minimally processed foods</b></div>
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="res todo" title="Product page - screens/01-product-page draws a different product">
+          <div class="shot">
+            <span class="badge good">88%</span>
+            <img src="https://images.openfoodfacts.org/images/products/322/982/001/9307/front_fr.300.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Flocons d&rsquo;avoine</div>
+            <div class="sub">Bjorg &middot; 500 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-a.svg" alt="Green-Score A">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-1.svg" alt="Unprocessed or minimally processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Green-Score A</b><i>Very low environmental impact</i></div>
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+            </div>
+          </div>
+        </a>
+
+        <div class="grp warn">Good match <span class="n">17 of 50 on this page</span></div>
+
+        <a class="res todo" title="Product page - screens/01-product-page draws a different product">
+          <div class="shot">
+            <span class="badge warn">74%</span>
+            <img src="https://images.openfoodfacts.org/images/products/501/002/900/0016/front_en.44.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Weetabix</div>
+            <div class="sub">Weetabix &middot; 430 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg" alt="Nutri-Score A">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg" alt="Green-Score C">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-3.svg" alt="Processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d good"></span><b>Nutri-Score A</b><i>Very good nutritional quality</i></div>
+              <div><span class="d unk"></span><b>Green-Score C</b><i>Moderate environmental impact</i></div>
+            </div>
+          </div>
+        </a>
+
+        <div class="grp bad">Poor match <span class="n">17 of 50 on this page</span></div>
+
+        <a class="res todo" title="Product page - screens/01-product-page draws a different product">
+          <div class="shot">
+            <span class="badge bad">30%</span>
+            <img src="https://images.openfoodfacts.org/images/products/501/047/734/8395/front_en.150.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Country Crisp - Chocolat Noir 70% Cacao</div>
+            <div class="sub">Jordans &middot; 550 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-d-new-en.svg" alt="Nutri-Score D">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-c.svg" alt="Green-Score C">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d bad"></span><b>Ultra-processed foods</b></div>
+              <div><span class="d bad"></span><b>Nutri-Score D</b><i>Lower nutritional quality</i></div>
+            </div>
+          </div>
+        </a>
+
+        <!-- ⛔ drawn with `product_name_en` on purpose: this product's `product_name` is
+             `Céréales Chocapic`, so a client reading product_name prints French here. 10 of the
+             50 products on this one page have that gap - api-note.md §5 -->
+        <a class="res todo" title="Product page - screens/01-product-page draws a different product">
+          <div class="shot">
+            <span class="badge bad">35%</span>
+            <img src="https://images.openfoodfacts.org/images/products/761/303/462/6844/front_fr.355.400.jpg" alt="">
+          </div>
+          <div>
+            <div class="name">Chocapic Cereals</div>
+            <div class="sub">Nestl&eacute;, Chocapic &middot; 430 g</div>
+            <div class="grades">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/nutriscore-c-new-en.svg" alt="Nutri-Score C">
+              <img src="https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg" alt="Green-Score D">
+              <img class="nova" src="https://static.openfoodfacts.org/images/attributes/dist/nova-group-4.svg" alt="Ultra-processed foods">
+            </div>
+            <div class="why">
+              <div><span class="d unk"></span><b>Nutri-Score C</b><i>Average nutritional quality</i></div>
+              <div><span class="d bad"></span><b>Ultra-processed foods</b></div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="pager">
+        <span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span>
+        <span>&hellip; 433</span>
+        <span class="spacer"></span>
+        <span>50 per page</span>
+      </div>
+
+      <!-- ⛔ The `Facet knowledge panel` heading is on every facet page on BOTH surfaces, and one
+           panel comes back: a Robotoff task. So it sits under the results, where a task belongs,
+           not in the rail above them. Enumerated over 6 facet types - api-note.md §3 -->
+      <div class="card">
+        <h2>Facet knowledge panel</h2>
+        <div class="note">One panel comes back for this category, and for every other facet we asked.</div>
+        <div class="kp">
+          <span class="g">&#9873;</span>
+          <span class="t"><b>Hunger games</b><i>Answer robotoff questions about category en:breakfast-cereals</i></span>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
