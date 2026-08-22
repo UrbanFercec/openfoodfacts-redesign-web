@@ -116,8 +116,13 @@
 .sheet .shd h2 { font-size: 15px; font-weight: 800; letter-spacing: -.2px; }
 .sheet .shd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
 .sheet .shd .spacer { flex: 1; }
-.sheet .shd .x { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--muted); }
+/* ⛔ NO ✕ - design-system.md §3i rule 2 (Urban, 2026-08-22). The grabber, swipe-down and the
+   scrim are the exits on every sheet we draw. The scrim is `.dim` above.
+   ⛔ The sheet is ONE STOP and its height is its content, capped at 75% of the screen. Every
+   sheet in this tree is a short picker so the cap never bites, but it is the number an
+   implementer sets - not the shipped `maxHeight: 0.35 x screen` from camera_view.dart:131. */
+.sheet .grab { display: flex; justify-content: center; padding: 10px 0 2px; }
+.sheet .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
 .srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
 .srow:last-child { border-bottom: 0; }
 .srow .g { width: 24px; text-align: center; font-size: 16px; color: var(--muted2); flex: none; }
@@ -159,9 +164,13 @@
    it opens. None of these five states showed either.
    Outlined, because `Start scanning` (`product_list_empty_title`) stays the primary action - a
    scan is still the fastest way in, it just is not the only one.
-   ⚠️ It is marked `.todo`: the product footer is 12 hideable, reorderable actions
-   (new_product_footer.dart:66) and OUR DESIGN DRAWS NONE OF THEM on any screen. Fixing this only
-   on 08 is not fixing it - family 1 owes the footer. */
+   ✅ LIVE ROUTE since 2026-08-22 - it was `.todo` because the product footer was drawn on no
+   screen; decision D drew it (`screens/01-product-page`, four actions + an overflow sheet).
+   ⛔ And a figure to stop repeating: the footer is NOT "12 hideable reorderable actions". The enum
+   has 12 values but the Edit-actions sheet builds from `enabled u defaultOrder()`
+   (new_product_footer_settings.dart:608-620), so the product page can only ever offer SIX. Three of
+   the rest are a separate FIXED footer on the product EDIT page (edit_product_footer.dart:186-195)
+   and `Report` + `Data quality` have no caller at all. */
 .empty .alt {
   display: inline-block; margin-top: 12px;
   border: 1px solid var(--line-strong); border-radius: 999px;

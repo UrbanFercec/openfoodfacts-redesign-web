@@ -67,11 +67,11 @@
        title, `user_list_length` the shipped count sentence, `user_list_button_new` the
        shipped create row, and `My list` is the shipped name hint (`user_list_name_hint`). -->
   <div class="sheet">
+    <div class="grab"><span class="bar"></span></div>
     <div class="shd">
       <i></i>
       <h2>Select a list</h2>
       <span class="spacer"></span>
-      <span class="x">&#10005;</span>
     </div>
 
     <a class="srow on" href="lists-history.html">
@@ -95,9 +95,8 @@
     <!-- ⛔ ADDED 2026-08-21 (_CHANGES-REQUESTED.md). The switcher is where a user picks a list, so
          it is also where the app should say what a list can be filled FROM. `user_list_add_product`
          is the shipped sentence and it names both halves - the product, and your lists.
-         ⚠️ Same `.todo` as on the empty state, same reason: the product footer that carries this
-         action is drawn on no screen of ours. -->
-    <a class="srow todo" title="The product footer, where Add to list ships, is drawn on no screen yet - family 1">
+         ✅ CLOSED 2026-08-22, same as the empty state: the product footer is drawn (decision D). -->
+    <a class="srow" href="../01-product-page/product-nutella.html">
       <span class="g">&#8853;</span>
       <span class="t"><b>Add the product to your lists</b></span>
     </a>

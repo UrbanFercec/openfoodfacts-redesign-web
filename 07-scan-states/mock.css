@@ -71,9 +71,18 @@
 .reticle i.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
 .reticle i.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
 .reticle i.br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
+/* ⛔ THE BARCODE, not a glyph. Urban, 2026-08-22. It was `&#9906;` - a font character that reads
+   as a location pin at 54px, on a screen whose whole job is barcodes.
+   ⭐ This is the APP'S OWN icon: `assets/fonts/icons/barcode.svg`, path data verbatim, so the
+   mockup shows a shipped asset rather than an invented one. Carried as a MASK, not an <img>: the
+   source SVG hard-codes a black fill, and a colour literal outside shared/mock.css fails
+   `tools/check.py`, so the shape comes from the data URI and the colour from --on-camera. */
 .reticle .glyph {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 54px; color: var(--on-camera); opacity: .85;
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 96px; height: 96px; opacity: .85;
+  background: var(--on-camera);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2031%2031%22%3E%3Cpath%20d%3D%22M0%2C0%20L0%2C23%20L1%2C23%20L1%2C0%20L0%2C0%20Z%20M3%2C0%20L3%2C23%20L5%2C23%20L5%2C0%20L3%2C0%20Z%20M6%2C0%20L6%2C23%20L12%2C23%20L12%2C0%20L6%2C0%20Z%20M14%2C0%20L14%2C23%20L15%2C23%20L15%2C0%20L14%2C0%20Z%20M17%2C0%20L17%2C23%20L19%2C23%20L19%2C0%20L17%2C0%20Z%20M20%2C0%20L20%2C23%20L21%2C23%20L21%2C0%20L20%2C0%20Z%20M23%2C0%20L23%2C23%20L26%2C23%20L26%2C0%20L23%2C0%20Z%20M28%2C0%20L28%2C23%20L29%2C23%20L29%2C0%20L28%2C0%20Z%20M30%2C0%20L30%2C23%20L31%2C23%20L31%2C0%20L30%2C0%20Z%22%20transform%3D%22translate%280%2C4.0774%29%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
+          mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2031%2031%22%3E%3Cpath%20d%3D%22M0%2C0%20L0%2C23%20L1%2C23%20L1%2C0%20L0%2C0%20Z%20M3%2C0%20L3%2C23%20L5%2C23%20L5%2C0%20L3%2C0%20Z%20M6%2C0%20L6%2C23%20L12%2C23%20L12%2C0%20L6%2C0%20Z%20M14%2C0%20L14%2C23%20L15%2C23%20L15%2C0%20L14%2C0%20Z%20M17%2C0%20L17%2C23%20L19%2C23%20L19%2C0%20L17%2C0%20Z%20M20%2C0%20L20%2C23%20L21%2C23%20L21%2C0%20L20%2C0%20Z%20M23%2C0%20L23%2C23%20L26%2C23%20L26%2C0%20L23%2C0%20Z%20M28%2C0%20L28%2C23%20L29%2C23%20L29%2C0%20L28%2C0%20Z%20M30%2C0%20L30%2C23%20L31%2C23%20L31%2C0%20L30%2C0%20Z%22%20transform%3D%22translate%280%2C4.0774%29%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
 }
 
 /* the idle message. `HomePageScannerMessageOverlay` verbatim: 85% wide, rounded, an ⓘ then a
@@ -113,48 +122,40 @@
 /* full width with rounded top corners, which is their `Scanner carte 3` and their Homepage_V2
    22-26. ⚠️ The shipped flagged card is `widthFactor: 0.9` - a floating card, not a sheet. We
    take their artboard, because a written design outranks the shipped floor
-   (shell-contract.md §THE PRECEDENCE RULE). */
+   (shell-contract.md §THE PRECEDENCE RULE).
+
+   ⛔ ONE STOP, CAPPED AT 75% - design-system.md §3i (Urban, 2026-08-22). The sheet arrives at its
+   final height; there is no peek, no drag-to-expand and no ✕. 675px = 75% of the 900px app frame,
+   not of `.scan`'s 834 - the cap is a fraction of the SCREEN. It does not bite on any state drawn
+   here (the tallest, poor data, is ~440), so nothing is clipped; it is declared because it is the
+   number an implementer needs against the shipped `maxHeight: 0.35 x screen`. */
 .csheet {
-  position: absolute; inset: auto 0 0 0;
+  position: absolute; inset: auto 0 0 0; max-height: 675px;
+  display: flex; flex-direction: column;
   background: var(--card); border-top: 1px solid var(--line);
   border-radius: var(--r) var(--r) 0 0;
 }
 
-/* the swipe-up affordance. Their artboard 23 puts double chevrons either side of
-   `Glisser vers le haut pour en savoir plus`; those words have no English in app_en.arb, so the
-   GESTURE is drawn and the sentence is not invented (SESSION-NOTES decision C). */
-.swipe {
-  position: absolute; inset: auto 0 100% 0; display: flex; align-items: center; justify-content: center;
-  gap: 16px; padding-bottom: 14px; font-size: 20px; color: var(--on-camera); opacity: .8;
-}
-
-/* the grabber row: the handle centred, the shipped ✕ at the end
-   (smooth_product_base_card.dart:89, tooltip `carousel_close_tooltip`) */
-.grab { position: relative; display: flex; align-items: center; justify-content: center; padding: 10px 12px 2px; }
+/* the grabber row. ⛔ No ✕ - the shipped card has one (smooth_product_base_card.dart:89,
+   `carousel_close_tooltip`) and we drop it everywhere: the grabber, swipe-down and the tab bar
+   are the exits (design-system.md §3i rule 2). The camera behind stays unscrimmed. */
+.grab { display: flex; align-items: center; justify-content: center; padding: 10px 12px 2px; flex: none; }
 .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
-.grab .x {
-  position: absolute; right: 12px; top: 6px;
-  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted);
-}
 
 /* the message sheets (loading, unknown, error) keep a titled header, which all three shipped
    cards have (`carousel_*_header`) and which their 22/24/26 draw */
-.chd { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.chd { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); flex: none; }
 .chd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
 .chd h2 { font-size: 14px; font-weight: 700; letter-spacing: -.1px; }
 .chd .spacer { flex: 1; }
-.chd .x {
-  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); flex: none;
-  display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted);
-}
 /* their 26 gives the error sheet a red header band, and it is the one state where the header
    carries the verdict rather than a label */
 .chd.err { background: var(--bad-tint); border-bottom-color: var(--bad-edge); }
 .chd.err h2 { color: var(--bad-soft); }
 .chd.err i { background: var(--bad); }
 
-.cbody { padding: 14px 16px 18px; }
+/* only the body scrolls once the 75% cap bites (design-system.md §3i rule 3) */
+.cbody { padding: 14px 16px 18px; overflow-y: auto; }
 
 /* identity inside the sheet: thumb beside the name, his 2 Aug mobile layout */
 .pident { display: flex; gap: 12px; align-items: flex-start; }
@@ -189,6 +190,7 @@
 
 /* the drill-in footer. `tap_for_more` - shipped, and it is the sheet's only navigation */
 .cfoot {
+  flex: none;
   display: flex; align-items: center; gap: 8px; padding: 13px 16px;
   border-top: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--peach);
 }

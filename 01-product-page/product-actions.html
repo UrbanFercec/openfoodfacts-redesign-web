@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product page - Nutella</title>
+<title>Product - the overflow actions sheet</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
 <script src="../shared/proto-theme.js" defer></script>
@@ -22,7 +22,7 @@
   <span class="ttl">Nutella</span>
 </div>
 
-<div class="wrap">
+<div class="wrap dim">
   <div class="cols">
 
     <aside>
@@ -204,6 +204,24 @@
   </div>
 </div>
 
+
+<!-- ⛔ decision D, the other half. The overflow the .pfoot ⋯ opens.
+     THREE rows and no invented title: `Find alternatives` is product_search_same_category (the LONG
+     form - the short one is the word "Compare", which collides with the Scan tab's real
+     multi-product compare), `Add a property` is add_tag, and `Edit actions` is
+     product_page_action_bar_setting_modal_title - the shipped sheet that hides and REORDERS the bar.
+     Keeping that last row is why promoting four is a preference change and not a deletion.
+     ⛔ No header and no close icon: a title here would be a string that does not ship, and the
+     grabber + scrim are the exits (design-system.md §3i).
+     ⛔ NOT in this sheet on purpose: View barcode / Help / Open website. Those are a DIFFERENT,
+     fixed, non-configurable footer on the product EDIT page (edit_product_footer.dart:186-195),
+     not product-page actions. -->
+<div class="sheet">
+  <div class="grab"><span class="bar"></span></div>
+  <a class="srow" href="#"><span class="g">&#8646;</span><span class="t"><b>Find alternatives</b></span></a>
+  <a class="srow" href="#"><span class="g">&#43;</span><span class="t"><b>Add a property</b></span></a>
+  <a class="srow" href="#"><span class="g">&#9776;</span><span class="t"><b>Edit actions</b></span></a>
+</div>
 
 </body>
 </html>
