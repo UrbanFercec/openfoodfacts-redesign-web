@@ -1,25 +1,9 @@
-/* Product page redesign - mock stylesheet.
-   BASELINE = Jannes's 2 August build (his Slack screenshots + the live
-   capture in ../../jannes-prototype-2026-08-16/). Palette, type, card shape,
-   layout order and the condensed overview tiles are his. Every deviation
-   is listed in ../../README.md under "Draft 3".
-
-   Overview = condensed: one grouped line of values per topic, drill-in at
-   the tile footer. The per-attribute list belongs on the sub-pages.
-
-   Tokens, base and the shared primitives come from ../shared/mock.css; only
-   the product page's own components live here. */
-
 @import url('../shared/mock.css');
 
-/* ---------- shells ---------- */
 .webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 4px; border-radius: 8px; }
-/* ---------- page ---------- */
+
 .cols { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
-/* ---------- identity ---------- *//* ---------- the preferences card (Jannes's score rows, with the
-     heading, the % badge and the preferences footer folded in) ---------- *//* .quiet = the same badge without the filled background. Added 2026-08-17: the red
-   fill made the preferences card the loudest thing on the page, and Stephane read
-   the Health card as the natural first stop. Outline, so Health wins the eye. */.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
+.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
 .toggle::after { content: ''; position: absolute; right: 3px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: var(--on-accent); }
 .chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--txt); font-weight: 500; white-space: nowrap; }
 
@@ -27,36 +11,19 @@
   display: inline-block; font-size: 12px; font-weight: 600;
   color: var(--on-accent); background: var(--peach); border-radius: 999px; padding: 3px 10px;
 }
-/* ---------- tab strip.
-     The tabs are SERVER OUTPUT: `root` returns health_card, environment_card,
-     report_problem_card, product_card (design-constraints.md 5). ---------- *//* ---------- condensed overview tiles.
-     Spacing loosened 2026-08-17 (Stephane: "not enough white breathing space,
-     images, icons... no clear path for my eyes"). Same tiles, same order, same
-     fields - only rhythm and hierarchy moved. ---------- */.grp { padding: 16px 24px; border-bottom: 1px solid var(--line-soft); }
+.grp { padding: 16px 24px; border-bottom: 1px solid var(--line-soft); }
 .grp:last-of-type { border-bottom: 0; }
-/* the group name steps back so the values are the loudest thing in the group */
+
 .grp .sub { font-size: 13px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 .grp .sub em { font-style: normal; text-transform: none; letter-spacing: 0; font-size: 12px; font-weight: 500; margin-left: 4px; }
 
 .vals { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: var(--muted); }
-/* DIRECT child only: a nested <span> used to inherit inline-flex + gap, which
-   turned a sentence into a second flex column (caught in a render 2026-08-17). *//* The status dot is BACK on the overview (2026-08-17 -> 2026-08-18, Stephane:
-   "here the dots were useful I think (e.g. the green one for salt)", clarified as
-   "remove dots if we display icons that give the same info"). The overview rows
-   have no icon, and the value colour only ever showed bad/unknown - so grade "a"
-   and grade "c" had no marker at all. The sub-page rows keep NO dot: they carry
-   the server's own icon_url, which is the case he was objecting to.
-   The class comes from attribute.grade through the four states of §3d, never
-   hand-picked (06-feedback-round-2/apply_r2_dots.py reads it out of the evidence). */
+
 .vals .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--unknown); }
 .vals .dot.good { background: var(--good); }
 .vals .dot.warn { background: var(--orange); }
 .vals .dot.bad { background: var(--bad); }
 .vals .dot.unk { background: var(--unknown); }.vals .unk b, .vals b.unk { color: var(--unknown); }
-/* ---------- tile tilehead - one server icon per tile, at a readable size.
-     This is the "images, icons" half of his note, and it costs no new asset:
-     the src is the attribute's own icon_url. The Nutri-Score badge is ~2.4:1 and
-     the Green-Score one is square, so pin the HEIGHT and let width follow. ---------- */
 
 .tilehead { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--line-soft); }
 .tilehead img { height: 58px; width: auto; max-width: 140px; flex: none; object-fit: contain; }
@@ -64,33 +31,10 @@
 .tilehead .h b { display: block; font-size: 19px; font-weight: 700; letter-spacing: -.2px; }
 .tilehead .h i { font-style: normal; display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
 .tilehead .h .fix { margin-top: 8px; }
-.tilehead .scale { align-self: center; }/* ---------- contribution ---------- */
+.tilehead .scale { align-self: center; }
 
-.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }/* .pair (Prices + Category side by side) was dropped 2026-08-17. Two half-width
-   cards next to five full-width ones was the densest row on the page and the one
-   place the eye had to choose a direction. Both are full-width tiles now. */
+.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }
 
-/* ---------- the product action footer. ⛔ ADDED 2026-08-22, decision D (Urban).
-   It was drawn on NO screen of ours until now, which is why `Add to list` - the one route that
-   fills a custom list without scanning - had no home and 08-lists carried two dead affordances.
-
-   ⭐ FOUR, not the twelve our own notes claimed. Traced 2026-08-22: the enum has 12 values but
-   `_loadEntries` builds the Edit-actions sheet from `enabled u defaultOrder()`
-   (new_product_footer_settings.dart:608-620), so the product page can only ever offer the SIX in
-   `defaultOrder()`. Of the other six, three belong to a different fixed footer on the EDIT page
-   (edit_product_footer.dart:186 - View barcode / Help / Open website), and `Report` + `Data quality`
-   have no caller at all. `Report` is additionally a stub that renders with the Edit label and icon
-   (new_product_footer_report.dart:14).
-   So: 4 promoted, 2 into the overflow with their `Edit actions` row. Nothing is deleted - dropping
-   an action from the DEFAULT is a preference change, and the user can promote it back.
-
-   Every label is verbatim `app_en.arb`: edit_product_label_short, user_list_button_add_product,
-   prices_add_a_price, share, product_search_same_category (= "Find alternatives", the long form,
-   which also kills the Compare/Compare collision), add_tag, and the sheet's own
-   product_page_action_bar_setting_modal_title.
-
-   ONE block, two right places: it lives in <aside> so desktop renders it in the rail under the
-   match card, and the mobile `order: 5` puts it last, where the shipped bar is pinned. ---------- */
 .pfoot { display: flex; gap: 8px; margin-bottom: 20px; }
 .pact {
   flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -99,19 +43,12 @@
   text-decoration: none; white-space: nowrap;
 }
 .pact .g { font-size: 17px; line-height: 1; color: var(--muted2); }
-/* the first item is filled in the shipped bar (`highlightFirstItem`), and Edit is what OFF wants
-   pressed - it is the contribution ask the whole project runs on */
+
 .pact.prime { background: var(--peach); border-color: var(--peach); color: var(--on-accent); }
 .pact.prime .g { color: var(--on-accent); }
-/* the overflow cell is narrow: it carries a glyph, no label */
+
 .pact.more { flex: 0 0 44px; justify-content: center; }
 
-/* ---------- the overflow sheet (product-actions.html). ⛔ Bodies are byte-identical to
-   08-lists/mock.css and 09-settings/mock.css on purpose - this is the THIRD declaration of the
-   same primitive and it is M7 in CROSS-SCREEN-batch4.md, deferred until batch 5 closes. Keep them
-   identical so `tools/lift_shared.py` can fold all three in one pass.
-   The rule they all obey is design-system.md §3i: one stop, no close icon, content height capped
-   at 75% of the screen, dimmed scrim behind. ---------- */
 .dim { position: relative; }
 .dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
 .sheet {
@@ -126,8 +63,6 @@
 .srow .t { flex: 1; min-width: 0; }
 .srow .t b { font-size: 14px; font-weight: 600; display: block; color: var(--txt); }
 
-/* ================= MOBILE = read it as the app ================= */
-
 @media (max-width: 700px) {
   .webbar { display: none; }
 
@@ -141,7 +76,6 @@
   .wrap { padding: 12px 12px 20px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
 
-  /* his 2 Aug mobile: square thumbnail on the left, identity on the right */
   .ident { display: flex; align-items: center; gap: 16px; }
   .ident .photo { width: 104px; flex: none; margin-bottom: 0; }
   .ident .txt { min-width: 0; }
@@ -161,31 +95,16 @@
   .tilehead { padding: 16px; gap: 12px; }
   .tilehead img { height: 48px; width: auto; max-width: 118px; }
   .tilehead .h b { font-size: 17px; }
-  /* 412 cannot hold icon + verdict + a 7-cell scale on one line, and the scale is
-     already in the score card two blocks above. Drop it here, keep it on web. */
+  
   .tilehead .scale { display: none; }
 
 }
 
-/* ================= item 4, DESKTOP AIR (Stephane, 2026-08-17 19:25) ===============
-   "For mobile, why not the middle. It's especially for the desktop that more space
-   would be good I think." The middle option is what this file already was, so mobile
-   does not move at all; only >=1100px gets more room. Same content, same order, one
-   column. Measured on the product page: 2,036 -> 2,404 px at 1440.
-   A two-column tile grid was tried first and rejected on the render - at 1440 it
-   leaves ~430px a tile and wraps "Nutri-Score E" onto three lines
-   (06-feedback-round-2/renders/deskair-2col-1440.png). */
-/* ================= the tablet band, 701-1023px (added 2026-08-18) ==================
-   Below 1024 the two-column grid gave the right column ~430px and every label wrapped
-   mid-phrase. Single column instead, and the tab strip wraps rather than scrolling out
-   of sight. The upper stop is Explorer's own Tailwind `lg:` (1024, docs/DESIGN.md §5)
-   so an implementer never has to invent one.
-   Nothing at 412 or 1440 changes - proven by re-rendering both. */
 @media (min-width: 701px) and (max-width: 1023px) {
   .wrap { max-width: 860px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
   .tabs { flex-wrap: wrap; }
-  /* a full-width photo would push the match card under the fold - draft 2's own bug */
+  
   .ident .photo { max-width: 360px; }
 }
 
@@ -201,33 +120,14 @@
   .vals { gap: 12px 30px; font-size: 14.5px; }
 }
 
-/* ================= item 3, MOBILE ONLY (Stephane, 2026-08-17 14:23 + 14:25) =======
-   "the tabs could just show each tab content" / "the first overview tab could just be
-   the content above the tabs: the result of the matching with your preferences. so
-   tabs could be moved between the picture and the matching with your preferences".
-
-   So at 412 this file is the OVERVIEW PANE: photo, strip, matching card, then the
-   tiles that no other pane renders
-   `display: contents` dissolves <aside> and <main> so .cols can order their children
-   directly; without it the strip cannot get between two boxes that live in different
-   grid items.
-
-   FOUR TABS, Urban 2026-08-18. The first version of this block hid ALL five tiles and
-   grew the strip to six, on the theory that each tile became a pane. Only Health and
-   Environment were ever drawn as panes, so Infos / Prices / Contribute led nowhere at
-   412 and `Category & labels` had no tab at all. Now only the tiles a drawn pane
-   already renders are hidden - `.tile.paned`, i.e. Health and Environment - and the
-   rest stay in the Overview pane. Nothing on the page is unreachable on mobile, and
-   `Contribute` promotes a tile that is visible, the same way `Health` does on desktop. */
 @media (max-width: 700px) {
   .cols > aside, .cols > main { display: contents; }
   .ident  { order: 1; }
   .tabs   { order: 2; }
   .scores { order: 3; }
-  main .tile.paned { display: none; }   /* only Health + Environment: they have panes */
-  /* `display: contents` puts every tile at the default order 0, i.e. ABOVE the photo.
-     It did not show while all five were hidden; it does now. */
+  main .tile.paned { display: none; }   
+  
   main .tile { order: 4; }
-  /* last on mobile, which is where the shipped bar is pinned */
+  
   .pfoot { order: 5; margin-bottom: 0; }
 }

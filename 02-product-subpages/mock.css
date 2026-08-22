@@ -1,24 +1,9 @@
-/* Product SUB-PAGES (Health, Environment) - mock stylesheet.
-   BASELINE = Jannes's live build, ../../jannes-prototype-2026-08-16/d_health.png
-   and d_environment.png. Shell, left rail, card shape, palette and type are
-   his and unchanged. Deviations are listed in SESSION-NOTES.md
-
-   Overview condenses (design-system.md 3c), the sub-page EXPANDS
-   (design-system.md 3d, reused verbatim). That split is the answer to
-   Jannes's 2026-08-03 question.
-
-   Tokens, base and the shared primitives come from ../shared/mock.css; only
-   the sub-pages' own components live here. */
-
 @import url('../shared/mock.css');
 
-/* ---------- shells ---------- */
 .webbar .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 4px; border-radius: 8px; }
-/* ---------- page ---------- */
+
 .cols { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
-/* ---------- identity ---------- *//* ---------- the preferences card (Jannes's score rows, with the
-     heading, the % badge and the preferences footer folded in) ---------- *//* .quiet = the badge without the filled background (2026-08-17). The rail is on
-   every tab, so it has to match the overview exactly. */.scale span.on.ok  { background: var(--orange); color: var(--on-warm); }.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
+.scale span.on.ok  { background: var(--orange); color: var(--on-warm); }.toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--good); position: relative; flex: none; }
 .toggle::after { content: ''; position: absolute; right: 3px; top: 3px; width: 13px; height: 13px; border-radius: 50%; background: var(--on-accent); }
 .chip { border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--txt); font-weight: 500; white-space: nowrap; }
 
@@ -26,36 +11,27 @@
   display: inline-block; font-size: 12px; font-weight: 600;
   color: var(--on-accent); background: var(--peach); border-radius: 999px; padding: 3px 10px;
 }
-/* ---------- condensed overview tiles ---------- */.grp { padding: 16px 24px; border-bottom: 1px solid var(--line-soft); }
+.grp { padding: 16px 24px; border-bottom: 1px solid var(--line-soft); }
 .grp:last-of-type { border-bottom: 0; }
 .grp .sub { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .grp .sub em { font-style: normal; color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 4px; }
 
 .vals { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13.5px; color: var(--muted); }
-/* DIRECT child only: a nested <span> used to inherit inline-flex + gap, which
-   turned a sentence into a second flex column (caught in a render 2026-08-17). */.vals .d { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.vals .d { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 .vals .d.good { background: var(--good); }
 .vals .d.bad { background: var(--bad); }
-.vals .d.unk { background: var(--unknown); }/* ---------- contribution ---------- */
+.vals .d.unk { background: var(--unknown); }
 
 .meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .pair .tile { margin-bottom: 0; }
 
-/* ---------- tab strip.
-     The tabs are SERVER OUTPUT: `root` returns health_card, environment_card,
-     report_problem_card, product_card (design-constraints.md 5). ---------- *//* ---------- expanded detail row - design-system.md 3d, verbatim ---------- */
-
 .grp > .lbl { color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px; margin: 12px 0 4px; }
 .grp > .lbl:first-child { margin-top: 0; }
-.row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }/* The status dot was removed 2026-08-17 (Stephane, #redesign-poc): the server's
-   own icon_url is drawn from the same attribute.grade, so the dot said it twice.
-   Row colour now comes from the icon alone; the title still says "in high
-   quantity", so no state is carried by colour only. */
+.row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
 .row img.ic { width: 26px; height: 26px; flex: none; object-fit: contain; }
-/* the Nutri-Score / Green-Score icon IS the grade scale - unreadable at 26px */
+
 .row img.ic.wide { width: 62px; height: 32px; }
-/* panels return `icon_color_from_evaluation: true` for these, i.e. a
-   monochrome mask the client colours. Ours reads as a light glyph. */
+
 .row img.ic.mono { filter: brightness(0) invert(1); opacity: .6; }
 .row .txt { flex: 1; min-width: 0; }
 .row .txt b { font-weight: 600; font-size: 14.5px; }
@@ -64,11 +40,6 @@
 .row.muted b { color: var(--muted); font-weight: 500; }
 .row .scale { margin-left: auto; }
 .row .fix { margin-left: auto; }
-
-/* ---------- TIER 2: expand in place, instead of pushing a page ----------
-   Drawn open in the mockup so the content is visible. The rule that decides
-   which rows get one is in SESSION-NOTES.md: a chevron only where the target
-   panel exists AND its body is product-specific. */
 
 .row .cv { margin-left: auto; flex: none; color: var(--peach); font-size: 12.5px; font-weight: 600; white-space: nowrap; }
 .box { background: var(--card2); border-radius: 8px; padding: 10px 12px 10px; margin: 2px 0 10px; }
@@ -82,16 +53,12 @@
 .mini td:last-child { text-align: right; color: var(--txt); font-weight: 600; white-space: nowrap; }
 .mini tr.tot td { border-top: 1px solid var(--line); color: var(--txt); font-weight: 700; }
 
-/* life-cycle share, one bar instead of a six-row percentage table */
 .bar { display: flex; height: 9px; border-radius: 999px; overflow: hidden; margin: 3px 0 8px; }
 .bar i { display: block; height: 100%; }
 .legend { display: flex; flex-wrap: wrap; gap: 3px 12px; font-size: 12px; color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 4px; }
 .legend em { font-style: normal; width: 8px; height: 8px; border-radius: 2px; flex: none; }
 
-/* A RECOMMENDATION is not an explainer. `level: "recommendation"` is the only
-   non-info level the API returns, and the panel's PRESENCE is conditional on the
-   product even though its text is generic - so it is shown, never linked. */
 .row.rec {
   background: var(--bad-tint-weak); border: 1px solid var(--bad-edge);
   border-radius: 8px; padding: 10px 12px; margin: 8px 0 2px;
@@ -99,28 +66,20 @@
 .row.rec .txt b { color: var(--bad-soft); }
 .row.rec .txt i { color: var(--warm-soft); }
 
-/* ONE generic explainer per section, replacing a chevron on every row */
 .learn { display: block; margin-top: 10px; font-size: 12.5px; color: var(--peach); font-weight: 600; }
 
-/* a whole group collapsed into one grey line - content rule 4 */
 .rowmore { padding: 8px 0 2px; color: var(--faint); font-size: 13px; }
 
-/* server-written disclaimer that ships inside a panel */
 .note { color: var(--muted); font-size: 12.5px; line-height: 1.5; padding: 10px 0 2px; }
 
-/* free text a panel returns as prose (the ingredient list) */
 .prose { font-size: 13.5px; line-height: 1.55; color: var(--muted); padding: 4px 0 2px; }
 .prose b { color: var(--txt); font-weight: 600; }
-
-/* ---------- nutrition declaration table - kept from his build ---------- */
 
 .ntab { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .ntab th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12.5px; padding: 0 0 8px; }
 .ntab th:last-child, .ntab td:last-child { text-align: right; }
 .ntab td { padding: 8px 0; border-top: 1px solid var(--line-soft); }
 .ntab tr.ind td:first-child { padding-left: 16px; color: var(--muted); }
-
-/* ================= MOBILE = read it as the app ================= */
 
 @media (max-width: 700px) {
   .webbar { display: none; }
@@ -135,7 +94,6 @@
   .wrap { padding: 12px 12px 20px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
 
-  /* his 2 Aug mobile: square thumbnail on the left, identity on the right */
   .ident { display: flex; align-items: center; gap: 16px; }
   .ident .photo { width: 104px; flex: none; margin-bottom: 0; }
   .ident .txt { min-width: 0; }
@@ -161,25 +119,11 @@
 
 }
 
-/* ================= item 4, DESKTOP AIR (Stephane, 2026-08-17 19:25) ===============
-   "For mobile, why not the middle. It's especially for the desktop that more space
-   would be good I think." The middle option is what this file already was, so mobile
-   does not move at all; only >=1100px gets more room. Same content, same order, one
-   column. Measured on the product page: 2,036 -> 2,404 px at 1440.
-   A two-column tile grid was tried first and rejected on the render - at 1440 it
-   leaves ~430px a tile and wraps "Nutri-Score E" onto three lines
-   (06-feedback-round-2/renders/deskair-2col-1440.png). */
-/* ================= the tablet band, 701-1023px (added 2026-08-18) ==================
-   Below 1024 the two-column grid gave the right column ~430px and every label wrapped
-   mid-phrase. Single column instead, and the tab strip wraps rather than scrolling out
-   of sight. The upper stop is Explorer's own Tailwind `lg:` (1024, docs/DESIGN.md §5)
-   so an implementer never has to invent one.
-   Nothing at 412 or 1440 changes - proven by re-rendering both. */
 @media (min-width: 701px) and (max-width: 1023px) {
   .wrap { max-width: 860px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
   .tabs { flex-wrap: wrap; }
-  /* a full-width photo would push the match card under the fold - draft 2's own bug */
+  
   .ident .photo { max-width: 360px; }
 }
 
@@ -195,11 +139,6 @@
   .vals { gap: 12px 30px; font-size: 14.5px; }
 }
 
-/* ================= item 3, MOBILE ONLY (Stephane, 2026-08-17 14:23 + 14:25) =======
-   A sub-page IS a tab pane, so at 412 it shows the photo, the strip and its own
-   content. The matching card is the OVERVIEW pane's content and is hidden here - the
-   same rule that empties the overview of everything except the match.
-   Desktop keeps it in the left column as a rail on every view. */
 @media (max-width: 700px) {
   .scores { display: none; }
 }

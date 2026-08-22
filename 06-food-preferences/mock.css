@@ -1,15 +1,5 @@
-/* Batch 3, screen 2 - Food preferences / onboarding.
-   Tokens, base, the app shell and the shared primitives come from ../shared/mock.css
-   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
-
-   The one design decision this screen makes is the CONTROL (design-brief.md §The control):
-   a row is a switch; a four-value attribute reveals its three levels once it is on; a
-   two-value attribute IS a red line when on. Both halves are the server's own
-   `attribute.values`, so nothing about the control is invented. */
-
 @import url('../shared/mock.css');
 
-/* ---------- shell: same skeleton as 01/05, so the screens match ---------- */
 .webbar .field {
   display: flex; align-items: center; gap: 10px; min-width: 0; width: 430px;
   background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px;
@@ -21,29 +11,16 @@
   display: flex; align-items: center; justify-content: center; font-size: 17px; flex: none;
 }
 
-/* ⛔ NO bottom tab bar on this screen. The wizard is pushed fullScreen from the Profile tab
-   (preferences_page.dart:82 `fullScreen: true`), so it replaces PageManager exactly as a
-   product page does - shell-contract.md, design-system.md §2. */
-/* the shipped wizard puts a progress bar in the top bar and hides it at 100%
-   (food_preferences_page.dart: `_controller.progress == 1 ? null : FAProgressBar`) */
 .appbar .bar { height: 6px; border-radius: 999px; background: var(--card2); overflow: hidden; }
 .appbar .bar i { display: block; height: 100%; background: var(--orange); }
 
-/* three children, not two: the wizard's nav bar has to be the LAST thing at 412 (it is a bottom
-   bar in the shipped app), and the preview has to be the last thing before it. Placing the nav
-   inside the left column put it above the preview on mobile. */
 .cols { display: grid; grid-template-columns: 1fr 340px; gap: 0 30px; align-items: start; }.cols > .main { grid-column: 1; grid-row: 1; }
 .cols > .prev { grid-column: 2; grid-row: 1 / span 2; }
 .cols > .foot { grid-column: 1; grid-row: 2; }
 
-/* ---------- page head ---------- */
-
 h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .sub { margin-top: 4px; font-size: 14px; color: var(--muted); max-width: 62ch; }
 
-/* the privacy sentence is `myPreferences_food_comment`'s own last clause, verbatim, and it is
-   the strongest thing on the screen for an open-database pitch - Explorer says the same in its
-   own words ("kept in your browser and never sent to Open Food Facts or anyone else") */
 .privacy {
   display: flex; align-items: flex-start; gap: 10px;
   margin: 16px 0 20px; padding: 12px 16px;
@@ -51,8 +28,6 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
   font-size: 13px; color: var(--muted2);
 }
 .privacy .g { font-size: 15px; color: var(--peach); flex: none; line-height: 1.3; }
-
-/* ---------- the group card ---------- */
 
 .grp {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
@@ -62,15 +37,12 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .ghead .n { flex: 1; min-width: 0; font-size: 16px; font-weight: 700; }
 .ghead .ch { font-size: 11px; color: var(--faint); flex: none; }
 
-/* per-group state, which neither shipped surface has: Explorer renders 28 rows with nothing
-   selected and no group-level summary (baseline 2026-08-19) */
 .gstate { font-size: 12.5px; font-weight: 600; color: var(--muted); flex: none; }
 .gstate.set { color: var(--peach); }
 .gstate.red { color: var(--bad-text); }
 
 .gbody { padding: 0 16px 16px; border-top: 1px solid var(--line-soft); padding-top: 12px; }
 
-/* the group's own `warning` string, server-written, on 2 of the 6 groups */
 .warn {
   display: flex; align-items: flex-start; gap: 10px;
   margin-bottom: 12px; padding: 10px 12px;
@@ -79,16 +51,12 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 }
 .warn .g { flex: none; font-size: 14px; line-height: 1.2; }
 
-/* the settings search field - the shipped wizard has one per group page
-   (food_preferences_search_bar.dart), string `preferences_app_bar_search_hint` */
 .find {
   display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
   background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px;
   padding: 8px 12px; font-size: 13.5px; color: var(--muted2);
 }
 .find .g { color: var(--muted); }
-
-/* ---------- the preference row: the one thing this screen decides ---------- */
 
 .pref { border-bottom: 1px solid var(--line-softer); }
 .pref:last-child { border-bottom: 0; }
@@ -97,7 +65,6 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .prow img { width: 30px; height: 30px; flex: none; object-fit: contain; }.prow .t b { display: block; font-size: 14.5px; font-weight: 600; }
 .prow .t i { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); }
 
-/* the switch. `SmoothSwitch` already ships and the wizard already uses it */
 .sw { width: 42px; height: 26px; border-radius: 999px; background: var(--card3); flex: none; position: relative; }
 .sw::after {
   content: ''; position: absolute; top: 4px; left: 4px;
@@ -107,9 +74,6 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .sw.on::after { left: 20px; background: var(--on-accent); }
 .sw.red.on { background: var(--bad); }
 
-/* the level control, revealed only when a FOUR-value attribute is on. Labels and order are the
-   server's own importance list (`init_preferences_en.json`: not_important / important /
-   very_important / mandatory), so this authors no string. SmoothSegmentedControl already ships. */
 .levels { display: flex; gap: 4px; padding: 0 0 12px 40px; }
 .levels span {
   border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
@@ -117,14 +81,9 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 }
 .levels span.on { background: var(--peach); border-color: var(--peach); color: var(--on-accent); }
 
-/* `mandatory` is not just the loudest level, it is a different KIND of choice: factor 4 against 2
-   and the only one with a `minimum_match` (20), so it can zero a product's score outright. It
-   therefore reads as a red line even before it is picked. */
 .levels span.mand { border-color: var(--bad-edge); color: var(--bad-soft); }
 .levels span.mand.on { background: var(--bad); border-color: var(--bad); color: var(--on-bad); }
 
-/* a two-value attribute has no level to pick: ON means `mandatory`, i.e. a hard filter.
-   `mandatory` + DOES_NOT_MATCH is the allergen red line smooth-app/CONTRIBUTING.md asks for. */
 .redline {
   display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px 40px;
   padding: 4px 10px; border-radius: 999px;
@@ -133,8 +92,6 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 }
 .redline i { width: 7px; height: 7px; border-radius: 50%; background: var(--bad); flex: none; }
 
-/* the free-text ingredients input - shipped as `unwanted_ingredients_input.dart`, and Explorer
-   renders the same attribute as a `tags` parameter type */
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px 40px; }
 .tags .tag {
   display: inline-flex; align-items: center; gap: 8px;
@@ -146,11 +103,7 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 
 .collapsed { font-size: 12.5px; color: var(--faint); padding: 4px 0 2px; }
 
-/* the wizard shows one step; the web page shows the whole list. Same components, so the split is
-   two blocks rather than two designs (design-constraints.md §7c: shell per surface, content once) */
 .apponly { display: none; }
-
-/* ---------- the intro timeline ---------- */
 
 .lede { font-size: 15.5px; line-height: 1.5; margin-bottom: 20px; }
 .lede b { font-weight: 700; }
@@ -172,11 +125,6 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .step .t b { display: block; font-size: 15px; font-weight: 700; }
 .step .t i { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
 
-/* ---------- the live preview card ---------- */
-
-/* This is not ours either: the shipped onboarding step puts a real SummaryCard of a sample
-   product above the controls (onboarding/preferences_page.dart -> OnboardingDataProduct), so
-   changing a preference visibly changes a verdict. Neither the wizard nor Explorer kept it. */
 .prev {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 16px;
 }
@@ -188,9 +136,7 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .prev .pd .t i { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); }
 
 .verdict { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; background: var(--card2); }
-/* the match percentage. Same component as 05-search's `.shot .badge`, differently placed - one of
-   them should move to shared/mock.css, which is a MOVE for the cross-screen pass, not a silent edit
-   from inside one screen (design-system.md §7, SESSION-NOTES.md). */
+
 .verdict .badge { font-size: 22px; font-weight: 800; letter-spacing: -.5px; flex: none; }
 .verdict .st { flex: 1; min-width: 0; font-size: 13.5px; font-weight: 700; }
 .verdict .st i { display: block; font-style: normal; font-size: 12px; font-weight: 500; color: var(--muted); margin-top: 1px; }
@@ -212,8 +158,6 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 
 .reset { margin-top: 16px; font-size: 13px; color: var(--muted); }
 
-/* ---------- the summary ("Profile ready") ---------- */
-
 .sgrp { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px; margin-bottom: 12px; }
 .sgrp .sh { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
 .sgrp .sh b { flex: 1; min-width: 0; font-size: 14px; font-weight: 700; }
@@ -225,16 +169,12 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 .sitem .lv.mand { color: var(--bad-text); }
 .sitem.none { color: var(--faint); font-size: 13px; }
 
-/* ---------- 701-1023: one column, web chrome (design-system.md §2b) ---------- */
-
 @media (min-width: 701px) and (max-width: 1023px) {
   .wrap { max-width: 860px; }
-  /* the band: one column, web chrome. Reverting to grid placement would leave a dead column */
+  
   .cols { display: flex; flex-direction: column; }
   .prev { margin-top: 20px; }
 }
-
-/* ---------- <=700: the app ---------- */
 
 @media (max-width: 700px) {
   .webbar { display: none; }
@@ -246,28 +186,19 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
   .wrap { padding: 16px 12px 20px; }
   .cols { display: flex; flex-direction: column; }
 
-  /* the wizard shows ONE step at a time, so the page head and the other groups are not on
-     screen - the step title is in the app bar, where the shipped wizard puts it */
   h1, .sub, .webonly { display: none; }
   .apponly { display: block; }
 
   .prev { margin-top: 16px; }
 
-  /* the three levels have to fit one line at 412 - wrapped, "Mandatory" reads as a separate
-     control rather than the third option. The 42px indent that aligns them under the row text on
-     web is what costs the space, so it goes. */
   .levels { padding-left: 0; gap: 4px; }
   .levels span { padding: 4px 8px; font-size: 12px; }
   .redline, .tags { margin-left: 0; }
 
-  /* the shipped nav bar is two buttons side by side (SmoothButtonsBar2), so the spacer that
-     pushes them apart on web must not also eat the primary button's width */
   .foot { margin-top: 20px; }
   .foot .spacer { display: none; }
   .foot .go { flex: 1; text-align: center; }
 }
-
-/* ---------- >=1100: the desktop air Stéphane asked for ---------- */
 
 @media (min-width: 1100px) {
   .wrap { max-width: 1320px; padding: 32px 40px 60px; }

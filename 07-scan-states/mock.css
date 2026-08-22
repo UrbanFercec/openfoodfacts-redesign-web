@@ -1,53 +1,11 @@
-/* Scan states - screen stylesheet. Tokens, the app frame and the tab bar come from
-   ../shared/mock.css; only this screen's own components live here.
-
-   ⛔ REDRAWN 2026-08-21 (_REDRAW-REQUESTED.md). Was a 300px camera pane over a card
-   carousel, copied from the shipped 43/57 split. Now: a FULL-BLEED camera and one bottom
-   sheet per scan, which is `shell-contract.md` line 16, the pitch we already sent, their own
-   `Homepage_V2` 20-28 + `🤳 Scan card - V1 & V2` / `Scanner carte 3` - and, as it turns out,
-   the app's OWN flagged code:
-
-     pages/homepage/camera/view/ui/camera_view.dart:127   ONE card for `latestConsultedBarcode`,
-                                                          maxHeight 0.35 x screen, widthFactor .9,
-                                                          switching the SAME ScannedProductState
-     ..._message_overlay.dart                             the ⓘ pill, 85% wide, an icon then a
-                                                          divider then centred text
-     ..._buttons_bar.dart                                 the two round tools + Back to home
-     expandable_view/expandable_camera.dart               the camera EXPANDS (CAMERA_PEAK = .4)
-
-   So the redraw is a relocation of widgets that already exist behind `__homePageV2`, not a new
-   mechanic - and every string it needs is already in `app_en.arb`, in 128 locales.
-
-   ⛔ Eight pages, ONE shell. Everything above `.csheet` is identical on every page: camera,
-   chrome, brackets. Only the sheet changes, exactly as the switch at camera_view.dart:135-149
-   does. The left/right carousel is GONE (scan_carousel.dart's `barcodes.length + 1`, no cap);
-   previous scans live in Lists -> History, which batch 4 already drew.
-
-   ⛔ Camera colours are the theme-invariant `--camera*` / `--on-camera` group in
-   shared/mock.css, added by the light pass on 2026-08-21 for exactly this screen. A camera is a
-   photo, not a surface: painting it with theme surfaces made the viewfinder a pale grey box in
-   light with 1.13:1 controls on it. Do not substitute --sunk / --card here.
-
-   APP ONLY at 412. The web has a scanner (`/qr` in Explorer, and the live Perl site has one)
-   but it is a viewfinder page with no product sheet, so it is a different screen rather than
-   this screen at another width. */
-
 @import url('../shared/mock.css');
 
-/* ---------- the camera: full-bleed, edge to edge ---------- */
-
-/* 834 + the 66px tab bar = one 900px phone screen. ⛔ Not a percentage: a render is one tall
-   viewport, so the height has to be a number (design-process.md §5).
-   ⛔ The pages carry `class="app full"`: `.app.full .tabbar { margin-top: 0 }` lives in shared/,
-   because the 20px gap above the bar is breathing room for a scrolling page and a camera is not
-   one. Do not cancel it with a negative margin here. */
 .scan {
   position: relative; height: 834px; overflow: hidden;
   background: var(--camera);
   background-image: radial-gradient(120% 80% at 50% 38%, var(--camera-glow) 0%, var(--camera) 68%);
 }
 
-/* the chrome sits ON the video, so it uses the --camera* group, never the theme surfaces */
 .ctop { position: absolute; inset: 0 0 auto 0; display: flex; align-items: center; gap: 8px; padding: 14px 12px; }
 .ctop .spacer { flex: 1; }
 .ctop .chip { background: var(--camera-ctl); border-color: var(--camera-ctl-edge); color: var(--on-camera); }
@@ -59,24 +17,13 @@
   font-size: 17px; color: var(--on-camera);
 }
 
-/* the brackets + the reticle glyph, straight off their artboards. ⚠️ Their static brackets are
-   the IDLE affordance; the shipped overlay paints the DETECTED barcode's own four corners for
-   800ms instead (camera_overlay.dart), so an implementer draws both, not one. */
-/* ⛔ 268px from the top, not a percentage of the camera: the reticle has to stay in the part of
-   the viewfinder the sheet does not cover, and the tallest sheet on this screen (poor data) starts
-   at 390. A centred reticle was half behind it. 268 is also where their artboards 20/21 put it. */
 .reticle { position: absolute; left: 50%; top: 268px; transform: translate(-50%, -50%); width: 224px; height: 196px; }
 .reticle i { position: absolute; width: 34px; height: 34px; border: 2px solid var(--on-camera); opacity: .9; }
 .reticle i.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
 .reticle i.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
 .reticle i.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
 .reticle i.br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
-/* ⛔ THE BARCODE, not a glyph. Urban, 2026-08-22. It was `&#9906;` - a font character that reads
-   as a location pin at 54px, on a screen whose whole job is barcodes.
-   ⭐ This is the APP'S OWN icon: `assets/fonts/icons/barcode.svg`, path data verbatim, so the
-   mockup shows a shipped asset rather than an invented one. Carried as a MASK, not an <img>: the
-   source SVG hard-codes a black fill, and a colour literal outside shared/mock.css fails
-   `tools/check.py`, so the shape comes from the data URI and the colour from --on-camera. */
+
 .reticle .glyph {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   width: 96px; height: 96px; opacity: .85;
@@ -85,13 +32,6 @@
           mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2031%2031%22%3E%3Cpath%20d%3D%22M0%2C0%20L0%2C23%20L1%2C23%20L1%2C0%20L0%2C0%20Z%20M3%2C0%20L3%2C23%20L5%2C23%20L5%2C0%20L3%2C0%20Z%20M6%2C0%20L6%2C23%20L12%2C23%20L12%2C0%20L6%2C0%20Z%20M14%2C0%20L14%2C23%20L15%2C23%20L15%2C0%20L14%2C0%20Z%20M17%2C0%20L17%2C23%20L19%2C23%20L19%2C0%20L17%2C0%20Z%20M20%2C0%20L20%2C23%20L21%2C23%20L21%2C0%20L20%2C0%20Z%20M23%2C0%20L23%2C23%20L26%2C23%20L26%2C0%20L23%2C0%20Z%20M28%2C0%20L28%2C23%20L29%2C23%20L29%2C0%20L28%2C0%20Z%20M30%2C0%20L30%2C23%20L31%2C23%20L31%2C0%20L30%2C0%20Z%22%20transform%3D%22translate%280%2C4.0774%29%22%20fill-rule%3D%22nonzero%22%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
 }
 
-/* the idle message. `HomePageScannerMessageOverlay` verbatim: 85% wide, rounded, an ⓘ then a
-   vertical divider then centred text (scanner_message_overlay.dart). The string is SHIPPED -
-   `homepage_scanner_banner_start_scanning` - and it is the English of the sentence on their own
-   artboards 20/21/28.
-   ⛔ Translucent (`--glass`), unlike the chips and the round tools: this one sits over the
-   middle of the frame, so the video has to read through it. The shipped widget is `0x33FFFFFF`
-   over the live preview for the same reason. */
 .hint {
   position: absolute; inset: auto 0 30px 0; width: 85%; margin: 0 auto;
   display: flex; align-items: stretch;
@@ -103,32 +43,12 @@
   text-align: center; font-size: 15px; font-weight: 500; color: var(--on-camera); line-height: 1.35;
 }
 
-/* the permission gate replaces the video, exactly as `_PermissionDeniedCard` does
-   (scan_page.dart:161, reached from the switch at :76-82). Copy is shipped verbatim:
-   permission_photo_denied_title / _message / _button */
-/* ⛔ `.nocam` is not decoration. Every other state paints a live video, which is dark in every
-   theme - but a DENIED permission means there is no video, so the theme-invariant `--camera*`
-   group is wrong here: in light it rendered a full-screen black panel with white text, which
-   reads as a crash rather than a designed screen (caught by the both-polarities render,
-   2026-08-21). No camera, so a normal surface and normal text colours. */
 .scan.nocam { background: var(--sunk); background-image: none; }
 .gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 28px; text-align: center; }
 .gate h2 { font-size: 18px; font-weight: 700; color: var(--txt); }
 .gate p { font-size: 14px; color: var(--muted2); line-height: 1.5; margin-top: 16px; }
 .gate .btnpeach { margin-top: 24px; padding: 10px 32px; }
 
-/* ---------- the sheet: one scan, one sheet ---------- */
-
-/* full width with rounded top corners, which is their `Scanner carte 3` and their Homepage_V2
-   22-26. ⚠️ The shipped flagged card is `widthFactor: 0.9` - a floating card, not a sheet. We
-   take their artboard, because a written design outranks the shipped floor
-   (shell-contract.md §THE PRECEDENCE RULE).
-
-   ⛔ ONE STOP, CAPPED AT 75% - design-system.md §3i (Urban, 2026-08-22). The sheet arrives at its
-   final height; there is no peek, no drag-to-expand and no ✕. 675px = 75% of the 900px app frame,
-   not of `.scan`'s 834 - the cap is a fraction of the SCREEN. It does not bite on any state drawn
-   here (the tallest, poor data, is ~440), so nothing is clipped; it is declared because it is the
-   number an implementer needs against the shipped `maxHeight: 0.35 x screen`. */
 .csheet {
   position: absolute; inset: auto 0 0 0; max-height: 675px;
   display: flex; flex-direction: column;
@@ -136,40 +56,29 @@
   border-radius: var(--r) var(--r) 0 0;
 }
 
-/* the grabber row. ⛔ No ✕ - the shipped card has one (smooth_product_base_card.dart:89,
-   `carousel_close_tooltip`) and we drop it everywhere: the grabber, swipe-down and the tab bar
-   are the exits (design-system.md §3i rule 2). The camera behind stays unscrimmed. */
 .grab { display: flex; align-items: center; justify-content: center; padding: 10px 12px 2px; flex: none; }
 .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
 
-/* the message sheets (loading, unknown, error) keep a titled header, which all three shipped
-   cards have (`carousel_*_header`) and which their 22/24/26 draw */
 .chd { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); flex: none; }
 .chd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
 .chd h2 { font-size: 14px; font-weight: 700; letter-spacing: -.1px; }
 .chd .spacer { flex: 1; }
-/* their 26 gives the error sheet a red header band, and it is the one state where the header
-   carries the verdict rather than a label */
+
 .chd.err { background: var(--bad-tint); border-bottom-color: var(--bad-edge); }
 .chd.err h2 { color: var(--bad-soft); }
 .chd.err i { background: var(--bad); }
 
-/* only the body scrolls once the 75% cap bites (design-system.md §3i rule 3) */
 .cbody { padding: 14px 16px 18px; overflow-y: auto; }
 
-/* identity inside the sheet: thumb beside the name, his 2 Aug mobile layout */
 .pident { display: flex; gap: 12px; align-items: flex-start; }
 .pident .thumb { width: 64px; height: 64px; flex: none; background: var(--card2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .pident .thumb img { width: 100%; height: 100%; object-fit: cover; }
 .pident .t { flex: 1; min-width: 0; }
 .pident .nm { font-size: 16px; font-weight: 800; letter-spacing: -.2px; }
-/* the % itself, so `check_content.py`'s badge check can see it: any percentage on this screen
-   has to be one match.py computes from live attributes */
+
 .pident .pill .badge { font-weight: 800; }
 .pident .sub { font-size: 12.5px; color: var(--muted); }
 
-/* the criterion rows: server icon + attribute title + description_short. Same content as the
-   product page's condensed tile (§3c), one line each, no scale cells */
 .srows { margin-top: 12px; border-top: 1px solid var(--line-soft); }
 .srow2 { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
 .srow2:last-child { border-bottom: 0; }
@@ -179,16 +88,11 @@
 .srow2 .t i { font-style: normal; display: block; font-size: 12px; color: var(--muted); }
 .srow2.unk .t b { color: var(--unknown-soft); }
 
-/* the two ranked fixes on a poor-data sheet. `.task` is the shared primitive from the product
-   page (design-system.md §3e) - the labels here are SHIPPED
-   (`score_add_missing_nutrition_facts`, `score_add_missing_precise_product_category`) */
 .fixes { margin-top: 12px; padding-top: 4px; border-top: 1px solid var(--line); }
 .fixes .lbl { font-size: 12px; font-weight: 700; color: var(--peach); letter-spacing: .3px; margin: 6px 0 2px; }
-/* at 412 inside a sheet the "unlocks the …" clause has to be its own line, or it wraps under
-   the label and shoves the time estimate onto a second row */
+
 .fixes .task .t i { display: block; }
 
-/* the drill-in footer. `tap_for_more` - shipped, and it is the sheet's only navigation */
 .cfoot {
   flex: none;
   display: flex; align-items: center; gap: 8px; padding: 13px 16px;
@@ -196,7 +100,6 @@
 }
 .cfoot .spacer { flex: 1; }
 
-/* loading / not-found / error bodies - one shape, three sets of shipped strings */
 .msg { text-align: center; }
 .msg h3 { font-size: 16px; font-weight: 800; letter-spacing: -.2px; margin-bottom: 8px; }
 .msg h3 u { text-decoration-thickness: 2px; text-underline-offset: 3px; }

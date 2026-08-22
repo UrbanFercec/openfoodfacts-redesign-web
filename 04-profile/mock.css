@@ -1,18 +1,5 @@
-/* Profile tab - renamed from "Community" (Urban, 2026-08-16). Tokens, shell and
-   shared primitives come from ../shared/mock.css; only profile's own parts here.
-   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
-
-   Two surfaces, and on the web the screen is a TWIN: Explorer splits it into `/settings`
-   and `/users/[user]`, so profile-web.html draws both halves as one page. The app halves
-   are profile-in.html / profile-out.html. */
-
 @import url('../shared/mock.css');
 
-/* ---------- the app halves ---------- */
-
-/* the signed-in header - their `Profil (connecté)` artboard, minus the two
-   orange counter tiles, which are demoted below. ⛔ no member-since line until
-   ask A8 lands: `registered_t` is on no API today */
 .phead {
   background: var(--card); padding: 16px 16px 16px;
   display: flex; align-items: center; gap: 12px;
@@ -28,7 +15,6 @@
   display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--muted);
 }
 
-/* signed-out header */
 .pout { background: var(--card); padding: 16px 16px 16px; }
 .pout .who { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .pout .who .av {
@@ -39,8 +25,6 @@
 .pout .btns { display: flex; gap: 10px; }
 .pout .btns > * { flex: 1; text-align: center; }
 
-/* the record of what you have contributed - the numbers stay here, the
-   ACTIONS moved to Home. Deliberately NOT the live tab's two orange hero tiles */
 .record { padding: 12px 12px 0; }
 .record .recs { display: flex; gap: 10px; }
 .rec {
@@ -55,7 +39,6 @@
   font-size: 13.5px; font-weight: 700; color: var(--peach);
 }
 
-/* settings cards - their card + row shape, our tokens */
 .pcard2 { margin: 12px 12px 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .pcard2 > h3 {
   font-size: 13.5px; font-weight: 700; padding: 10px 16px;
@@ -66,27 +49,13 @@
 .setrow:last-child { border-bottom: 0; }
 .setrow .pi { width: 26px; text-align: center; font-size: 16px; flex: none; color: var(--muted); }.setrow .t b { display: block; font-size: 14px; font-weight: 600; }
 .setrow .t i { font-style: normal; display: block; color: var(--muted); font-size: 12.5px; }
-/* the shipped `boldPostScriptum` - "You haven't set any preference yet." on a vertical that has
-   never been configured. An empty state is a prompt, not a dead end (design-system.md §4 rule 3) */
+
 .setrow .t em { font-style: normal; display: block; color: var(--peach); font-size: 12.5px; font-weight: 700; }
 .setrow .go2 { color: var(--faint); font-size: 17px; flex: none; }
 .setrow.dim .t b { color: var(--muted); }
 
-/* the settings search field, which is the one search that belongs here.
-   ⛔ Urban asked whether it is needed at all, then ruled 2026-08-20: it stays, drawn as it was.
-   It is shipped and PINNED - `profile_app_bar.dart:34-40` adds SEARCH_BOTTOM_HEIGHT to the
-   collapsing header's minExtent, so it is the one element that survives the collapse - and their
-   own `Prefs V2` draws it with a real placeholder.
-   ⚠️ Recorded and NOT applied, so nobody re-derives it: production draws this field quiet, a
-   1px border with a DARK circular icon (`search_field.dart:105-172`, `search_icon.dart:29-42`:
-   `primaryBlack` / `primaryUltraBlack`), not the orange fill and peach glow of the Home entry
-   pill. It was drawn that way and folded into the header band on 2026-08-20; he preferred the
-   original, so the pill stays. If an implementer matches production instead, that is not a bug. */
 .psearch { margin: 12px 12px 0; }
 
-/* ---------- the web half: `/settings` and `/users/[user]` as one page ---------- */
-
-/* same skeleton as screens/05-search, so the two web screens match */
 .webbar .btn.me { color: var(--txt); }
 .field {
   display: flex; align-items: center; gap: 10px; min-width: 0; width: 420px;
@@ -101,38 +70,22 @@
   display: flex; align-items: center; justify-content: center; font-size: 17px; flex: none;
 }
 
-/* their own second-level nav band, kept because it is what the live site has */
 .navband {
   display: flex; gap: 48px; justify-content: center;
   background: var(--card2); border-bottom: 1px solid var(--line);
   padding: 10px 32px; font-size: 13.5px; font-weight: 600; color: var(--txt2);
 }
 
-/* 1180 / 26px 32px 46px is what 01, 02, 05 and 06 all use. This file had 1240/50 for no reason
-   and the cross-screen pass caught it (CROSS-SCREEN-batch3.md Q5). */
 .phead1 { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
 .phead1 .spacer { flex: 1; }
-h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }   /* = 05-search's page title */
+h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }   
 h2 { display: flex; align-items: baseline; gap: 12px; font-size: 16px; font-weight: 700; margin: 26px 0 12px; }
-/* the per-section link used to be a full-width bordered button under the grid - three of them
-   cost ~130px of page for three words each. In the heading it costs nothing. */
+
 h2 .all { margin-left: auto; font-size: 13px; font-weight: 600; color: var(--peach); }
 h2.sethead {
   font-size: 22px; margin: 36px 0 18px; padding-top: 26px; border-top: 1px solid var(--line);
 }
 
-/* ⛔ THE SETTINGS HALF IS FULL WIDTH, BELOW THE RECORD - and it is the emphasis of the page.
-   Three passes got here (Urban, 2026-08-19 and twice on 2026-08-20). What each one proved:
-     v1  4 columns at the foot of a 3,023px page. Too small, and every second title wrapped.
-     v2  a 340px sticky rail at >=1024. Better, still small - *"the majority of space is taken
-         by images"* - and it left ~1,090px of empty column in any full-page render.
-     v3  this: 2 columns across the full 1180, bigger type, and the record shrunk to ONE row of
-         six per section so the page leads with the record and lands on the settings.
-   ⛔ The type step-up is scoped to `.setgrid`, never to `.setrow` itself - the same rows are the
-   412 app screen, where 14px is right. */
-/* ⛔ columns, not a grid: the four cards are 5 / 2 / 2 / 2 rows tall, so a 2x2 grid left a hole
-   the height of three rows under the short one. `column-count` flows them instead - left column
-   takes Customize + the project, right takes Help + About - and nothing is staggered. */
 .setgrid { column-count: 2; column-gap: 20px; }
 .setgrid .pcard2 { margin: 0 0 20px; break-inside: avoid; }
 .setgrid .pcard2 > h3 { font-size: 15px; padding: 13px 20px; }
@@ -142,8 +95,6 @@ h2.sethead {
 .setgrid .setrow .t i { font-size: 13.5px; margin-top: 1px; }
 .setgrid .setrow .go2 { font-size: 19px; }
 
-/* the record, argued from Explorer's /users/[user]: counts AND the products under them.
-   Four cards, not three - the app counts prices and the web does not, and both are live */
 .recweb { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .rc {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
@@ -152,32 +103,24 @@ h2.sethead {
 .rc b { display: block; font-size: 25px; font-weight: 800; letter-spacing: -.6px; }
 .rc span { color: var(--muted); font-size: 12.5px; }
 
-/* SIX up, one row per section (2026-08-20). At 3-up the three sections were six rows of
-   photography and the settings sat under all of it. Six-up is also the only count that divides
-   the six products a section shows, so there is no orphan row. */
 .pgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
 .pc {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
   overflow: hidden; display: flex; flex-direction: column;
 }
-/* 168 -> 112 -> 100. The photo only has to make the product recognisable; it is not the point
-   of a record, and OFF's fronts are uncropped contributor JPEGs (design-system.md §2). */
+
 .pc .shot { height: 100px; background: var(--card2); }
 .pc .shot img { width: 100%; height: 100%; object-fit: cover; }
 .pcb { padding: 9px 10px 11px; }
 .pcb b { display: block; font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pcb i { font-style: normal; display: block; color: var(--muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* the score strip. ⛔ Green-Score has three non-grade states and this draws all of them -
-   Explorer's card renders one grey badge and says nothing (api-note.md §3) */
 .scs { display: flex; gap: 3px; margin-top: 8px; }
 .sc {
   flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: 7px;
   padding: 3px 2px; text-align: center;
 }
-/* ⛔ wrap, never truncate: a cut label is a cut verdict. The 2026-08-19 version only needed this
-   at <=700; the 340px rail narrowed the desktop card to ~240px too, and the first render after it
-   showed "Green-Sco…" on every card. Same fix, now unconditional. */
+
 .sc i {
   font-style: normal; display: block; font-size: 8px; color: var(--faint); letter-spacing: 0;
   white-space: normal; line-height: 1.15;
@@ -188,9 +131,8 @@ h2.sethead {
 .sc.bad b { color: var(--bad); }
 .sc.unk b { color: var(--unknown-soft); font-size: 12px; }
 
-/* the three stops, pinned to Explorer's own (design-system.md §2b) */
 @media (max-width: 1023px) {
-  /* six-up needs 1180 to stay legible; the band gets three, which is two rows per section */
+  
   .pgrid { grid-template-columns: repeat(3, 1fr); }
   .pc .shot { height: 118px; }
   .setgrid { column-gap: 16px; }
@@ -206,5 +148,5 @@ h2.sethead {
   .setgrid { column-count: 1; }
   .setgrid .pcard2 { margin-bottom: 12px; }
   h1 { font-size: 23px; }
-  /* the score-label wrap that used to live here is now unconditional - see `.sc i` above */
+  
 }

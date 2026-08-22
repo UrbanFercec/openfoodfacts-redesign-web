@@ -1,15 +1,4 @@
-/* Batch 7, screen 2 - Compare (family 11). Tokens, base, the app shell and the web shell come
-   from ../shared/mock.css.
-   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
-
-   ⛔ THE BROWSE ROW IS NOT NEW - and this is its THIRD user. `.res .shot .badge .grades .why
-   .grp .cols .card .crit` are the same bodies as screens/05-search and screens/11-facets, because
-   a ranking IS a result list ordered differently. Three users is past the threshold: proposed as a
-   MOVE into shared/ in ../../CROSS-SCREEN-batch7.md. */
-
 @import url('../shared/mock.css');
-
-/* ---------- shell ---------- */
 
 .field {
   display: flex; align-items: center; gap: 10px; min-width: 0;
@@ -35,21 +24,13 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .acts .spacer { flex: 1; }
 .acts .txt { font-size: 12.5px; font-weight: 600; color: var(--peach); white-space: nowrap; }
 
-/* ---------- the side-by-side table ---------- */
-
-/* ⛔ A GRID, not a <table>, because the mobile stop restacks the same cells: at <=700 the label
-   takes its own row and the value cells sit under it, so a three-way comparison survives 412.
-   Explorer falls back to one card per product there, which loses the comparison itself. */
 .cmp { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .cmp .hd { display: grid; grid-template-columns: 190px repeat(3, 1fr); border-bottom: 1px solid var(--line); }
 .cmp .hd > * { padding: 14px 16px; }
 .cmp .hd > * + * { border-left: 1px solid var(--line); }
 .cmp .who { display: block; text-decoration: none; color: inherit; }
 .cmp .who .pic { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--card2); margin-bottom: 8px; }
-/* ⛔ CONTAIN, not cover. A compare column is ~380px wide at 1440 and an OFF front photo is
-   1308x1200, so a 92px cover crop showed a horizontal slice of the wordmark and nothing else -
-   which defeats the one job of a column header. §2's "square + cover" rule is for the product
-   page's identity photo, where the box IS square. */
+
 .cmp .who .pic img { width: 100%; height: 104px; object-fit: contain; padding: 6px; box-sizing: border-box; }
 .cmp .who .pct { display: block; text-align: center; padding: 4px; font-size: 13.5px; font-weight: 700; }
 .cmp .who .pct.good { background: var(--good); color: var(--on-accent); }
@@ -70,24 +51,19 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .crow .v img { height: 24px; width: auto; flex: none; }
 .crow .v .num { font-weight: 700; color: var(--txt); }
 .crow .v .u { color: var(--muted); font-size: 12px; }
-/* `Best` / `Worst` are Explorer's own labels (compare.best / compare.worst) */
+
 .tag { border-radius: 999px; padding: 1px 7px; font-size: 10.5px; font-weight: 800; letter-spacing: .2px; flex: none; }
 .tag.best { background: var(--good); color: var(--on-accent); }
 .tag.worst { background: var(--bad); color: var(--on-bad); }
 .crow .v .d { flex: none; }
-/* the server's nutrient-level verdict has THREE values (low / moderate / high) and shared/mock.css
-   carries good / bad / unknown, so the middle one gets a dot here. ⛔ The colour is READ from
-   `low_*.title`, never derived from the number (design-system.md §3d) */
+
 .d.mid { background: var(--orange); }
 
-/* the rows that say the same thing three times, as one row instead of sixteen */
 .samerow { display: flex; align-items: baseline; gap: 8px; padding: 12px 16px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); }
 .samerow b { color: var(--txt2); font-weight: 700; }
 .samerow .ch { margin-left: auto; color: var(--faint); font-size: 15px; }
 
 .hint { margin-top: 12px; font-size: 12.5px; color: var(--muted); }
-
-/* ---------- the ranked list: same row as 05-search and 11-facets ---------- */
 
 .results { display: grid; gap: 12px; }
 .res {
@@ -131,12 +107,9 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .crit li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
 .crit li .w { margin-left: auto; font-size: 12px; color: var(--muted); }
 
-/* the selection bar their own artboards draw at the foot of every screen in comparison mode */
 .selbar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--card); border-top: 1px solid var(--line); font-size: 13px; }
 .selbar b { font-weight: 700; }
 .selbar .spacer { flex: 1; }
-
-/* ---------- the empty state ---------- */
 
 .empty { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 34px 28px; text-align: center; }
 .empty .g { font-size: 40px; color: var(--faint); }
@@ -150,9 +123,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .way .t b { display: block; font-weight: 700; }
 .way .t i { font-style: normal; color: var(--muted); font-size: 12.5px; }
 .way .arw { color: var(--faint); font-size: 16px; flex: none; }
-
-/* ---------- <=700: the app. Compare is a ROUTE, not a tab root, so there is NO bottom bar
-     (design-system.md §2 - app_navigator.dart:135 has no ShellRoute) ---------- */
 
 @media (max-width: 700px) {
   .webbar { display: none; }
@@ -171,15 +141,11 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
   .acts .lbl, .acts .spacer { display: none; }
   .card { padding: 12px 14px; }
 
-  /* ⛔ the label takes its own row and the three value cells sit under it. 190px of label plus
-     three columns cannot fit 412, and Explorer's answer - one card per product - stops being a
-     comparison at all */
   .cmp .hd { grid-template-columns: repeat(3, 1fr); }
   .cmp .hd > .corner { display: none; }
   .cmp .hd > * { padding: 10px 8px; }
   .cmp .who .pic img { height: 66px; padding: 4px; }
-  /* the tag drops to its own line instead of overflowing the cell - the NOVA row's third value is
-     'Unprocessed or minimally processed foods' plus a Best tag, and 412/3 cannot hold both inline */
+  
   .crow .v { flex-wrap: wrap; }
   .cmp .who b { font-size: 12.5px; }
   .cmp .who i { font-size: 11px; }

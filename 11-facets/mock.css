@@ -1,16 +1,4 @@
-/* Batch 7, screen 1 - Facets / browse (family 15). Tokens, base and the web shell come
-   from ../shared/mock.css.
-   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
-
-   ⛔ THE BROWSE ROW IS NOT NEW. `.res .shot .badge .grades .why .group .cols .card .crit
-   .facet .critline .toggle .hmeta` are copied from screens/05-search/mock.css, because a facet
-   value page IS a result list with a different header - and 05-search's rail already draws a
-   `Narrow it down` card pointing here. Two users now, so they belong in shared/: proposed as a
-   MOVE in ../../CROSS-SCREEN-batch7.md, not lifted here (shared/mock.css is another session's). */
-
 @import url('../shared/mock.css');
-
-/* ---------- shell: 05-search's field, so search and browse are one screen family ---------- */
 
 .field {
   display: flex; align-items: center; gap: 10px; min-width: 0;
@@ -25,10 +13,6 @@
 }
 .cols { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
 
-/* ---------- the facet header ---------- */
-
-/* the breadcrumb replaces `Belongs to:` and its five stacked blue links. The taxonomy parents
-   are real and they are a PATH, so they are drawn as one */
 .crumb { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
 .crumb a { color: var(--peach); text-decoration: none; font-weight: 600; }
 .crumb .sep { color: var(--faint); }
@@ -44,8 +28,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .toggle.off i { background: var(--card3); }
 .toggle.off i::after { left: 3px; right: auto; background: var(--muted); }
 
-/* ⭐ the sort row. All four labels are the LIVE site's own, lifted out of the `swap_vert`
-   dropdown they are buried in today (world.openfoodfacts.org, verified 2026-08-22) */
 .sortbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
 .sortbar .lbl { font-size: 12.5px; font-weight: 700; color: var(--muted); margin-right: 2px; }
 .sort {
@@ -53,8 +35,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
   font-size: 12.5px; font-weight: 600; color: var(--muted2); white-space: nowrap;
 }
 .sort.on { background: var(--orange); border-color: var(--orange); color: var(--on-accent); }
-
-/* ---------- rail: the criteria card, then the taxonomy children ---------- */
 
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
 .card + .card { margin-top: 16px; }
@@ -65,22 +45,16 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .crit li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; }
 .crit li .w { margin-left: auto; font-size: 12px; color: var(--muted); }
 
-/* `Contains:` is 18 taxonomy children on the live page, stacked as blue links above the first
-   product. Same 18 values, as one wrapping chip block that a thumb can hit */
 .kids { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
 .kid { border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; font-size: 12.5px; font-weight: 600; color: var(--txt2); }
 .kid.more { color: var(--peach); border-color: var(--peach); }
 
-/* the facet knowledge panel, drawn as the server actually answers it - ONE panel, and it is a
-   contributor task. Enumerated over 6 facet types 2026-08-22, api-note.md §3 */
 .kp { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 13px; }
 .kp .g { width: 22px; text-align: center; font-size: 15px; color: var(--muted); flex: none; }
 .kp .t { flex: 1; min-width: 0; }
 .kp .t i { font-style: normal; color: var(--muted); display: block; font-size: 12px; }
 
 .critline { display: none; }
-
-/* ---------- a result row: copied from 05-search, see the header of this file ---------- */
 
 .results { display: grid; gap: 12px; }
 .res {
@@ -106,9 +80,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .why b { font-weight: 600; }
 .why i { font-style: normal; color: var(--muted); }
 
-/* ⭐ the match-status section header. It is the APP's own control (`personalized_ranking_page.dart`
-   pins one per group) and its labels are shipped arb strings, so browse, ranking and compare
-   read the same on both surfaces */
 .grp {
   display: flex; align-items: center; gap: 10px; margin: 22px 0 12px; padding: 9px 16px;
   border-radius: var(--r); font-size: 13.5px; font-weight: 700;
@@ -123,8 +94,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .pager .pg { border: 1px solid var(--line); border-radius: 8px; padding: 6px 11px; font-weight: 600; color: var(--txt2); }
 .pager .pg.on { background: var(--card3); }
 .pager .spacer { flex: 1; }
-
-/* ---------- the facet INDEX and a facet's VALUE LIST ---------- */
 
 .fgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .fcard {
@@ -145,10 +114,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .vrow .n { font-size: 13px; color: var(--muted); flex: none; }
 .vrow .arw { color: var(--faint); font-size: 16px; flex: none; }
 
-/* ---------- <=700: the responsive WEB page. ⛔ No bottom tab bar: family 15 has no app
-     destination and this batch does not add one - the app reaches a facet through the
-     `Narrow it down` rail already drawn on screens/05-search ---------- */
-
 @media (max-width: 700px) {
   .webbar { display: none; }
   .appbar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--card); border-bottom: 1px solid var(--line); }
@@ -157,8 +122,7 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 
   .wrap { padding: 12px 12px 20px; }
   .cols { grid-template-columns: 1fr; gap: 0; }
-  /* ⛔ the rail goes ABOVE the results, not under the pager. `Narrow it down` after 50 products
-     and a page selector is not a filter, it is a footnote (05-search does the same) */
+  
   .cols > aside { order: -1; }
   h1 { font-size: 21px; }
   .hmeta { margin: 4px 0 12px; }
@@ -167,9 +131,7 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
   .critline b { color: var(--txt2); font-weight: 600; }
   .critline a { color: var(--peach); font-weight: 700; text-decoration: none; }
   .critcard { display: none; }
-  /* ⛔ WRAPS, never scrolls. A horizontally scrolling chip row renders as a chip cut in half,
-     which reads as a broken layout in a static mock - and the whole point of this row is that
-     all four sorts already exist */
+  
   .sortbar { flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
   .sortbar .lbl { display: none; }
   .sort { padding: 6px 11px; font-size: 12px; }

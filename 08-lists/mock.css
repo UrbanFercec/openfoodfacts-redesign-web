@@ -1,21 +1,5 @@
-/* Lists - screen stylesheet. Tokens, the app frame and the tab bar come from
-   ../shared/mock.css; only this screen's own components live here.
-
-   APP ONLY at 412. Explorer keeps no history and no lists (`api/../routes` has no
-   `lists` or `history` route, and nothing persists one), so a web twin here would be a
-   new destination rather than a restyle - ../../write-once-map.md and the design brief
-   both say so out loud.
-
-   Every class is scoped under .lbar / .plrow / .sheet / .empty so it cannot collide with
-   another screen's .prow / .lrow / .sub (CROSS-SCREEN-batch3.md MOVE 6). */
-
 @import url('../shared/mock.css');
 
-/* ---------- the list app bar: title IS the switcher ---------- */
-
-/* Shipped puts a ⇅ next to the title and nothing else says the title is tappable
-   (captures/2026-08-21-app/frames/v3_t002). Ours keeps the tap target and gives it an
-   edge, so the one control that reaches every other list stops being invisible. */
 .lbar { display: flex; align-items: center; gap: 12px; padding: 16px 12px 12px; }
 .lbar .ltitle {
   display: inline-flex; align-items: baseline; gap: 8px;
@@ -36,8 +20,6 @@
 .lmeta .todoc { border-color: var(--warm-soft); color: var(--txt2); }
 .lmeta .todoc b { color: var(--orange); font-weight: 800; }
 
-/* ---------- one product row ---------- */
-
 .plrows { border-top: 1px solid var(--line-soft); }
 .plrow {
   display: flex; align-items: flex-start; gap: 12px;
@@ -48,8 +30,7 @@
   background: var(--card2); border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
 }
 .plrow .thumb img { width: 100%; height: 100%; object-fit: cover; }
-/* the % badge is shipped, over the photo, coloured by match status - not ours
-   (cards/product_cards/smooth_product_card_found.dart) */
+
 .plrow .badge {
   position: absolute; inset: 0 0 auto 0; text-align: center;
   font-size: 11.5px; font-weight: 800; padding: 2px 0;
@@ -65,25 +46,17 @@
 .plrow .grades img { height: 26px; width: auto; }
 .plrow .chev { color: var(--faint); font-size: 18px; align-self: center; }
 
-/* the row that is missing data. The two strings are the server's own attribute
-   `title` + `description_short`; the action label is shipped too
-   (`score_add_missing_*`). This is the promotion: a list is where you can see which
-   of your own products are unfinished, which is what their CONTRIBUTING.md §Next asks
-   for on the scan card - the list is the same problem one screen later. */
 .plrow .gapline {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line);
   font-size: 12.5px; color: var(--unknown-soft);
 }
-/* outlined, not filled: the % badges are already the loud orange thing on this screen, and
-   round 1 taught us the fix must not be the loudest element on the card (design-system.md §3b) */
+
 .plrow .gapline .fix {
   border: 1px solid var(--peach); color: var(--peach);
   border-radius: 999px; padding: 3px 12px; font-size: 12px; font-weight: 700;
 }
 
-/* multi-select: shipped swaps the whole bar for ✕ + a pluralised sentence and grows a
-   checkbox per row (`multiselect_title`, frames v3_t017-t020) */
 .lbar.sel { background: var(--card); border-bottom: 1px solid var(--line); }
 .lbar.sel .count { font-size: 16px; font-weight: 700; }
 .plrow .box {
@@ -94,17 +67,12 @@
   display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
 .plrow.picked { background: var(--card); }
 
-/* the Multi-select button. Shipped draws a white pill bottom-right, not a FAB */
 .fabrow { display: flex; justify-content: flex-end; padding: 16px; }
 .msbtn {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--card3); border: 1px solid var(--line); border-radius: 999px;
   padding: 10px 20px; font-size: 13.5px; font-weight: 700;
 }
-
-/* ---------- sheets: the switcher, the ⋮ menu, the multi-select actions ----------
-   ⛔ All three are SHEETS and never pages (design-system.md §3h, SCREEN-CENSUS
-   subtraction ledger). `SmoothModalSheet` already ships in 23 files. */
 
 .dim { position: relative; }
 .dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
@@ -116,11 +84,7 @@
 .sheet .shd h2 { font-size: 15px; font-weight: 800; letter-spacing: -.2px; }
 .sheet .shd i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex: none; }
 .sheet .shd .spacer { flex: 1; }
-/* ⛔ NO ✕ - design-system.md §3i rule 2 (Urban, 2026-08-22). The grabber, swipe-down and the
-   scrim are the exits on every sheet we draw. The scrim is `.dim` above.
-   ⛔ The sheet is ONE STOP and its height is its content, capped at 75% of the screen. Every
-   sheet in this tree is a short picker so the cap never bites, but it is the number an
-   implementer sets - not the shipped `maxHeight: 0.35 x screen` from camera_view.dart:131. */
+
 .sheet .grab { display: flex; justify-content: center; padding: 10px 0 2px; }
 .sheet .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
 .srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
@@ -136,16 +100,12 @@
 .srow.off { opacity: .45; }
 .srow.off .n { font-style: normal; }
 
-/* the ⋮ menu is a popup anchored under the icon, not a sheet - that is what both the
-   shipped app and their own Lists/01 artboard draw, and it has 3 to 5 items */
 .pop {
   position: absolute; top: 60px; right: 12px; width: 248px; z-index: 2;
   background: var(--card); border: 1px solid var(--line-strong); border-radius: 8px;
   box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
 }
 .popwrap { position: relative; }
-
-/* ---------- the empty list ---------- */
 
 .empty { text-align: center; padding: 32px 32px 24px; }
 .empty .art {
@@ -157,20 +117,6 @@
 .empty p { font-size: 14px; color: var(--muted2); line-height: 1.5; }
 .empty .btnpeach { margin-top: 20px; }
 
-/* ⛔ THE SECOND ROUTE INTO A LIST (Urban, 2026-08-21: "we don't have an option to add an item to
-   the custom-created list apart from scanning the product, which sounds kind of dumb").
-   It is a PROMOTION, not an invention: `user_list_button_add_product` = "Add to list" ships today
-   on the product footer and `user_list_add_product` = "Add the product to your lists" is the sheet
-   it opens. None of these five states showed either.
-   Outlined, because `Start scanning` (`product_list_empty_title`) stays the primary action - a
-   scan is still the fastest way in, it just is not the only one.
-   ✅ LIVE ROUTE since 2026-08-22 - it was `.todo` because the product footer was drawn on no
-   screen; decision D drew it (`screens/01-product-page`, four actions + an overflow sheet).
-   ⛔ And a figure to stop repeating: the footer is NOT "12 hideable reorderable actions". The enum
-   has 12 values but the Edit-actions sheet builds from `enabled u defaultOrder()`
-   (new_product_footer_settings.dart:608-620), so the product page can only ever offer SIX. Three of
-   the rest are a separate FIXED footer on the product EDIT page (edit_product_footer.dart:186-195)
-   and `Report` + `Data quality` have no caller at all. */
 .empty .alt {
   display: inline-block; margin-top: 12px;
   border: 1px solid var(--line-strong); border-radius: 999px;

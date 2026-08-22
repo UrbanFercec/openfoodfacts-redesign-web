@@ -1,13 +1,4 @@
-/* Batch 7, screen 3 - Guides / editorial (family 14). Tokens, base, the app shell and the web
-   shell come from ../shared/mock.css.
-   ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md).
-
-   ⛔ This screen reuses almost nothing, and that is correct: a guide is a DOCUMENT, not a list of
-   products. The only shared parts are the shell, the tokens and `.chip`. */
-
 @import url('../shared/mock.css');
-
-/* ---------- shell ---------- */
 
 .field {
   display: flex; align-items: center; gap: 10px; min-width: 0;
@@ -24,8 +15,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .hmeta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 6px 0 20px; font-size: 13px; color: var(--muted); }
 .hmeta b { color: var(--txt2); font-weight: 700; }
 
-/* ---------- the index. ⭐ The one thing batch 7 ADDS: the 8 guides have no index today ---------- */
-
 .seclbl { font-size: 12.5px; font-weight: 700; letter-spacing: .3px; color: var(--peach); text-transform: uppercase; margin: 26px 0 10px; }
 .ggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .gcard {
@@ -35,32 +24,23 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 }
 .gcard .art { display: flex; align-items: center; gap: 8px; height: 40px; }
 .gcard .art img { height: 34px; width: auto; }
-/* the NOVA mark is a tall square where the other two badges are wide - same optical size */
+
 .gcard .art img.nova { height: 30px; }
 .gcard .art .emo { font-size: 26px; }
-/* ⛔ block, not inline: `b` and `span` inside a `<span class="t">` rendered as one run, so the
-   first card read "Green-ScoreWhat is the Green Score?" (caught in draft 1) */
+
 .gcard .t { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .gcard b { display: block; font-size: 15.5px; font-weight: 700; line-height: 1.25; }
 .gcard span { display: block; font-size: 12.5px; color: var(--muted); }
 .gcard .kick { font-size: 11.5px; font-weight: 700; letter-spacing: .3px; color: var(--peach); text-transform: uppercase; }
 
-/* ---------- the reader ---------- */
-
-/* a reading measure, centred. 720px of text in a 1240px wrap left ~260px of dead space on the
-   right, which reads as a broken column rather than a document */
 .doc { display: grid; grid-template-columns: 260px minmax(0, 720px); gap: 44px; align-items: start;
        max-width: 1024px; margin: 0 auto; }
 
-/* a table of contents. ⛔ This is the web affordance that makes a web guide worth having: the
-   shipped app has a pinned chapter header and no way to see the whole shape of the document */
 .toc { position: sticky; top: 24px; }
 .toc h2 { font-size: 12.5px; font-weight: 700; letter-spacing: .3px; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
 .toc a { display: block; padding: 7px 0; font-size: 13.5px; font-weight: 600; color: var(--muted2); text-decoration: none; border-left: 2px solid var(--line); padding-left: 12px; }
 .toc a.on { color: var(--orange); border-left-color: var(--orange); }
 
-/* the guide header: the `Guide` badge, the title, the artwork. The shipped header is a collapsing
-   250px SliverPersistentHeader with the artwork top-right (guides_header.dart:52-58) */
 .ghead { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 8px; }
 .ghead .t { flex: 1; min-width: 0; }
 .ghead .badge { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font-size: 12px; font-weight: 700; color: var(--muted2); margin-bottom: 10px; }
@@ -69,7 +49,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .ghead .art img { height: 54px; width: auto; }
 .cap { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
-/* a chapter. The shipped one is an orange pill with a chevron that expands prose below it */
 .ch { margin-top: 30px; }
 .ch > h2 {
   display: flex; align-items: baseline; gap: 10px;
@@ -86,7 +65,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .ch h3 { font-size: 14.5px; font-weight: 700; margin-top: 20px; color: var(--txt); }
 .ch h3 + p { margin-top: 6px; }
 
-/* the 6 production steps: their own `GuidesGrid`, default 3 columns (guides_content.dart) */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
 .step { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 10px; text-align: center; font-size: 13px; font-weight: 600; }
 .step .g { display: block; font-size: 22px; margin-bottom: 4px; }
@@ -98,11 +76,8 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .gfoot { display: flex; align-items: center; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
 .gfoot .spacer { flex: 1; }
 
-/* the note that says where a guide can and cannot be read today */
 .surfaces { margin-top: 26px; background: var(--card2); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; font-size: 12.5px; color: var(--muted); }
 .surfaces b { color: var(--txt2); font-weight: 700; }
-
-/* ---------- <=700: the app. A guide is a ROUTE, not a tab root, so there is NO bottom bar ---------- */
 
 @media (max-width: 700px) {
   .webbar { display: none; }
@@ -114,8 +89,7 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
   .wrap { padding: 12px 14px 22px; }
   h1 { font-size: 21px; }
   .hmeta { margin: 4px 0 12px; }
-  /* ⛔ the table of contents is a WEB affordance. At 412 the shipped app pins the current chapter
-     header instead, which is the right answer on a phone - so the rail goes, it does not stack */
+  
   .doc { grid-template-columns: 1fr; gap: 0; }
   .toc { display: none; }
   .ggrid { grid-template-columns: 1fr; gap: 10px; }
