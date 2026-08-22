@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit product on the web - the same page, with room to open it</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<!-- ⭐ THIS BATCH HAS A REAL WEB TWIN, unlike batch 4. Explorer ships product edit AND photo
+     upload today: `openfoodfacts-explorer/src/routes/products/[barcode]/edit/+page.svelte` (589
+     lines) with `EditProductForm.svelte`, `AddProductForm.svelte`,
+     `edit-product-steps/ImagesStep.svelte`, `ImageManagerCard.svelte`, `ImageModal.svelte`, and it
+     persists through `$lib/api/product.ts` - `addOrEditProductV2`, `updatePackagingsV3`,
+     `uploadImageV3`, `selectAndCropImagesV3`, `unselectImageV3` - against the real write API.
+
+     ⛔ Same design at two widths (design-constraints.md §7c); only the SHELL is per-surface. What
+     the extra width buys is not more content, it is FEWER TAPS: every section that is collapsed on
+     the phone is open here, and the rail is the same ordered list the phone shows as cards. The
+     phone orders by what is missing; so does this. -->
+
+<div class="webbar">
+  <span class="logo">open <em>FOOD</em> facts</span>
+  <span class="spacer"></span>
+  <span class="btn">Scan barcode</span>
+</div>
+
+<div class="wrap">
+
+  <h1>Edit product</h1>
+
+  <div class="widebar">
+    <span class="ph"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.400.jpg" alt="Bruschette chips pizza front photo"></span>
+    <span class="t">
+      <b>Bruschette chips pizza</b>
+      <i>Maretti</i>
+      <code>3800205872962</code>
+    </span>
+    <span class="spacer"></span>
+    <span class="prg">
+      <span class="meter"><i style="width:70%"></i></span>
+      <span class="metertxt"><span><b>70% complete</b></span><span class="spacer"></span><span>7 sections have no data</span></span>
+    </span>
+  </div>
+
+  <div class="ecols">
+
+    <!-- the rail is the phone's card order, as a jump list. Same ranking, same shipped labels. -->
+    <aside class="erail">
+      <div class="pcard2">
+        <h3>Needs data</h3>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Labels &amp; Certifications</b></span></div>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Packaging components</b></span></div>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Origins</b></span></div>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Stores</b></span></div>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Traces</b></span></div>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Traceability codes</b></span></div>
+        <div class="setrow"><span class="st d bad"></span><span class="t"><b>Website</b></span></div>
+      </div>
+      <div class="pcard2">
+        <h3>Complete</h3>
+        <div class="setrow"><span class="st d good"></span><span class="t"><b>Basic details</b></span></div>
+        <div class="setrow"><span class="st d warn"></span><span class="t"><b>Ingredients</b></span><span class="lang">DE</span></div>
+        <div class="setrow"><span class="st d good"></span><span class="t"><b>Categories</b></span></div>
+        <div class="setrow"><span class="st d warn"></span><span class="t"><b>Nutrition facts</b></span></div>
+        <div class="setrow"><span class="st d good"></span><span class="t"><b>Country</b></span></div>
+      </div>
+      <div class="savebar">
+        <span class="cancel">Cancel</span>
+        <span class="btnpeach">Save</span>
+      </div>
+    </aside>
+
+    <main>
+
+      <div class="pcard2">
+        <h3>Needs data</h3>
+        <div class="setrow">
+          <span class="st d bad"></span>
+          <span class="t"><b>Labels &amp; Certifications</b><i>Add missing product labels</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tagin"><span>Input a label (eg: NutriScore)</span><span class="add">+</span></div>
+          <div class="phcta"><span>&#128247;</span><span>Take photos of any labels &amp; certifications information</span></div>
+        </div>
+        <div class="setrow">
+          <span class="st d bad"></span>
+          <span class="t"><b>Origins</b><i>Add missing product origins</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tagin"><span>Input an origin (eg: Germany)</span><span class="add">+</span></div>
+          <div class="phcta"><span>&#128247;</span><span>Take photos of any origin information</span></div>
+        </div>
+        <div class="setrow">
+          <span class="st d bad"></span>
+          <span class="t"><b>Stores</b><i>Add missing product stores</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tagin"><span>Input a store</span><span class="add">+</span></div>
+        </div>
+        <div class="setrow">
+          <span class="st d bad"></span>
+          <span class="t"><b>Traceability codes</b><i>Add missing product traceability codes</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tagin"><span>Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522&#8230;)</span><span class="add">+</span></div>
+          <div class="phcta"><span>&#128247;</span><span>Take photos of any traceability code information</span></div>
+        </div>
+      </div>
+
+      <div class="pcard2">
+        <h3>Photos</h3>
+        <div class="pgrid web">
+          <div class="pcell">
+            <span class="cap"><span class="d good"></span>Product photo<span class="spacer"></span><span class="lang on">EN</span></span>
+            <span class="shot"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.400.jpg" alt="Product photo, English"></span>
+            <span class="pacts"><span class="a">Edit</span><span class="a">Unselect photo</span></span>
+          </div>
+          <div class="pcell">
+            <span class="cap"><span class="d warn"></span>Ingredients photo<span class="spacer"></span><span class="lang">DE</span></span>
+            <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
+            <span class="pacts"><span class="a">Take a picture</span><span class="a">Select an existing image</span></span>
+          </div>
+          <div class="pcell">
+            <span class="cap"><span class="d warn"></span>Nutrition photo<span class="spacer"></span><span class="lang">DE</span></span>
+            <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
+            <span class="pacts"><span class="a">Take a picture</span><span class="a">Select an existing image</span></span>
+          </div>
+          <div class="pcell">
+            <span class="cap"><span class="d warn"></span>Recycling instructions photo<span class="spacer"></span><span class="lang">DE</span></span>
+            <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
+            <span class="pacts"><span class="a">Take a picture</span><span class="a">Select an existing image</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard2">
+        <h3>Complete</h3>
+        <div class="setrow">
+          <span class="st d good"></span>
+          <span class="t"><b>Basic details</b><i>Product name, brand, quantity</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tags">
+            <span class="chip"><span class="lang on">EN</span> Bruschette chips pizza <i>&#10005;</i></span>
+            <span class="chip"><span class="lang">DE</span> Bruschette gourmet Brotchips <i>&#10005;</i></span>
+            <span class="chip">Add a new translation</span>
+          </div>
+          <span class="flab">Brand names</span>
+          <div class="tags">
+            <span class="chip">Maretti <i>&#10005;</i></span>
+          </div>
+          <!-- the same real Robotoff insight the phone draws: `product_weight` = `150 g`,
+               predictor `regex`, proof `/380/020/587/2962/2.jpg`. On the web the proof crop can be
+               bigger, which is the only thing that changes. -->
+          <div class="sugg">
+            <div class="sg">
+              <span>Quantity and weight</span><b>150 g</b>
+              <span class="spacer"></span>
+              <span class="no">&#10005;</span>
+              <span class="ok">&#10003;</span>
+            </div>
+            <div class="proof">
+              <span class="crop"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/2.400.jpg" alt="Proof photo for the suggested weight"></span>
+              <span class="t">Proof</span>
+            </div>
+          </div>
+        </div>
+        <div class="setrow">
+          <span class="st d good"></span>
+          <span class="t"><b>Categories</b><i>Salty snacks, Appetizers, Breads</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tags">
+            <span class="chip">Plant-based foods and beverages <i>&#10005;</i></span>
+            <span class="chip">Plant-based foods <i>&#10005;</i></span>
+            <span class="chip">Snacks <i>&#10005;</i></span>
+            <span class="chip">Cereals and potatoes <i>&#10005;</i></span>
+            <span class="chip">Salty snacks <i>&#10005;</i></span>
+            <span class="chip">Appetizers <i>&#10005;</i></span>
+            <span class="chip">Cereals and their products <i>&#10005;</i></span>
+            <span class="chip">Breads <i>&#10005;</i></span>
+          </div>
+          <div class="tagin"><span>Input a category (eg: Orange juice)</span><span class="add">+</span></div>
+        </div>
+        <div class="setrow">
+          <span class="st d good"></span>
+          <span class="t"><b>Country</b><i>Bulgaria, Germany</i></span>
+        </div>
+        <div class="fexp">
+          <div class="tags">
+            <span class="chip">Bulgaria <i>&#10005;</i></span>
+            <span class="chip">Germany <i>&#10005;</i></span>
+          </div>
+          <div class="tagin"><span>Input a country (eg: Germany)</span><span class="add">+</span></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
