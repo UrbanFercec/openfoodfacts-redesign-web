@@ -19,11 +19,13 @@
    ⛔ No colour literal in this file - tools/check.py fails the screen for one (tokens.md). The one
    rgba() below is `.dim::after`, copied verbatim from the two folders that already ship it.
 
-   ⭐ FOUR NEW STRINGS IN THE WHOLE BATCH, and they are named: the three group labels on the hub
-   (`Needs data` / `Complete` / `Other databases`) and the completeness caption `N sections have no
-   data`, which is the same api-asks.md A1 placeholder 01-product-page already carries. EVERY other
-   label on every page here is an existing `app_en.arb` key, checked one by one against all 1,792
-   of them (api-note.md §3). That was batch 4's open decision C, and it is nearly free here: the missing-data labels ship as `score_add_missing_*` for every section, the
+   ⭐ FIVE NEW STRINGS IN THE WHOLE BATCH, all five logged in ../../string-asks.md with their
+   proposed keys: the three group labels on the hub (`Needs data` / `Complete` / `Other databases`),
+   the completeness caption (an ICU plural), and `{percent}% complete`, which 07-scan-states already
+   draws too. ⛔ Authoring them was OUR call, not a question - Urban 2026-08-22, design-system.md §4
+   rule 8 - but the LOG is mandatory. EVERY other label on every page here is an existing
+   `app_en.arb` key, checked one by one against all 1,792 of them (api-note.md §3), and that check
+   is the whole reason the batch got ~60 strings for free: the missing-data labels ship as `score_add_missing_*` for every section, the
    Robotoff accept/reject ships as `product_edit_robotoff_*`, nutrient OCR ships as
    `nutrition_facts_extract_*`, and the per-language photo distinction ships as two separate
    strings (`edit_photo_language_none` vs `edit_photo_language_not_this_one`). */
