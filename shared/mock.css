@@ -53,9 +53,12 @@
   
   --glass: color-mix(in srgb, #000 46%, transparent);
   --glass-line: color-mix(in srgb, #fff 22%, transparent);
+  
+  --logo: url(off-logo-horizontal-dark.svg);
 }
 
 [data-theme="light"] {
+  --logo: url(off-logo-horizontal-light.svg);
   --sunk: #e4e5e7;
   --bg: #f8f9f9;
   --card: #ffffff;
@@ -103,7 +106,8 @@ body {
 img { display: block; }
 a { color: inherit; text-decoration: none; }
 
-.logo { font-weight: 800; letter-spacing: -.4px; white-space: nowrap; }
+.logo { display: inline-block; height: 1.55em; aspect-ratio: 276 / 48; background: var(--logo) left center / contain no-repeat; }
+
 .logo em { font-style: normal; background: var(--orange); color: var(--on-accent); padding: 1px 8px; border-radius: 8px; }
 
 .app { max-width: 440px; margin: 0 auto; }
