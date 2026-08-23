@@ -17,6 +17,9 @@
 
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; }
 
+.langrow { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.langrow .lang { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 12.5px; font-weight: 600; color: var(--muted2); }
+
 .fld { margin-bottom: 14px; }
 .fld:last-child { margin-bottom: 0; }
 .fld > .lab { display: block; font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .2px; margin-bottom: 5px; }
@@ -124,6 +127,7 @@
   .auth .lead { margin: 6px 0 16px; font-size: 13.5px; }
   
   .card { background: transparent; border: 0; border-radius: 0; padding: 0; }
+  .langrow { display: none; }
   .why, .dropped { margin-top: 16px; }
 }
 
