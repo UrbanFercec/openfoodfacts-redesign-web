@@ -36,6 +36,8 @@
   --line-strong: color-mix(in srgb, var(--line) 70%, transparent);
   --line-soft: color-mix(in srgb, var(--line) 55%, transparent);
   --line-softer: color-mix(in srgb, var(--line) 45%, transparent);
+  --good-tint: color-mix(in srgb, var(--good) 13%, transparent);
+  --mid-tint: color-mix(in srgb, var(--orange) 13%, transparent);
   --bad-tint: color-mix(in srgb, var(--bad) 13%, transparent);
   --bad-tint-weak: color-mix(in srgb, var(--bad) 9%, transparent);
   --bad-edge: color-mix(in srgb, var(--bad) 22%, transparent);
@@ -263,6 +265,11 @@ a { color: inherit; text-decoration: none; }
 .tile > h3 { font-size: 20px; font-weight: 700; letter-spacing: -.2px; padding: 16px 24px; border-bottom: 1px solid var(--line); }
 
 .tilefoot { padding: 12px 24px; border-top: 1px solid var(--line); }
+
+.tile.solo { display: flex; align-items: baseline; gap: 16px; padding: 16px 24px; text-decoration: none; color: inherit; }
+.tile.solo > h3 { padding: 0; border-bottom: 0; }
+.tile.solo .vals { font-size: 14px; color: var(--txt); }
+.tile.solo .chev { margin-left: auto; color: var(--muted); font-size: 20px; line-height: 1; }
 
 .tilefoot a { color: var(--peach); font-size: 13.5px; font-weight: 600; text-decoration: none; }
 

@@ -108,6 +108,10 @@
 .perrow { display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-bottom: 1px solid var(--line-soft); }
 .perrow .t { flex: 1; font-size: 13px; color: var(--muted); }
 .perrow .go2 { color: var(--faint); font-size: 17px; flex: none; }
+
+.perrow.phtog.on { background: var(--card2); border-bottom-color: var(--line); }
+.photopin { position: sticky; top: 0; z-index: 2; padding: 10px 16px 12px; background: var(--card2); border-bottom: 1px solid var(--line); }
+.photopin img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
 .sel { display: inline-flex; align-items: center; gap: 6px; background: var(--card2); border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 700; flex: none; }
 .sel .g { color: var(--faint); font-size: 10px; }
 

@@ -57,6 +57,12 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .tag.worst { background: var(--bad); color: var(--on-bad); }
 .crow .v .d { flex: none; }
 
+.crow .v.lv-good { background: var(--good-tint); }
+.crow .v.lv-mid { background: var(--mid-tint); }
+.crow .v.lv-bad { background: var(--bad-tint); }
+
+.crow .v.lv-good, .crow .v.lv-mid, .crow .v.lv-bad { border-bottom: 1px solid var(--line); }
+
 .d.mid { background: var(--orange); }
 
 .samerow { display: flex; align-items: baseline; gap: 8px; padding: 12px 16px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); }
@@ -93,7 +99,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .res.sel { border-color: var(--orange); }
 
 .grp { display: flex; align-items: center; gap: 10px; margin: 22px 0 12px; padding: 9px 16px; border-radius: var(--r); font-size: 13.5px; font-weight: 700; }
-.grp .n { margin-left: auto; font-weight: 600; opacity: .82; }
 .grp.good { background: var(--good); color: var(--on-accent); }
 .grp.warn { background: var(--orange); color: var(--on-warm); }
 .grp.bad { background: var(--bad); color: var(--on-bad); }
