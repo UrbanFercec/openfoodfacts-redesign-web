@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contribute pane - a product with no data</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<div class="webbar">
+  <span class="logo" role="img" aria-label="Open Food Facts"></span>
+  <span class="spacer"></span>
+  <span class="btn">Search</span>
+  <span class="btn">Scan barcode</span>
+</div>
+
+<div class="appbar">
+  <a class="ico" href="../01-product-page/product-missing-data.html">&#8592;</a>
+  <span class="ttl">special toast</span>
+  <a class="ico" href="../01-product-page/product-actions.html">&#8942;</a>
+</div>
+
+<div class="wrap">
+  <div class="cols">
+
+    <aside>
+      <div class="ident">
+        
+        <div class="photo empty">
+          <span style="font-size:26px">&#9723;</span>
+          <span>No photo yet</span>
+        </div>
+        <div class="txt">
+          <div class="code">3838700072136</div>
+          <h1>special toast</h1>
+          <div class="brand">&#382;ito</div>
+        </div>
+      </div>
+
+      <div class="scores">
+        <div class="shead">
+          <h2>Matching with your preferences</h2>
+          <span class="spacer"></span>
+          <span class="pill quiet"><b>?</b> Not enough data</span>
+        </div>
+        <div class="score">
+          <span class="lab">
+            <span class="n">Nutri-Score unknown</span>
+            <span class="s">Missing data to compute the Nutri-Score</span>
+            <span class="fix">Photograph the nutrition table</span>
+          </span>
+          <span class="scale off"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+        </div>
+        <div class="score">
+          <span class="lab">
+            <span class="n">Green-Score not computed</span>
+            <span class="s">Missing a precise category</span>
+            <span class="fix">Add a category</span>
+          </span>
+          <span class="scale g7 off"><span>A+</span><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></span>
+        </div>
+        <div class="score">
+          <span class="lab">
+            <span class="n">NOVA not computed</span>
+            <span class="s">Food processing level unknown</span>
+            <span class="fix">Photograph the ingredients</span>
+          </span>
+          <span class="scale off"><span>1</span><span>2</span><span>3</span><span>4</span></span>
+        </div>
+        <div class="sfoot">
+          <span class="toggle"></span>
+          <span>Your 3 criteria</span>
+          <span class="spacer"></span>
+          <span class="chip">Edit your preferences</span>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+
+      <nav class="tabs">
+        <a href="../01-product-page/product-missing-data.html">Overview</a>
+        <a class="todo" title="Health pane is drawn for Nutella, not for this barcode">Health</a>
+        <a class="todo" title="Environment pane is drawn for Nutella, not for this barcode">Environment</a>
+        <a class="on">Contribute</a>
+      </nav>
+
+      <div class="tile">
+        <h3>Contribute</h3>
+
+        <div class="grp">
+          <div class="sub">Data completeness</div>
+          <div class="meter"><i style="width:30%"></i></div>
+          <div class="metertxt"><span><b>30% complete</b></span><span class="spacer"></span><span>2 contributors</span></div>
+        </div>
+
+        <div class="grp">
+          <div class="lbl">Your help needed <em>9 of its 13 data states are open</em></div>
+
+          <a class="task" href="../13-product-edit/edit-photos.html">
+            <span class="num">1</span>
+            <span class="t"><b>Product photo</b> <i>This photo is missing</i></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+          <a class="task" href="../13-product-edit/edit-hub.html">
+            <span class="num">2</span>
+            <span class="t"><b>Add missing ingredients</b></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+          <a class="task" href="../13-product-edit/edit-nutrition.html">
+            <span class="num">3</span>
+            <span class="t"><b>Add missing nutrition facts</b></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+          <a class="task" href="../13-product-edit/edit-hub.html">
+            <span class="num">4</span>
+            <span class="t"><b>Select a more precise category</b> <i>Add a category to calculate the Nutri-Score.</i></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+          <a class="task" href="../13-product-edit/edit-hub.html">
+            <span class="num">5</span>
+            <span class="t"><b>Complete basic details</b> <i>Product name, brand, quantity</i></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+          <a class="task" href="../13-product-edit/edit-hub.html">
+            <span class="num">6</span>
+            <span class="t"><b>Add missing product origins</b></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+          <a class="task" href="../13-product-edit/edit-hub.html">
+            <span class="num">7</span>
+            <span class="t"><b>Add missing product traceability codes</b></span>
+            <span class="time">&rsaquo;</span>
+          </a>
+        </div>
+
+        <div class="grp">
+          <div class="lbl">Raw data <em>what the record already says</em></div>
+          <table class="mini">
+            <tr><td>Brand names</td><td>&#382;ito <span class="pen">&#9998;</span></td></tr>
+            <tr><td>Categories</td><td>Breads<span class="rest">+4</span><span class="pen">&#9998;</span></td></tr>
+            <tr><td>Country</td><td>Slovenia <span class="pen">&#9998;</span></td></tr>
+          </table>
+        </div>
+
+        <div class="tilefoot"><a href="../13-product-edit/edit-hub.html">Edit product</a></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
