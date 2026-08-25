@@ -107,18 +107,3 @@
 }
 .popwrap { position: relative; }
 
-.empty { text-align: center; padding: 32px 32px 24px; }
-.empty .art {
-  width: 88px; height: 88px; margin: 0 auto 20px; border-radius: var(--r);
-  border: 1px dashed var(--line-strong); background: var(--card);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 30px; letter-spacing: -2px; color: var(--faint);
-}
-.empty p { font-size: 14px; color: var(--muted2); line-height: 1.5; }
-.empty .btnpeach { margin-top: 20px; }
-
-.empty .alt {
-  display: inline-block; margin-top: 12px;
-  border: 1px solid var(--line-strong); border-radius: 999px;
-  padding: 9px 18px; font-size: 13px; font-weight: 700; color: var(--muted2);
-}

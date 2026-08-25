@@ -116,11 +116,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .selbar b { font-weight: 700; }
 .selbar .spacer { flex: 1; }
 
-.empty { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 34px 28px; text-align: center; }
-.empty .g { font-size: 40px; color: var(--faint); }
-.empty h2 { font-size: 19px; font-weight: 700; margin: 12px 0 6px; }
-.empty p { font-size: 13.5px; color: var(--muted); max-width: 440px; margin: 0 auto; }
-.empty .btnpeach { margin-top: 18px; }
 .ways { display: grid; gap: 10px; margin-top: 22px; text-align: left; }
 .way { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--card2); border: 1px solid var(--line); border-radius: var(--r); text-decoration: none; color: inherit; }
 .way .g2 { width: 26px; text-align: center; font-size: 17px; color: var(--peach); flex: none; }
@@ -171,7 +166,8 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
   .res .name { font-size: 14.5px; }
   .grades img { height: 23px; }
   .why div { font-size: 12.5px; }
-  .empty { padding: 26px 18px; }
+  
+  .state.boxed { padding: 26px 18px; }
 }
 
 @media (min-width: 701px) and (max-width: 1023px) {
