@@ -191,6 +191,71 @@
 
 .ask { display: inline-flex; align-items: center; gap: 5px; border: 1px dashed var(--field-edge); border-radius: 999px; padding: 2px 9px; font-size: 10.5px; font-weight: 700; color: var(--muted); letter-spacing: .2px; vertical-align: middle; }
 
+.cheer { position: relative; display: flex; flex-direction: column; align-items: center; padding: 30px 24px 4px; }
+
+.cheer .ring {
+  position: absolute; top: 22px; width: 96px; height: 96px; border-radius: 50%;
+  border: 2px solid var(--good); opacity: 0;
+  animation: cheer-ring 900ms ease-out 120ms 1 forwards;
+}
+@keyframes cheer-ring {
+  0%   { transform: scale(.55); opacity: .9; }
+  100% { transform: scale(1.5);  opacity: 0; }
+}
+
+.cheer .mark {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: var(--good-tint); border: 1px solid var(--good);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px; color: var(--good);
+  animation: cheer-pop 520ms cubic-bezier(.34, 1.56, .64, 1) 1 both;
+}
+@keyframes cheer-pop {
+  0%   { transform: scale(.2) rotate(-12deg); opacity: 0; }
+  70%  { transform: scale(1.12) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.cheer .conf { position: absolute; top: 26px; width: 220px; height: 110px; pointer-events: none; }
+.cheer .conf i {
+  position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 2px;
+  background: var(--peach); opacity: 0;
+  animation: cheer-conf 1100ms ease-out 1 forwards;
+}
+.cheer .conf i:nth-child(2n) { background: var(--good); border-radius: 50%; }
+.cheer .conf i:nth-child(3n) { background: var(--star); }
+.cheer .conf i:nth-child(1) { animation-delay: 140ms; --dx: -86px; --dy: -34px; }
+.cheer .conf i:nth-child(2) { animation-delay: 200ms; --dx:  84px; --dy: -28px; }
+.cheer .conf i:nth-child(3) { animation-delay: 170ms; --dx: -62px; --dy:  30px; }
+.cheer .conf i:nth-child(4) { animation-delay: 240ms; --dx:  66px; --dy:  34px; }
+.cheer .conf i:nth-child(5) { animation-delay: 120ms; --dx: -30px; --dy: -48px; }
+.cheer .conf i:nth-child(6) { animation-delay: 280ms; --dx:  26px; --dy: -46px; }
+.cheer .conf i:nth-child(7) { animation-delay: 320ms; --dx: -100px; --dy:  6px; }
+.cheer .conf i:nth-child(8) { animation-delay: 260ms; --dx:  98px; --dy:  10px; }
+@keyframes cheer-conf {
+  0%   { transform: translate(0, 0) scale(.4); opacity: 0; }
+  35%  { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1) rotate(140deg); opacity: 1; }
+}
+
+.cheer .got { margin-top: 16px; font-size: 44px; font-weight: 800; letter-spacing: -1.4px; line-height: 1; }
+.cheer .gotc { margin-top: 4px; font-size: 14.5px; font-weight: 600; color: var(--muted2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cheer .ring { display: none; }
+  .cheer .mark, .cheer .conf i { animation: none; opacity: 1; transform: none; }
+}
+
+.youb { display: flex; align-items: center; gap: 12px; background: var(--action-tint); border: 1px solid var(--action-edge); border-radius: var(--r); padding: 12px 16px; }
+.youb .rk { font-size: 19px; font-weight: 800; letter-spacing: -.5px; flex: none; }
+.youb .t { flex: 1; min-width: 0; font-size: 13px; color: var(--muted2); }
+.youb .t b { display: block; font-size: 14.5px; font-weight: 700; color: var(--txt); }
+.youb .num { font-size: 17px; font-weight: 800; letter-spacing: -.4px; flex: none; }
+
+.meter.unknown { background: transparent; border: 1px dashed var(--field-edge); }
+
+.mini3 { padding: 0 0 4px; }
+
 .duo { display: flex; gap: 10px; }
 .duo > div { flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
 .duo b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.5px; }

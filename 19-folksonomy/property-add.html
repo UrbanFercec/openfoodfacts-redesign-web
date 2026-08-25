@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add a property - the sheet</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<div class="appbar">
+  <a class="ico" href="properties-empty.html">&#8592;</a>
+  <span class="ttl">special toast</span>
+</div>
+
+<div class="wrap" style="padding-bottom:0">
+  <div class="pane">
+    <h3>Product properties</h3>
+    
+    <div class="state" style="padding:22px 24px 20px">
+      <h2>No properties</h2>
+      <p>By adding properties (key/value) to a product, you help enrich it.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="grab"><span class="bar"></span></div>
+
+  <h4>Add a property</h4>
+  <p class="hint">Properties are created and filed by contributors for any kind of usage.</p>
+
+  <div class="field">
+    <label>Property</label>
+    <div class="box focus">sto<span class="caret">|</span></div>
+    <div class="rule">A key must be lowercase and without any spaces.</div>
+  </div>
+
+  <div class="acomp">
+    <div class="s">
+      <span class="key"><em>sto</em>rage_conditions:he</span>
+      <span class="spacer"></span>
+      <span class="use">54 products</span>
+    </div>
+    <div class="s">
+      <span class="key"><em>sto</em>rage_conditions:en</span>
+      <span class="spacer"></span>
+      <span class="use">6 products</span>
+    </div>
+    <div class="s">
+      <span class="key"><em>sto</em>rage_method:ja</span>
+      <span class="spacer"></span>
+      <span class="use">5 products</span>
+    </div>
+    <div class="s">
+      <span class="key"><em>sto</em>rage</span>
+      <span class="spacer"></span>
+      <span class="use">3 products</span>
+    </div>
+    <div class="s">
+      <span class="key"><em>sto</em>re_hebrew_names</span>
+      <span class="spacer"></span>
+      <span class="use">2 products</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Value</label>
+    <div class="box" style="color:var(--faint)">Input a value</div>
+  </div>
+
+  <div class="btns">
+    <a class="prime" href="properties-filled.html">Save</a>
+    <a class="flat" href="properties-empty.html">Cancel</a>
+  </div>
+</div>
+
+</body>
+</html>
