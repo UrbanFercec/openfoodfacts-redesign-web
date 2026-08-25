@@ -69,7 +69,7 @@
 
 .wstate { max-width: 620px; margin: 48px auto 0; }
 .wstate .state { padding: 0; }
-.wstate .state .art { width: 76px; height: 76px; font-size: 34px; }
+
 .wstate .state h2 { font-size: 27px; letter-spacing: -.4px; }
 .wstate .state p { font-size: 15px; margin-top: 10px; }
 .wstate .state .acts { flex-direction: row; justify-content: center; gap: 14px; margin-top: 24px; }

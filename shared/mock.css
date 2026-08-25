@@ -317,7 +317,7 @@ a { color: inherit; text-decoration: none; }
 
 .state.boxed {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
-  padding: 34px 28px; margin: 12px;
+  padding: 34px 28px;
 }
 
 .state.inline {
