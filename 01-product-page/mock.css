@@ -120,11 +120,15 @@
   .vals { gap: 12px 30px; font-size: 14.5px; }
 }
 
+.bell { margin-top: 16px; }
+
 @media (max-width: 700px) {
   .cols > aside, .cols > main { display: contents; }
   .ident  { order: 1; }
   .tabs   { order: 2; }
   .scores { order: 3; }
+  
+  .bell   { order: 3; }
   main .tile.paned { display: none; }   
   
   main .tile { order: 4; }
