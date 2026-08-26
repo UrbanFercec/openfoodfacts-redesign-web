@@ -11,6 +11,8 @@
 .grp > .lbl { color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px; margin: 0 0 6px; }
 .grp > .lbl em { font-style: normal; color: var(--muted); font-weight: 500; letter-spacing: 0; }
 
+.grp > .more { color: var(--faint); font-size: 12.5px; line-height: 1.5; padding: 8px 0 2px; }
+
 .row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line-soft); }
 .row .txt { flex: 1; min-width: 0; }
 .row .txt b { font-weight: 600; font-size: 14.5px; }
