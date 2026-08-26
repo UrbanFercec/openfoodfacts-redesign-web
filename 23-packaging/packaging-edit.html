@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packaging components - the merged editor</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="sbar">
+    <a class="back" href="packaging-full.html">&#8592;</a>
+    <h1>Packaging components</h1>
+  </div>
+
+  <div class="pident">
+    <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/5035/front_en.583.400.jpg" alt=""></div>
+    <div class="t">
+      <b>Nutella</b>
+      <i>Ferrero &middot; 1 kg</i>
+      <code>3017620425035</code>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>Packaging photo</h3>
+    <div class="pgrid">
+      <div class="pcell">
+        <div class="cap"><span>Packaging picture</span><span class="spacer"></span><span class="lang on">FR</span></div>
+        <span class="shot"><img src="https://images.openfoodfacts.org/images/products/301/762/042/5035/packaging_fr.675.400.jpg" alt=""></span>
+        <div class="pacts"><span class="a">Extract packaging</span><span class="a">Take photo</span></div>
+      </div>
+      <div class="pcell">
+        <div class="cap"><span>Packaging picture</span><span class="spacer"></span><span class="lang">EN</span></div>
+        <span class="none"><span class="g">&#128247;</span><span>No image in that language yet</span></span>
+        <div class="pacts"><span class="a">Take photo</span><span class="a">Choose existing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>Jar</h3>
+
+    <div class="fexp">
+      <span class="flab">Shape</span>
+      <div class="tagin has"><span>Jar</span><span class="add">&#9662;</span></div>
+
+      <span class="flab">Material</span>
+      <div class="tagin has"><span>Clear Glass</span><span class="add">&#9662;</span></div>
+      <div class="note">Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.</div>
+
+      <span class="flab">Recycling instruction</span>
+      <a class="tagin has" href="packaging-edit-sheet.html"><span>recycle in glass bin</span><span class="add">&#9662;</span></a>
+      <div class="note">Enter recycling instructions only if they are listed on the product.</div>
+
+      <div class="nrow">
+        <span class="nm">Weight of one empty unit (g)<i>Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.</i></span>
+        <span class="fld">443</span>
+      </div>
+    </div>
+
+    <div class="setrow quiet">
+      <span class="pi">&#8942;</span>
+      <span class="t"><b>Number of units, net quantity</b><i>1 unit &middot; 1000 g</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>The other four parts</h3>
+    <div class="setrow">
+      <span class="t"><b>Lid</b><i>PP 5 - Polypropylene &middot; 8 g &middot; recycle</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="t"><b>backing</b><i>Non-corrugated cardboard &middot; 2.2 g &middot; recycle</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="t"><b>Seal</b><i>82 C/PAP &middot; 0.3 g &middot; recycle</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="t"><b>2 &times; label</b><i>Paper &middot; 0.1 g &middot; recycle</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="fexp">
+      <div class="phcta"><span>&#43;</span><span>Add a packaging component</span></div>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>What this product now has</h3>
+    <div class="setrow">
+      <span class="pi">&#9745;</span>
+      <span class="t"><b>The packaging is complete</b><i>5 of 5 parts have a shape, a material and a weight</i></span>
+    </div>
+    <div class="setrow quiet">
+      <span class="t"><b>45.4 g of packaging per 100 g of product</b><i>this figure needs every weight, so it only exists on 17,635 products</i></span>
+    </div>
+  </div>
+
+  <div class="fexp">
+    <div class="phcta"><span>&#128247;</span><span>Take photos of any packaging/recycling information</span></div>
+  </div>
+
+  <div class="savebar">
+    <span class="cancel">Cancel</span>
+    <span class="btnpeach">Save</span>
+  </div>
+
+</div>
+
+</body>
+</html>
