@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is wrong with this record - the Contribute pane</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<div class="webbar">
+  <span class="logo" role="img" aria-label="Open Food Facts"></span>
+  <span class="spacer"></span>
+  <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+  <a class="btn" href="../15-account/account-signin.html">Sign in</a>
+</div>
+
+<div class="wrap">
+
+  <div class="pgrid">
+
+    <div>
+      <div class="photo"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt="Nutella"></div>
+      <h1>Nutella</h1>
+      <div class="brand">Ferrero</div>
+      <div class="code">3017620422003</div>
+    </div>
+
+    <main>
+      <nav class="tabs">
+        <a href="../01-product-page/product-nutella.html">Overview</a><a>Health</a><a>Environment</a><a class="on">Contribute</a>
+      </nav>
+
+      <div class="tile">
+        <h3>Contribution</h3>
+        <div class="grp">
+          <div class="sub">Data completeness</div>
+          <div class="meter"><i style="width:79%"></i></div>
+          <div class="metertxt"><span>79% complete</span><span class="spacer"></span><span>172 contributors, last checked 5 years ago</span></div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="qhead">
+          <h3>What is wrong with this record</h3>
+          <span class="spacer"></span>
+          <span class="sub">9 findings on this record &middot; 6 things to do</span>
+        </div>
+
+        <a class="qitem" href="../13-product-edit/edit-nutrition.html">
+          <span class="m err"></span>
+          <span class="t"><b>Add nutrition facts <span class="ask">ASK A32</span></b>
+            <i>"Nutrition facts are specified for the product as sold." is checked. "per serving" is selected. But the serving size is missing.</i></span>
+          <span class="go">&rsaquo;</span>
+        </a>
+
+        <a class="qitem" href="../13-product-edit/edit-hub.html">
+          <span class="m warn"></span>
+          <span class="t"><b>Add the origins of ingredients for this product</b>
+            <i>Origins of ingredients are one of the Environmental Score components. They are currently extracted from the ingredient list and the Origins field.</i></span>
+          <span class="go">&rsaquo;</span>
+        </a>
+
+        <a class="qitem" href="../13-product-edit/edit-photos.html">
+          <span class="m warn"></span>
+          <span class="t"><b>Take a photo of the ingredients <span class="ask">ASK A32</span></b>
+            <i>This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.</i></span>
+          <span class="go">&rsaquo;</span>
+        </a>
+
+        <a class="qitem" href="../13-product-edit/edit-hub.html">
+          <span class="m warn"></span>
+          <span class="t"><b>Add packaging components <span class="ask">ASK A32</span></b>
+            <i>The packaging shape could not be scored for the Environmental Score computation, which may lower the precision of the result.</i>
+            <i>The packaging data for this product is incomplete.</i></span>
+          <span class="go">&rsaquo;</span>
+        </a>
+
+        <a class="qitem" href="../13-product-edit/edit-hub.html">
+          <span class="m warn"></span>
+          <span class="t"><b>Add any label present on this product <span class="ask">ASK A32</span></b>
+            <i>No production system label (such as organic or label rouge) has been specified for this product, which may lower the precision of the Environmental Score.</i></span>
+          <span class="go">&rsaquo;</span>
+        </a>
+
+        <a class="qitem" href="../13-product-edit/edit-hub.html">
+          <span class="m info"></span>
+          <span class="t"><b>Add a category <span class="ask">ASK A32</span></b>
+            <i>The level 3 food group could not be determined for this product.</i></span>
+          <span class="go">&rsaquo;</span>
+        </a>
+
+        <div class="qlegend">
+          <span><i class="m err"></i> Error in the record</span>
+          <span><i class="m warn"></i> Makes a score less precise</span>
+          <span><i class="m info"></i> Worth knowing</span>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="qhead">
+          <h3>Report a problem</h3>
+        </div>
+        <div class="sbody">If you want to report vandalism, inappropriate content or erroneous data you can&rsquo;t fix yourself, report it to our moderators team.</div>
+        <div class="qitem">
+          <span class="t"><b>Something here is wrong and I cannot fix it</b>
+            <i>Wrong data, missing data, a wrong barcode, or something else</i></span>
+          <a class="fix" href="report-web.html">Report a problem</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</div>
+
+</body>
+</html>

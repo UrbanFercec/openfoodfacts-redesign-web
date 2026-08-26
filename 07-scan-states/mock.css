@@ -115,3 +115,6 @@
   width: 34px; height: 34px; margin: 2px auto 12px; border-radius: 50%;
   border: 3px solid var(--card3); border-top-color: var(--orange);
 }
+
+.note { font-size: 13.5px; color: var(--muted2); line-height: 1.5; margin-top: 12px; }
+.note b { color: var(--txt); font-weight: 700; }

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report a problem - on the website</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+</head>
+<body>
+
+<div class="scrim">
+
+  <div class="webbar">
+    <span class="logo" role="img" aria-label="Open Food Facts"></span>
+    <span class="spacer"></span>
+    <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
+    <a class="btn" href="../15-account/account-signin.html">Sign in</a>
+  </div>
+
+  <div class="wrap">
+    <div class="pgrid">
+      <div>
+        <div class="photo"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt="Nutella"></div>
+        <h1>Nutella</h1>
+        <div class="brand">Ferrero</div>
+        <div class="code">3017620422003</div>
+      </div>
+      <main>
+        <nav class="tabs">
+          <a href="../01-product-page/product-nutella.html">Overview</a><a>Health</a><a>Environment</a><a class="on" href="quality-web.html">Contribute</a>
+        </nav>
+        
+        <div class="tile">
+          <div class="qhead">
+            <h3>What is wrong with this record</h3>
+            <span class="spacer"></span>
+            <span class="sub">9 findings on this record &middot; 6 things to do</span>
+          </div>
+          <a class="qitem" href="../13-product-edit/edit-nutrition.html">
+            <span class="m err"></span>
+            <span class="t"><b>Add nutrition facts <span class="ask">ASK A32</span></b>
+              <i>"Nutrition facts are specified for the product as sold." is checked. "per serving" is selected. But the serving size is missing.</i></span>
+            <span class="go">&rsaquo;</span>
+          </a>
+          <a class="qitem" href="../13-product-edit/edit-hub.html">
+            <span class="m warn"></span>
+            <span class="t"><b>Add the origins of ingredients for this product</b>
+              <i>Origins of ingredients are one of the Environmental Score components. They are currently extracted from the ingredient list and the Origins field.</i></span>
+            <span class="go">&rsaquo;</span>
+          </a>
+        </div>
+
+        <div class="tile">
+          <div class="qhead">
+            <h3>Report a problem</h3>
+            <span class="spacer"></span>
+            <span class="sub">Nutella &middot; 3017620422003</span>
+          </div>
+          <div class="sbody">If you want to report vandalism, inappropriate content or erroneous data you can&rsquo;t fix yourself, report it to our moderators team.</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal">
+  <div class="shd"><h2>Report a problem</h2></div>
+
+  <a class="srow" href="quality-web.html">
+    <span class="t"><b>Some of the data is incorrect</b></span>
+    <span class="go">&rsaquo;</span>
+  </a>
+  <a class="srow" href="quality-web.html">
+    <span class="t"><b>Some of the data is missing</b></span>
+    <span class="go">&rsaquo;</span>
+  </a>
+  <a class="srow" href="quality-web.html">
+    <span class="t"><b>The barcode is wrong</b></span>
+    <span class="go">&rsaquo;</span>
+  </a>
+  <a class="srow" href="quality-web.html">
+    <span class="t"><b>Another problem</b></span>
+    <span class="go">&rsaquo;</span>
+  </a>
+
+  <div class="sfooter">
+    <span class="note">Pick a reason to continue</span>
+    <span class="spacer"></span>
+    <span class="btnpeach off">Send</span>
+  </div>
+</div>
+
+</body>
+</html>
