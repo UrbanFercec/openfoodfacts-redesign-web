@@ -39,8 +39,6 @@
 .setrow.longcopy .t i { font-size: 12px; line-height: 1.45; }
 .setrow.longcopy .sw { margin-top: 2px; }
 
-.dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
-
 .srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
 .srow:last-child { border-bottom: 0; }
 .srow .g { width: 24px; text-align: center; font-size: 16px; color: var(--muted2); flex: none; }

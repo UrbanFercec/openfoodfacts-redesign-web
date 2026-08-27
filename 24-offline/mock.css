@@ -21,8 +21,6 @@
 .setrow.longcopy .pi { padding-top: 2px; }
 .setrow.longcopy .t i { font-size: 12px; line-height: 1.45; }
 
-.dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
-
 .sbody { padding: 12px 20px; font-size: 13px; color: var(--muted2); line-height: 1.5; border-bottom: 1px solid var(--line-soft); }
 .srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
 .srow:last-child { border-bottom: 0; }

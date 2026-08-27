@@ -85,8 +85,6 @@
 .dropped .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .dropped .tags .tag { border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600; color: var(--muted2); }
 
-.dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
-
 .sheet .sbody { padding: 16px 20px 22px; }
 .sheet .sbody .cta { margin-top: 16px; }
 .sheet .sbody .lead { color: var(--muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 10px; }

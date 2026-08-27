@@ -88,8 +88,6 @@
 .toggle.off { background: var(--card2); }
 .toggle.off::after { right: auto; left: 3px; background: var(--muted); }
 
-.dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
-
 .sheet .sbody { padding: 16px 20px 22px; }
 .sheet .sbody > p { font-size: 13px; color: var(--muted); line-height: 1.5; margin-top: 12px; }
 .sheet .sbody > p b { color: var(--txt2); font-weight: 700; }
