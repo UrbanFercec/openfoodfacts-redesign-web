@@ -104,8 +104,8 @@ h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
 }
 .group .why1 { font-weight: 500; color: var(--muted); }
 .group .ch { margin-left: auto; font-size: 15px; color: var(--muted); }
-.res.dim .shot img { opacity: .55; }
-.res.dim .name, .res.dim .grades { opacity: .8; }
+.res.faded .shot img { opacity: .55; }
+.res.faded .name, .res.faded .grades { opacity: .8; }
 
 .rows { display: grid; }
 .row {
