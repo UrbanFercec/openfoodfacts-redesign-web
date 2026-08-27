@@ -39,13 +39,31 @@
     });
   });
 
-  // 2. back arrows
+  // 2. back arrows: ONE step, to the page you actually came from.
+  // ⛔ NOT history.back(). A screen runs inside the lane's iframe, and an iframe shares the joint
+  //    session history with the page around it, so `back` can unwind the FRAME instead of the
+  //    screen - it reads as jumping around at random (Urban, 2026-08-27, first thing he noticed).
+  //    `document.referrer` is the previous screen and nothing else, and assigning it moves only
+  //    this frame. Fallback when there is no referrer (a page opened cold from the screen list):
+  //    this shell's own Home tab, which is the one destination every app screen agrees on.
+  function backTarget() {
+    var ref = document.referrer;
+    // `location.origin` is the literal string "null" on a file:// page, so check that case too -
+    // the lanes are opened from disk as often as from the published URL.
+    var same = location.origin === 'null'
+      ? ref.indexOf('file:') === 0
+      : ref.indexOf(location.origin) === 0;
+    if (ref && ref !== location.href && same) return ref;
+    var home = document.querySelector('.tabbar a[href]');
+    return home ? home.getAttribute('href') : '../03-home/home-web.html';
+  }
+
   document.querySelectorAll('.back, .appbar .ico, .lbar .ico').forEach(function (el) {
     if (el.closest('a[href]') || el.hasAttribute('data-href')) return;
     if (el.classList.contains('todo')) return;
     if ((el.textContent || '').indexOf('←') === -1) return;
     el.style.cursor = 'pointer';
-    el.addEventListener('click', function () { history.back(); });
+    el.addEventListener('click', function () { location.href = backTarget(); });
   });
 
   // 3. everything else that looks clickable and is not
