@@ -25,7 +25,12 @@
 .meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .pair .tile { margin-bottom: 0; }
 
-.grp > .lbl { color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px; margin: 12px 0 4px; }
+.grp > .lbl {
+  color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px;
+  margin: 12px 0 4px;
+  
+  text-transform: uppercase;
+}
 .grp > .lbl:first-child { margin-top: 0; }
 .row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
 .row img.ic { width: 26px; height: 26px; flex: none; object-fit: contain; }
@@ -44,7 +49,10 @@
 .row .cv { margin-left: auto; flex: none; color: var(--peach); font-size: 12.5px; font-weight: 600; white-space: nowrap; }
 .box { background: var(--card2); border-radius: 8px; padding: 10px 12px 10px; margin: 2px 0 10px; }
 .box + .box { margin-top: -4px; }
-.box .bh { font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .4px; margin-bottom: 8px; }
+.box .bh {
+  font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .4px;
+  margin-bottom: 8px; text-transform: uppercase;   
+}
 .box .bh b { color: var(--txt); }
 
 .mini { width: 100%; border-collapse: collapse; font-size: 13px; }
