@@ -39,23 +39,42 @@
     });
   });
 
-  // 2. back arrows: ONE step, to the page you actually came from.
+  // 2. back arrows: ONE step, to the screen you actually came from, and nowhere else.
+  //
   // ⛔ NOT history.back(). A screen runs inside the lane's iframe, and an iframe shares the joint
-  //    session history with the page around it, so `back` can unwind the FRAME instead of the
-  //    screen - it reads as jumping around at random (Urban, 2026-08-27, first thing he noticed).
-  //    `document.referrer` is the previous screen and nothing else, and assigning it moves only
-  //    this frame. Fallback when there is no referrer (a page opened cold from the screen list):
-  //    this shell's own Home tab, which is the one destination every app screen agrees on.
-  function backTarget() {
-    var ref = document.referrer;
-    // `location.origin` is the literal string "null" on a file:// page, so check that case too -
-    // the lanes are opened from disk as often as from the published URL.
-    var same = location.origin === 'null'
-      ? ref.indexOf('file:') === 0
-      : ref.indexOf(location.origin) === 0;
-    if (ref && ref !== location.href && same) return ref;
-    var home = document.querySelector('.tabbar a[href]');
-    return home ? home.getAttribute('href') : '../03-home/home-web.html';
+  //    session history with the page around it, so `back` unwinds entries that are not screens -
+  //    it reads as jumping around at random (Urban, 2026-08-27, the first thing he noticed).
+  // ⛔ NOT document.referrer either: Chrome sends no referrer for a `file://` navigation, and the
+  //    lanes get opened from disk as often as from the published URL, so it is empty exactly when
+  //    someone is testing locally.
+  // ✅ So the prototype keeps its OWN one-entry-per-screen stack in sessionStorage. Deterministic,
+  //    works on file:// and https alike, and going back POPS it, so back-back-back walks the real
+  //    trail out instead of ping-ponging between two pages.
+  var KEY = 'off-proto-trail';
+
+  function trail(next) {
+    try {
+      if (next) { sessionStorage.setItem(KEY, JSON.stringify(next.slice(-40))); return next; }
+      return JSON.parse(sessionStorage.getItem(KEY)) || [];
+    } catch (e) { return []; }   // private mode, or a browser refusing storage on file://
+  }
+
+  var seen = trail();
+  // After a back the destination is ALREADY the top of the trail, so this does not re-push it -
+  // which is what keeps back from turning into a two-page loop.
+  if (seen[seen.length - 1] !== location.href) {
+    seen.push(location.href);
+    trail(seen);
+  }
+
+  // the cold-open fallback: this shell's Home. The app home and the web home are two different
+  // screens, so the lane is stamped on <html> at publish time rather than guessed.
+  function home() {
+    var tab = document.querySelector('.tabbar a[href]');
+    if (tab) return tab.getAttribute('href');
+    return document.documentElement.getAttribute('data-lane') === 'app'
+      ? '../03-home/home-app.html'
+      : '../03-home/home-web.html';
   }
 
   document.querySelectorAll('.back, .appbar .ico, .lbar .ico').forEach(function (el) {
@@ -63,7 +82,16 @@
     if (el.classList.contains('todo')) return;
     if ((el.textContent || '').indexOf('←') === -1) return;
     el.style.cursor = 'pointer';
-    el.addEventListener('click', function () { location.href = backTarget(); });
+    el.addEventListener('click', function () {
+      var s = trail();
+      if (s.length > 1) {
+        s.pop();
+        trail(s);
+        location.href = s[s.length - 1];
+      } else {
+        location.href = home();
+      }
+    });
   });
 
   // 3. everything else that looks clickable and is not
