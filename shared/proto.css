@@ -5,7 +5,12 @@ a[class~="todo"] {
   text-underline-offset: 3px;
 }
 
-a[class~="todo"]::after {
+[class~="dead"] {
+  position: relative;
+  cursor: not-allowed;
+}
+
+[class~="todo"]::after, [class~="dead"]::after {
   content: "";
   position: absolute;
   top: -1px;
@@ -16,7 +21,7 @@ a[class~="todo"]::after {
   background: var(--muted);
 }
 
-a[class~="todo"]:hover::before {
+[class~="todo"]:hover::before, [class~="dead"]:hover::before {
   content: "not drawn yet";
   position: absolute;
   bottom: calc(100% + 6px);
@@ -120,3 +125,5 @@ body.lane .phone iframe {
   background: var(--card);
   box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
 }
+
+[class~="dead"]:hover::before { content: "not in the prototype"; }
