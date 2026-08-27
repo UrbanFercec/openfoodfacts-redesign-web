@@ -59,10 +59,17 @@
     } catch (e) { return []; }   // private mode, or a browser refusing storage on file://
   }
 
+  // ⛔ The trail is maintained HERE and nowhere else, and the rule is: landing on the entry below
+  //    the top IS a back, however you got there. 78 back arrows carry a hard-coded href and would
+  //    otherwise leave the trail growing - so back-back would return you to the page you had just
+  //    left, which is the ping-pong the first version shipped.
   var seen = trail();
-  // After a back the destination is ALREADY the top of the trail, so this does not re-push it -
-  // which is what keeps back from turning into a two-page loop.
-  if (seen[seen.length - 1] !== location.href) {
+  if (seen[seen.length - 1] === location.href) {
+    // a re-entry, or the destination of a back: already the top, leave it
+  } else if (seen[seen.length - 2] === location.href) {
+    seen.pop();
+    trail(seen);
+  } else {
     seen.push(location.href);
     trail(seen);
   }
@@ -83,14 +90,9 @@
     if ((el.textContent || '').indexOf('←') === -1) return;
     el.style.cursor = 'pointer';
     el.addEventListener('click', function () {
+      // navigate only - the load handler above is what pops, so there is one owner of the trail
       var s = trail();
-      if (s.length > 1) {
-        s.pop();
-        trail(s);
-        location.href = s[s.length - 1];
-      } else {
-        location.href = home();
-      }
+      location.href = s.length > 1 ? s[s.length - 2] : home();
     });
   });
 
