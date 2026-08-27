@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit product - one page, ordered by what is missing</title>
+<link rel="stylesheet" href="mock.css">
+<link rel="stylesheet" href="../shared/proto.css">
+<script src="../shared/proto-theme.js" defer></script>
+<script src="../shared/proto-nav.js" defer></script>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="sbar">
+    <span class="back">&#8592;</span>
+    <h1>Edit product</h1>
+  </div>
+
+  <div class="pident">
+    <span class="ph"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.400.jpg" alt="Bruschette chips pizza front photo"></span>
+    <span class="t">
+      <b>Bruschette chips pizza</b>
+      <i>Maretti</i>
+      <code>3800205872962</code>
+    </span>
+  </div>
+
+  <div class="prog">
+    <div class="meter"><i style="width:70%"></i></div>
+    <div class="metertxt"><span><b>70% complete</b></span><span class="spacer"></span><span>7 sections have no data</span></div>
+  </div>
+
+  <div class="pcard2">
+    <h3>Needs data</h3>
+
+    <div class="setrow">
+      <span class="st d bad"></span>
+      <span class="t"><b>Labels &amp; Certifications</b><i>Add missing product labels</i></span>
+    </div>
+    
+    <div class="fexp">
+      <div class="tagin"><span>Input a label (eg: NutriScore)</span><span class="add">+</span></div>
+      <div class="phcta"><span>&#128247;</span><span>Take photos of any labels &amp; certifications information</span></div>
+    </div>
+
+    <div class="setrow" data-href="../23-packaging/packaging-edit.html">
+      <span class="st d bad"></span>
+      <span class="t"><b>Packaging components</b><i>Add a packaging component</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="st d bad"></span>
+      <span class="t"><b>Origins</b><i>Add missing product origins</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="st d bad"></span>
+      <span class="t"><b>Stores</b><i>Add missing product stores</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="st d bad"></span>
+      <span class="t"><b>Traces</b><i>Add missing product traces</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="st d bad"></span>
+      <span class="t"><b>Traceability codes</b><i>Add missing product traceability codes</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    
+    <div class="setrow">
+      <span class="st d bad"></span>
+      <span class="t"><b>Website</b><i>Additional details</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>Photos</h3>
+    
+    <div class="pgrid">
+      <a class="pcell" href="edit-photos.html">
+        <span class="cap"><span class="d good"></span>Product photo<span class="spacer"></span><span class="lang on">EN</span></span>
+        <span class="shot"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/front_en.3.400.jpg" alt="Product photo, English"></span>
+      </a>
+      <a class="pcell" href="edit-photos.html">
+        <span class="cap"><span class="d warn"></span>Ingredients photo<span class="spacer"></span><span class="lang">DE</span></span>
+        <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
+      </a>
+      <a class="pcell" href="edit-photos.html">
+        <span class="cap"><span class="d warn"></span>Nutrition photo<span class="spacer"></span><span class="lang">DE</span></span>
+        <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
+      </a>
+      <a class="pcell" href="edit-photos.html">
+        <span class="cap"><span class="d warn"></span>Recycling instructions photo<span class="spacer"></span><span class="lang">DE</span></span>
+        <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
+      </a>
+    </div>
+    
+    <div class="pstrip">
+      <span><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/2.400.jpg" alt="Uploaded photo 2"></span>
+      <span><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/3.400.jpg" alt="Uploaded photo 3"></span>
+      <a class="more" href="edit-photos.html">More interesting photos</a>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>Complete</h3>
+
+    <div class="setrow">
+      <span class="st d good"></span>
+      <span class="t"><b>Basic details</b><i>Product name, brand, quantity</i></span>
+    </div>
+    <div class="fexp">
+      
+      <div class="tags">
+        <span class="chip"><span class="lang on">EN</span> Bruschette chips pizza <i>&#10005;</i></span>
+        <span class="chip"><span class="lang">DE</span> Bruschette gourmet Brotchips <i>&#10005;</i></span>
+        <span class="chip">Add a new translation</span>
+      </div>
+      <span class="flab">Brand names</span>
+      <div class="tags">
+        <span class="chip">Maretti <i>&#10005;</i></span>
+      </div>
+
+      <div class="sugg">
+        <div class="sg">
+          <span>Quantity and weight</span><b>150 g</b>
+          <span class="spacer"></span>
+          <span class="no">&#10005;</span>
+          <span class="ok">&#10003;</span>
+        </div>
+        <div class="proof">
+          <span class="crop"><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/2.400.jpg" alt="Proof photo for the suggested weight"></span>
+          <span class="t">Proof</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="setrow">
+      <span class="st d warn"></span>
+      <span class="t"><b>Ingredients</b><i>Add missing ingredients</i></span>
+      <span class="lang">DE</span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow">
+      <span class="st d good"></span>
+      <span class="t"><b>Categories</b><i>Salty snacks, Appetizers, Breads</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <a class="setrow" href="edit-nutrition.html">
+      <span class="st d warn"></span>
+      <span class="t"><b>Nutrition facts</b><i>Nutrition, alcohol content&#8230;</i></span>
+      <span class="go2">&rsaquo;</span>
+    </a>
+    <div class="setrow">
+      <span class="st d good"></span>
+      <span class="t"><b>Country</b><i>Bulgaria, Germany</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+  </div>
+
+  <div class="pcard2">
+    <h3>Other databases</h3>
+    <div class="setrow quiet" data-href="../16-prices/prices-add.html">
+      <span class="pi">&#128176;</span>
+      <span class="t"><b>Add a price</b><i>Open Prices</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+    <div class="setrow quiet" data-href="../19-folksonomy/property-add.html">
+      <span class="pi">&#127991;</span>
+      <span class="t"><b>Product properties</b><i>Folksonomy Engine</i></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
+  </div>
+
+  <div class="savebar">
+    <span class="cancel" data-href="edit-discard.html">Cancel</span>
+    
+    <a class="btnpeach" href="edit-saved.html">Save</a>
+  </div>
+
+</div>
+
+</body>
+</html>
