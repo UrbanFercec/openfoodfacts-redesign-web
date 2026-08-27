@@ -47,7 +47,7 @@
   background: var(--bg); border: 1px solid var(--field-edge); border-radius: 999px;
   padding: 4px;
 }
-.webbar .field { width: 460px; }
+.webbar .field { width: 420px; }
 
 .wstate { max-width: 620px; margin: 48px auto 0; }
 .wstate .state { padding: 0; }

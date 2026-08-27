@@ -387,3 +387,37 @@ a { color: inherit; text-decoration: none; }
 .field .q { flex: 1; min-width: 0; font-size: 14.5px; font-weight: 500; color: var(--txt); }
 
 .field .q.hint { color: var(--muted2); }
+
+.cheer { position: relative; display: flex; flex-direction: column; align-items: center; padding: 30px 24px 4px; }
+
+.cheer .conf { position: absolute; top: 26px; width: 220px; height: 110px; pointer-events: none; }
+
+.cheer .conf i { position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 2px; background: var(--peach); opacity: 0; animation: cheer-conf 1100ms ease-out 1 forwards; }
+
+.cheer .conf i:nth-child(1) { animation-delay: 140ms; --dx: -86px; --dy: -34px; }
+
+.cheer .conf i:nth-child(2) { animation-delay: 200ms; --dx: 84px; --dy: -28px; }
+
+.cheer .conf i:nth-child(2n) { background: var(--good); border-radius: 50%; }
+
+.cheer .conf i:nth-child(3) { animation-delay: 170ms; --dx: -62px; --dy: 30px; }
+
+.cheer .conf i:nth-child(3n) { background: var(--star); }
+
+.cheer .conf i:nth-child(4) { animation-delay: 240ms; --dx: 66px; --dy: 34px; }
+
+.cheer .conf i:nth-child(5) { animation-delay: 120ms; --dx: -30px; --dy: -48px; }
+
+.cheer .conf i:nth-child(6) { animation-delay: 280ms; --dx: 26px; --dy: -46px; }
+
+.cheer .conf i:nth-child(7) { animation-delay: 320ms; --dx: -100px; --dy: 6px; }
+
+.cheer .conf i:nth-child(8) { animation-delay: 260ms; --dx: 98px; --dy: 10px; }
+
+.cheer .got { margin-top: 16px; font-size: 44px; font-weight: 800; letter-spacing: -1.4px; line-height: 1; }
+
+.cheer .gotc { margin-top: 4px; font-size: 14.5px; font-weight: 600; color: var(--muted2); }
+
+.cheer .mark { width: 88px; height: 88px; border-radius: 50%; background: var(--good-tint); border: 1px solid var(--good); display: flex; align-items: center; justify-content: center; font-size: 42px; color: var(--good); animation: cheer-pop 520ms cubic-bezier(.34, 1.56, .64, 1) 1 both; }
+
+.cheer .ring { position: absolute; top: 22px; width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--good); opacity: 0; animation: cheer-ring 900ms ease-out 120ms 1 forwards; }

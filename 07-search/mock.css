@@ -15,7 +15,7 @@
 .field .scope .ch { font-size: 9px; color: var(--muted); }
 .cols { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
 
-h1 { font-size: 25px; font-weight: 800; letter-spacing: -.3px; }
+h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 .hmeta {
   display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   margin: 8px 0 20px; font-size: 13px; color: var(--muted);
