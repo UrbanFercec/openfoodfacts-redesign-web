@@ -12,9 +12,9 @@
 <body>
 
 <div class="webbar">
-  <a class="logo" role="img" aria-label="Open Beauty Facts" title="Home" href="../03-home/home-web.html"></a>
+  <span class="logo" role="img" aria-label="Open Beauty Facts" data-href="../03-home/home-web.html" title="Home"></span>
   <span class="spacer"></span>
-  <a class="btn" href="../07-search/search-results.html">Search</a>
+  <span class="btn" data-href="../07-search/search-results.html">Search</span>
   <span class="btn">Scan barcode</span>
 </div>
 
@@ -49,7 +49,7 @@
           <span class="lab">
             <span class="n">Palm oil, vegan and vegetarian status unknown</span>
             <span class="s">Unknown matches &middot; 16 of 28 ingredients are not in the taxonomy yet</span>
-            <a class="fix" href="../13-product-edit/edit-hub.html">Help recognise them</a>
+            <span class="fix" data-href="../13-product-edit/edit-hub.html">Help recognise them</span>
           </span>
         </div>
 
@@ -71,7 +71,7 @@
           <span class="toggle"></span>
           <span>Your criteria</span>
           <span class="spacer"></span>
-          <a class="chip" href="../06-food-preferences/prefs-intro.html">Preferences for cosmetics</a>
+          <span class="chip" data-href="../06-food-preferences/prefs-intro.html">Preferences for cosmetics</span>
         </div>
       </div>
 
@@ -165,7 +165,7 @@
         </div>
       </div>
 
-      <a class="tile" href="../17-contribute/contribute-nutella.html">
+      <div class="tile" data-href="../17-contribute/contribute-nutella.html">
         <h3>Contribution</h3>
         <div class="grp">
           <div class="sub">Data completeness</div>
@@ -174,11 +174,11 @@
         </div>
         <div class="grp">
           <div class="sub">Your help needed</div>
-          <span class="task"><span class="num">1</span><span class="t"><b>Add missing packaging image</b></span><span class="time">10 s</span></span>
-          <span class="task"><span class="num">2</span><span class="t"><b>Add missing product traceability codes</b></span><span class="time">15 s</span></span>
+          <div class="task" data-href="../23-packaging/packaging-edit.html"><span class="num">1</span><span class="t"><b>Add missing packaging image</b></span><span class="time">10 s</span></div>
+          <div class="task" data-href="../13-product-edit/edit-hub.html"><span class="num">2</span><span class="t"><b>Add missing product traceability codes</b></span><span class="time">15 s</span></div>
         </div>
-        <div class="tilefoot"><span class="todo" title="Not drawn yet">All contribution details</span></div>
-      </a>
+        <div class="tilefoot"><a class="todo" title="Not drawn yet">All contribution details</a></div>
+      </div>
 
     </main>
   </div>

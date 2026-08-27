@@ -246,23 +246,6 @@
 .prog { margin: 12px 12px 0; padding: 12px 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); }
 .prog .meter { margin: 0 0 6px; }
 
-@keyframes cheer-ring {
-  0%   { transform: scale(.55); opacity: .9; }
-  100% { transform: scale(1.5);  opacity: 0; }
-}
-
-@keyframes cheer-pop {
-  0%   { transform: scale(.2) rotate(-12deg); opacity: 0; }
-  70%  { transform: scale(1.12) rotate(2deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0); opacity: 1; }
-}
-
-@keyframes cheer-conf {
-  0%   { transform: translate(0, 0) scale(.4); opacity: 0; }
-  35%  { opacity: 1; }
-  100% { transform: translate(var(--dx), var(--dy)) scale(1) rotate(140deg); opacity: 1; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .cheer .ring { display: none; }
   .cheer .mark, .cheer .conf i { animation: none; opacity: 1; transform: none; }

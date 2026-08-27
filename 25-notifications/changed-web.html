@@ -12,7 +12,7 @@
 <body>
 
 <div class="webbar">
-  <a class="logo" role="img" aria-label="Open Food Facts" title="Home" href="../03-home/home-web.html"></a>
+  <span class="logo" role="img" aria-label="Open Food Facts" data-href="../03-home/home-web.html" title="Home"></span>
   <span class="spacer"></span>
   <a class="btn todo" title="Family 7 is the app scanner; the web scanner is not drawn">Scan barcode</a>
   <a class="btn" href="../15-account/account-signin.html">Sign in</a>
@@ -137,9 +137,9 @@
     <div class="fside">
       <h2>What this page is</h2>
       <p>Every edit anyone makes to the database, newest first. An edit shows <b>what moved</b>, not which field name it lived in.</p>
-      <a class="krow" href="changed.html"><b>Added:</b> a value appeared</a>
-      <a class="krow" href="changed.html"><b>Changed:</b> a value was replaced</a>
-      <a class="krow" href="changed.html"><b>Deleted:</b> a value was removed</a>
+      <div class="krow" data-href="changed.html"><b>Added:</b> a value appeared</div>
+      <div class="krow" data-href="changed.html"><b>Changed:</b> a value was replaced</div>
+      <div class="krow" data-href="changed.html"><b>Deleted:</b> a value was removed</div>
       <p>Watching one product, and being told when a change touches something you care about, is the app&rsquo;s side of this: <a href="updates.html">Updates</a></p>
     </div>
 

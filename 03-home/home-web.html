@@ -12,22 +12,22 @@
 <body>
 
 <div class="webbar">
-  <a class="logo" role="img" aria-label="Open Food Facts" title="Home" href="../03-home/home-web.html"></a>
+  <span class="logo" role="img" aria-label="Open Food Facts" data-href="../03-home/home-web.html" title="Home"></span>
   <span class="spacer"></span>
   <span class="find">
     <span class="inp">Query or barcode</span>
-    <a class="btn" href="../07-search/search-results.html">Go</a>
-    <a class="btn todo" title="The web scanner is not drawn - the camera is an app surface">||||</a>
+    <span class="btn" data-href="../07-search/search-results.html">Go</span>
+    <span class="btn todo" title="The web scanner is not drawn - the camera is an app surface">||||</span>
   </span>
   <span class="spacer"></span>
-  <a class="btn" href="../12-guides/guides-index.html">Help</a>
-  <a class="btn" href="../09-settings/settings-app.html">Settings</a>
-  <a class="btn solid" href="../15-account/account-signin.html">Log in</a>
+  <span class="btn" data-href="../12-guides/guides-index.html">Help</span>
+  <span class="btn" data-href="../09-settings/settings-app.html">Settings</span>
+  <span class="btn solid" data-href="../15-account/account-signin.html">Log in</span>
 </div>
 
 <div class="webnav">
-  <a href="../11-facets/facets-index.html">Discover</a><a href="../17-contribute/game-hub.html">Contribute</a><a href="https://world.pro.openfoodfacts.org/" target="_blank" rel="noopener">Producers</a>
-  <a href="../16-prices/prices-hub.html">Prices</a><a href="../19-folksonomy/keys-index.html">Folksonomy</a><a href="../11-facets/facets-index.html">Facets</a>
+  <span data-href="../11-facets/facets-index.html">Discover</span><span data-href="../17-contribute/game-hub.html">Contribute</span><span data-href="https://world.pro.openfoodfacts.org/">Producers</span>
+  <span data-href="../16-prices/prices-hub.html">Prices</span><span data-href="../19-folksonomy/keys-index.html">Folksonomy</span><span data-href="../11-facets/facets-index.html">Facets</span>
 </div>
 
 <div class="hero">
@@ -35,11 +35,11 @@
     <div class="logo" role="img" aria-label="Open Food Facts"></div>
     <p>A collaborative, free and open database of food products from around the world.
        Discover, search, and contribute to food transparency for everyone.</p>
-    <a class="searchpill" href="../07-search/search-results.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></a>
+    <div class="searchpill" data-href="../07-search/search-results.html"><span>Search a product, a brand or a barcode</span><span class="go">&#9906;</span></div>
     <div class="ctas">
-      <a class="cta solid" href="../07-search/search-results.html">Explore products</a>
-      <a class="cta" href="../12-guides/guides-index.html">Discover the project</a>
-      <a class="cta" href="../17-contribute/game-hub.html">Contribute</a>
+      <span class="cta solid" data-href="../07-search/search-results.html">Explore products</span>
+      <span class="cta" data-href="../12-guides/guides-index.html">Discover the project</span>
+      <span class="cta" data-href="../17-contribute/game-hub.html">Contribute</span>
     </div>
   </div>
 </div>
@@ -89,7 +89,7 @@
     <div class="right">
       <div class="meter"><i style="width:26.5%"></i></div>
       <div class="metertxt"><span><b>&euro;45,032</b> raised</span><span>of &euro;170,000</span></div>
-      <a class="btnpeach" title="Opens the real donation page" href="https://donate.openfoodfacts.org/" target="_blank" rel="noopener">I support</a>
+      <span class="btnpeach" data-href="https://donate.openfoodfacts.org/" title="Opens the real donation page">I support</span>
     </div>
   </div>
 
@@ -99,30 +99,30 @@
   </div>
 
   <div class="grid3 tight">
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/000/002/072/4696/front_en.384.400.jpg" alt=""></div>
       <div class="t">
         <b>Almonds</b>
         <div class="br">Alesto, Lidl</div>
         <div class="gap"><i class="d good"></i>Matches your criteria &middot; 690 scans</div>
       </div>
-    </a>
-    <a class="icard" href="../01-product-page/product-nutella.html">
+    </div>
+    <div class="icard" data-href="../01-product-page/product-nutella.html">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt=""></div>
       <div class="t">
         <b>Nutella</b>
         <div class="br">Ferrero</div>
         <div class="gap"><i class="d bad"></i>Poor match, 3% &middot; 384 scans</div>
       </div>
-    </a>
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    </div>
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/405/648/921/6162/front_en.329.400.jpg" alt=""></div>
       <div class="t">
         <b>High Protein Schoko Pudding</b>
         <div class="br">Milbona, Lidl</div>
         <div class="gap"><i class="d good"></i>Matches your criteria &middot; 352 scans</div>
       </div>
-    </a>
+    </div>
   </div>
 
   <div class="prefstrip">
@@ -130,7 +130,7 @@
       <b>Matching with your preferences</b>
       <span>Nutri-Score &middot; Green-Score &middot; Ultra-processed foods. No account needed, kept in this browser.</span>
     </div>
-    <a class="chipw" href="../06-food-preferences/prefs-intro.html">Edit your preferences</a>
+    <span class="chipw" data-href="../06-food-preferences/prefs-intro.html">Edit your preferences</span>
     <span class="toggle on"></span>
     <span class="tl">Sort by match</span>
   </div>
@@ -142,65 +142,65 @@
 
   <div class="grid3">
 
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/383/860/001/9439/front_en.7.400.jpg" alt=""></div>
       <div class="t">
         <b>Donat</b>
         <div class="br">26% complete</div>
         <div class="gap"><i class="d unk"></i>No category, so no Green-Score</div>
-        <span class="fix">Add a category</span><span class="time">10 s</span>
+        <span class="fix" data-href="../13-product-edit/edit-hub.html">Add a category</span><span class="time">10 s</span>
       </div>
-    </a>
+    </div>
 
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/385/032/200/7099/front_hr.7.400.jpg" alt=""></div>
       <div class="t">
         <b>Cedevita</b>
         <div class="br">49% complete</div>
         <div class="gap"><i class="d unk"></i>Front photo is the Croatian one</div>
-        <span class="fix">Add the English front</span><span class="time">15 s</span>
+        <span class="fix" data-href="../13-product-edit/edit-photos.html">Add the English front</span><span class="time">15 s</span>
       </div>
-    </a>
+    </div>
 
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph empty"><span>no photo</span><span>yet</span></div>
       <div class="t">
         <b>20476557</b>
         <div class="br">8% complete</div>
         <div class="gap"><i class="d unk"></i>No photo, no nutrition, no category</div>
-        <span class="fix">Take the front photo</span><span class="time">10 s</span>
+        <span class="fix" data-href="../13-product-edit/edit-photos.html">Take the front photo</span><span class="time">10 s</span>
       </div>
-    </a>
+    </div>
 
-    <a class="icard" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/301/762/042/2003/front_en.879.400.jpg" alt=""></div>
       <div class="t">
         <b>Nutella</b>
         <div class="br">Ferrero &middot; 79% complete</div>
         <div class="gap"><i class="d unk"></i>Green-Score not computed</div>
-        <span class="fix">Add a precise category</span><span class="time">10 s</span>
+        <span class="fix" data-href="../13-product-edit/edit-hub.html">Add a precise category</span><span class="time">10 s</span>
       </div>
-    </a>
+    </div>
 
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph"><img src="https://images.openfoodfacts.org/images/products/90435997/front_fr.3.400.jpg" alt=""></div>
       <div class="t">
         <b>The RED Edition Watermelon</b>
         <div class="br">Red Bull &middot; 48% complete</div>
         <div class="gap"><i class="d unk"></i>No nutrition facts</div>
-        <span class="fix">Photograph the label</span><span class="time">30 s</span>
+        <span class="fix" data-href="../13-product-edit/edit-photos.html">Photograph the label</span><span class="time">30 s</span>
       </div>
-    </a>
+    </div>
 
-    <a class="icard" title="Stand-in: this product's own page is not drawn, so it opens the one that is" href="../01-product-page/product-nutella.html">
+    <div class="icard" data-href="../01-product-page/product-nutella.html" title="Stand-in: this product's own page is not drawn, so it opens the one that is">
       <div class="ph empty"><span>no photo</span><span>yet</span></div>
       <div class="t">
         <b>Greek Yog 10% fat - Unfi</b>
         <div class="br">M And S &middot; 30% complete</div>
         <div class="gap"><i class="d unk"></i>No photo and no category</div>
-        <span class="fix">Take the front photo</span><span class="time">10 s</span>
+        <span class="fix" data-href="../13-product-edit/edit-photos.html">Take the front photo</span><span class="time">10 s</span>
       </div>
-    </a>
+    </div>
 
   </div>
 
