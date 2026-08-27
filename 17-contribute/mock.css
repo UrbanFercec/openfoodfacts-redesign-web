@@ -193,6 +193,18 @@
 
 .ask { display: inline-flex; align-items: center; gap: 5px; border: 1px dashed var(--field-edge); border-radius: 999px; padding: 2px 9px; font-size: 10.5px; font-weight: 700; color: var(--muted); letter-spacing: .2px; vertical-align: middle; }
 
+.cheer.one { padding: 22px 24px 4px; }
+.cheer.one .mark { width: 56px; height: 56px; font-size: 28px; }
+.cheer.one .ring { width: 64px; height: 64px; top: 18px; }
+.cheer.one .got { margin-top: 12px; font-size: 34px; }
+.cheer .was { margin-top: 2px; font-size: 12.5px; color: var(--muted); }
+
+.prog .dots i.land { animation: cheer-pop 520ms cubic-bezier(.34, 1.56, .64, 1) 1 both; }
+
+.qcard .ansd { padding: 2px 20px 0; font-size: 15px; font-weight: 700; line-height: 1.4; text-align: center; }
+.qcard .done { padding: 0 20px 20px; }
+.qcard .done .acts { margin: 16px 0 0; }
+
 @keyframes cheer-ring {
   0%   { transform: scale(.55); opacity: .9; }
   100% { transform: scale(1.5);  opacity: 0; }
