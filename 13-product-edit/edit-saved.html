@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Edit product - one page, ordered by what is missing</title>
+<title>Edit product - the state after a save, which says what the save did</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
 <script src="../shared/proto-theme.js" defer></script>
@@ -26,9 +26,22 @@
     </span>
   </div>
 
+  <div class="pcard2">
+    <h3>Thanks for your contribution!</h3>
+    <div class="setrow">
+      <span class="st d good"></span>
+      <span class="t"><b>Origins</b><i>One section fewer needs data</i></span>
+    </div>
+    
+    <div class="setrow quiet">
+      <span class="pi">&#8635;</span>
+      <span class="t"><i>The product will be updated in the background as soon as possible.</i></span>
+    </div>
+  </div>
+
   <div class="prog">
-    <div class="meter"><i style="width:70%"></i></div>
-    <div class="metertxt"><span><b>70% complete</b></span><span class="spacer"></span><span>7 sections have no data</span></div>
+    <div class="meter"><i style="width:80%"></i></div>
+    <div class="metertxt"><span><b>80% complete</b></span><span class="spacer"></span><span>6 sections have no data</span></div>
   </div>
 
   <div class="pcard2">
@@ -38,7 +51,6 @@
       <span class="st d bad"></span>
       <span class="t"><b>Labels &amp; Certifications</b><i>Add missing product labels</i></span>
     </div>
-    
     <div class="fexp">
       <div class="tagin"><span>Input a label (eg: NutriScore)</span><span class="add">+</span></div>
       <div class="phcta"><span>&#128247;</span><span>Take photos of any labels &amp; certifications information</span></div>
@@ -49,11 +61,7 @@
       <span class="t"><b>Packaging components</b><i>Add a packaging component</i></span>
       <span class="go2">&rsaquo;</span>
     </div>
-    <div class="setrow">
-      <span class="st d bad"></span>
-      <span class="t"><b>Origins</b><i>Add missing product origins</i></span>
-      <span class="go2">&rsaquo;</span>
-    </div>
+    
     <div class="setrow">
       <span class="st d bad"></span>
       <span class="t"><b>Stores</b><i>Add missing product stores</i></span>
@@ -69,7 +77,6 @@
       <span class="t"><b>Traceability codes</b><i>Add missing product traceability codes</i></span>
       <span class="go2">&rsaquo;</span>
     </div>
-    
     <div class="setrow">
       <span class="st d bad"></span>
       <span class="t"><b>Website</b><i>Additional details</i></span>
@@ -79,7 +86,6 @@
 
   <div class="pcard2">
     <h3>Photos</h3>
-    
     <div class="pgrid">
       <a class="pcell" href="edit-photos.html">
         <span class="cap"><span class="d good"></span>Product photo<span class="spacer"></span><span class="lang on">EN</span></span>
@@ -98,7 +104,6 @@
         <span class="none"><span class="g">&#127760;</span>No image in that language yet</span>
       </a>
     </div>
-    
     <div class="pstrip">
       <span><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/2.400.jpg" alt="Uploaded photo 2"></span>
       <span><img src="https://images.openfoodfacts.org/images/products/380/020/587/2962/3.400.jpg" alt="Uploaded photo 3"></span>
@@ -114,7 +119,6 @@
       <span class="t"><b>Basic details</b><i>Product name, brand, quantity</i></span>
     </div>
     <div class="fexp">
-      
       <div class="tags">
         <span class="chip"><span class="lang on">EN</span> Bruschette chips pizza <i>&#10005;</i></span>
         <span class="chip"><span class="lang">DE</span> Bruschette gourmet Brotchips <i>&#10005;</i></span>
@@ -150,6 +154,12 @@
       <span class="t"><b>Categories</b><i>Salty snacks, Appetizers, Breads</i></span>
       <span class="go2">&rsaquo;</span>
     </div>
+    
+    <div class="setrow">
+      <span class="st d good"></span>
+      <span class="t"><b>Origins</b></span>
+      <span class="go2">&rsaquo;</span>
+    </div>
     <a class="setrow" href="edit-nutrition.html">
       <span class="st d warn"></span>
       <span class="t"><b>Nutrition facts</b><i>Nutrition, alcohol content&#8230;</i></span>
@@ -177,9 +187,7 @@
   </div>
 
   <div class="savebar">
-    <span class="cancel">Cancel</span>
-    
-    <a class="btnpeach" href="edit-saved.html">Save</a>
+    <a class="btnpeach" href="../08-lists/lists-tocomplete.html">Products you can help complete</a>
   </div>
 
 </div>

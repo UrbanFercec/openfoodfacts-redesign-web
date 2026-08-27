@@ -85,18 +85,9 @@
 .dropped .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .dropped .tags .tag { border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600; color: var(--muted2); }
 
-.dim { position: relative; }
 .dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
 
 [data-theme="light"] .dim::after { background: rgba(9, 10, 11, .34); }
-.sheet {
-  background: var(--card); border: 1px solid var(--line); border-bottom: 0;
-  border-radius: var(--r) var(--r) 0 0; margin-top: -16px; position: relative;
-}
-.sheet .grab { display: flex; justify-content: center; padding: 10px 0 2px; }
-.sheet .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
-.sheet .shd { display: flex; align-items: center; gap: 10px; padding: 16px 20px 12px; border-bottom: 1px solid var(--line); }
-.sheet .shd h2 { font-size: 15px; font-weight: 800; letter-spacing: -.2px; }
 .sheet .sbody { padding: 16px 20px 22px; }
 .sheet .sbody .cta { margin-top: 16px; }
 .sheet .sbody .lead { color: var(--muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 10px; }

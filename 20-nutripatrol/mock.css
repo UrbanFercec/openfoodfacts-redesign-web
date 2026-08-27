@@ -16,17 +16,7 @@
 .pact.prime .g { color: var(--on-accent); }
 .pact.more { flex: 0 0 44px; justify-content: center; }
 
-.dim { position: relative; }
 .dim::after { content: ''; position: absolute; inset: 0; background: rgba(9, 10, 11, .62); }
-.sheet {
-  background: var(--card); border: 1px solid var(--line); border-bottom: 0;
-  border-radius: var(--r) var(--r) 0 0; margin-top: -16px; position: relative;
-}
-.sheet .shd { display: flex; align-items: center; gap: 10px; padding: 16px 20px 12px; border-bottom: 1px solid var(--line); }
-.sheet .shd h2 { font-size: 15px; font-weight: 800; letter-spacing: -.2px; }
-.sheet .shd .spacer { flex: 1; }
-.sheet .grab { display: flex; justify-content: center; padding: 10px 0 2px; }
-.sheet .grab .bar { width: 44px; height: 4px; border-radius: 999px; background: var(--line); }
 .sbody { padding: 12px 20px; font-size: 13px; color: var(--muted2); line-height: 1.5; border-bottom: 1px solid var(--line-soft); }
 
 .srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
