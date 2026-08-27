@@ -234,11 +234,6 @@
 .nrow .unit { width: 54px; flex: none; }
 .nrow .eye { width: 22px; text-align: center; color: var(--faint); font-size: 13px; flex: none; }
 
-.box .bin {
-  display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .4px;
-  text-transform: uppercase; color: var(--peach); margin-bottom: 8px;
-}
-
 .mini td:last-child { white-space: normal; }
 
 .tagin.has span { color: var(--txt); font-weight: 600; }
