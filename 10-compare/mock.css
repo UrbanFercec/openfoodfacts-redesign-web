@@ -8,7 +8,7 @@
 .cols { display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start; }
 
 h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
-.hmeta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 6px 0 18px; font-size: 13px; color: var(--muted); }
+.hmeta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 8px 0 20px; font-size: 13px; color: var(--muted); }
 .hmeta b { color: var(--txt2); font-weight: 700; }
 .hmeta .spacer { flex: 1; }
 
