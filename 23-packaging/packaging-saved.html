@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Packaging components - the merged editor</title>
+<title>Packaging components - the state after a save, which says what the save did</title>
 <link rel="stylesheet" href="mock.css">
 <link rel="stylesheet" href="../shared/proto.css">
 <script src="../shared/proto-theme.js" defer></script>
@@ -23,6 +23,31 @@
       <b>Nutella</b>
       <i>Ferrero &middot; 1 kg</i>
       <code>3017620425035</code>
+    </div>
+  </div>
+
+  <div class="cheer">
+    <span class="ring" aria-hidden="true"></span>
+    <span class="conf" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="mark">&#10003;</span>
+    <div class="got">45.4 g</div>
+    <div class="gotc">Thanks for your contribution!</div>
+  </div>
+
+  <div class="prog">
+    <div class="meter"><i class="rise" style="--was:80%; --now:100%"></i></div>
+    <div class="metertxt"><span><b>45.4 g of packaging per 100 g of product</b></span><span class="spacer"></span><span>5 of 5</span></div>
+    <div class="metertxt"><span>was 1.1 g before your edit</span><span class="spacer"></span><span>every part now has a weight</span></div>
+  </div>
+
+  <div class="pcard2">
+    <div class="setrow">
+      <span class="st d good"></span>
+      <span class="t"><b>Packaging weight</b><i>The figure was partial, not missing: the total counted only the parts that already had a weight, and nothing said so.</i></span>
+    </div>
+    <div class="setrow quiet">
+      <span class="pi">&#8635;</span>
+      <span class="t"><i>The product will be updated in the background as soon as possible.</i></span>
     </div>
   </div>
 
@@ -72,22 +97,22 @@
 
   <div class="pcard2">
     <h3>The other four parts</h3>
-    <a class="setrow" href="packaging-edit-sheet.html">
+    <div class="setrow">
       <span class="t"><b>Lid</b><i>PP 5 - Polypropylene &middot; 8 g &middot; recycle</i></span>
       <span class="go2">&rsaquo;</span>
-    </a>
-    <a class="setrow" href="packaging-edit-sheet.html">
+    </div>
+    <div class="setrow">
       <span class="t"><b>backing</b><i>Non-corrugated cardboard &middot; 2.2 g &middot; recycle</i></span>
       <span class="go2">&rsaquo;</span>
-    </a>
-    <a class="setrow" href="packaging-edit-sheet.html">
+    </div>
+    <div class="setrow">
       <span class="t"><b>Seal</b><i>82 C/PAP &middot; 0.3 g &middot; recycle</i></span>
       <span class="go2">&rsaquo;</span>
-    </a>
-    <a class="setrow" href="packaging-edit-sheet.html">
+    </div>
+    <div class="setrow">
       <span class="t"><b>2 &times; label</b><i>Paper &middot; 0.1 g &middot; recycle</i></span>
       <span class="go2">&rsaquo;</span>
-    </a>
+    </div>
     <div class="fexp">
       <div class="phcta"><span>&#43;</span><span>Add a packaging component</span></div>
     </div>
@@ -104,13 +129,8 @@
     </div>
   </div>
 
-  <div class="fexp">
-    <div class="phcta"><span>&#128247;</span><span>Take photos of any packaging/recycling information</span></div>
-  </div>
-
   <div class="savebar">
-    <span class="cancel">Cancel</span>
-    <a class="btnpeach" href="packaging-saved.html">Save</a>
+    <a class="btnpeach" href="packaging-full.html">Discover the completed product</a>
   </div>
 
 </div>
