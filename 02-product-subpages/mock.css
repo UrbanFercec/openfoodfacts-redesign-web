@@ -18,16 +18,6 @@
 .grp .sub { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .grp .sub em { font-style: normal; color: var(--muted); font-size: 12px; font-weight: 500; margin-left: 4px; }
 
-.vals { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13.5px; color: var(--muted); }
-
-.vals .d { width: 8px; height: 8px; border-radius: 50%; flex: none; }
-.vals .d.good { background: var(--good); }
-.vals .d.bad { background: var(--bad); }
-.vals .d.unk { background: var(--unknown); }
-
-.meter { height: 7px; border-radius: 999px; background: var(--card2); overflow: hidden; margin: 2px 0; }.metertxt { display: flex; font-size: 12.5px; color: var(--muted); margin-top: 4px; }.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.pair .tile { margin-bottom: 0; }
-
 .grp > .lbl {
   color: var(--peach); font-size: 12.5px; font-weight: 700; letter-spacing: .3px;
   margin: 12px 0 4px;
@@ -124,10 +114,7 @@
   .row .txt b { font-size: 14px; }
   .row .cv { font-size: 12px; }
   .box { padding: 10px 10px 8px; }
-  .tilefoot { padding: 12px 16px; }
-  .pair { grid-template-columns: 1fr; gap: 0; }
-  .pair .tile { margin-bottom: 20px; }
-
+      
 }
 
 @media (min-width: 701px) and (max-width: 1023px) {
@@ -145,10 +132,7 @@
   .tile { margin-bottom: 40px; }
   .tile > h3 { padding: 24px 30px; }
   .grp { padding: 24px 30px; }
-  .hero { padding: 30px 30px; gap: 24px; }
-  .tilefoot { padding: 20px 30px; }
-  .vals { gap: 12px 30px; font-size: 14.5px; }
-}
+      }
 
 @media (max-width: 700px) {
   .scores { display: none; }

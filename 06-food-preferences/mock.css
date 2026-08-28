@@ -88,15 +88,6 @@ h1 { font-size: 27px; font-weight: 800; letter-spacing: -.4px; }
 }
 .redline i { width: 7px; height: 7px; border-radius: 50%; background: var(--bad); flex: none; }
 
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px 40px; }
-.tags .tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--card2); border: 1px solid var(--line); border-radius: 999px;
-  padding: 4px 10px; font-size: 12.5px; font-weight: 600;
-}
-.tags .tag em { font-style: normal; color: var(--faint); }
-.tags .add { color: var(--muted2); border-style: dashed; }
-
 .collapsed { font-size: 12.5px; color: var(--faint); padding: 4px 0 2px; }
 
 .apponly { display: none; }
