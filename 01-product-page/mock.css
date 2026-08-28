@@ -51,11 +51,11 @@
 
 .pact.more { flex: 0 0 44px; justify-content: center; }
 
-.srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); text-decoration: none; }
+.srow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--line-soft); }
 .srow:last-child { border-bottom: 0; }
 .srow .g { width: 24px; text-align: center; font-size: 16px; color: var(--muted2); flex: none; }
 .srow .t { flex: 1; min-width: 0; }
-.srow .t b { font-size: 14px; font-weight: 600; display: block; color: var(--txt); }
+.srow .t b { font-size: 14px; font-weight: 600; display: block; }
 
 @media (max-width: 700px) {
   .webbar { display: none; }
